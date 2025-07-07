@@ -37,6 +37,15 @@ console.log(typeof js);
 // const //can't be changed
 // var //old javascript way, simiar to let
 
+// OPERATIONS
+// math operators
+// 2 to the power of 3
+console.log(2**3);
+// assignment operators
+x += 5;
+x++;
+x--;
+
 // output with pop up window
 alert("Hello World");
 
