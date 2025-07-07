@@ -33,9 +33,9 @@ let me = {
 console.log(typeof js);
 
 // different ways to define a variable
-let //can be changed
-const //can't be changed
-var //old javascript way, simiar to let
+// let //can be changed
+// const //can't be changed
+// var //old javascript way, simiar to let
 
 // output with pop up window
 alert("Hello World");

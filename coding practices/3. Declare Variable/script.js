@@ -1,8 +1,10 @@
-let country = 'Canada';
-let continent = 'North America';
+const country = 'Canada';
+const continent = 'North America';
 let population = 10000;
-let isIsland = false;
+const isIsland = false;
 let language;
+language = "English";
+
 
 console.log(typeof isIsland);
 console.log(typeof population);
