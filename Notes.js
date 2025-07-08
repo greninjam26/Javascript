@@ -122,11 +122,11 @@ console.log("10" - 3 + "5");
 /*******************************************************/
 // EQUALITY OPERATOR
 /*******************************************************/
-// === strict equality: no type coerion
+// === strict equality / !== inequality: no type coerion
 console.log(18 === "18");
 
 // very buggy usually don'y use it
-// == loose equality: type coerion
+// == loose equality / != inequality: type coerion
 console.log(18 == "18");
 
 // user input with pop up window
