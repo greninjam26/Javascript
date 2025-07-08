@@ -125,6 +125,13 @@ console.log("10" - 3 + "5");
 // === strict equality / !== inequality: no type coerion
 console.log(18 === "18");
 
+/*******************************************************/
+// LOGICAL OPERATOR
+/*******************************************************/
+// not: !
+// and: &&
+// or: ||
+
 // very buggy usually don'y use it
 // == loose equality / != inequality: type coerion
 console.log(18 == "18");
