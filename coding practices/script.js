@@ -31,3 +31,7 @@ const description =
     language;
 
 console.log(description);
+
+const descriptionNew = `${country} is in ${continent}, and its ${population} people speaks ${language}`;
+
+console.log(descriptionNew)

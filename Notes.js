@@ -82,6 +82,17 @@ console.log(`String
     multiple
     lines`);
 
+/*******************************************************/
+// If/Else (CONTROLED STRUCTURE)
+/*******************************************************/
+if (2 > 3) {
+    console.log(":)");
+}
+else {
+    console.log(":(");
+}
+
+
 // output with pop up window
 alert("Hello World");
 
