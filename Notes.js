@@ -87,11 +87,9 @@ console.log(`String
 /*******************************************************/
 if (2 > 3) {
     console.log(":)");
-}
-else {
+} else {
     console.log(":(");
 }
-
 
 // output with pop up window
 alert("Hello World");
