@@ -136,6 +136,23 @@ console.log(18 === "18");
 // == loose equality / != inequality: type coerion
 console.log(18 == "18");
 
+/*******************************************************/
+// SWITCH STATEMENT
+/*******************************************************/
+// wh
+switch (day) {
+    case "mondey":
+        console.log("hi");
+        console.log("hello");
+        break;
+    case "tuesday":
+    case "thursday":
+        console.log("NO");
+        break;
+    default:
+        console.log("great");
+}
+
 // user input with pop up window
 const curTime = prompt("What time is it?");
 console.log(curTime);
