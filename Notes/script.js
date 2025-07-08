@@ -153,6 +153,12 @@ switch (day) {
         console.log("great");
 }
 
+/*******************************************************/
+// EXPRESSION && STATEMENT
+/*******************************************************/
+// expression: they produce a value
+// statement: they do something
+
 // user input with pop up window
 const curTime = prompt("What time is it?");
 console.log(curTime);
