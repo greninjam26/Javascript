@@ -117,6 +117,15 @@ console.log("10" - 3 + "5");
 // falsy values: values will be false when converted to boolean
     // 0, '', undefine, null, NaN
 
+/*******************************************************/
+// EQUALITY OPERATOR
+/*******************************************************/
+// === strict equality: no type coerion
+console.log(18 === '18');
+
+// very buggy usually don'y use it
+// == loose equality: type coerion
+console.log(18 == '18');
 
 // output with pop up window
 alert("Hello World");
