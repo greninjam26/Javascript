@@ -91,6 +91,33 @@ if (2 > 3) {
     console.log(":(");
 }
 
+/*******************************************************/
+// TYPE CONVERSION
+/*******************************************************/
+const inputYear = "1998";
+console.log(Number(inputYear), inputYear);
+
+console.log(Number("hi"));
+// NaN: not a valid number is still number type
+console.log(typeof NaN);
+
+/*******************************************************/
+// TYPE COERCION
+/*******************************************************/
+console.log('I am' + 23 + ".");
+console.log("10" - "5" - 3);
+console.log("10" + "5" - 3);
+console.log("10" - 3 + "5");
+
+/*******************************************************/
+// BOOLEAN CONVERSION
+/*******************************************************/
+// truthy values: values will be true when converted to boolean
+    // anything else
+// falsy values: values will be false when converted to boolean
+    // 0, '', undefine, null, NaN
+
+
 // output with pop up window
 alert("Hello World");
 
