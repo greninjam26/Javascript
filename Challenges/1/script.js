@@ -20,8 +20,5 @@ let BMIJohn = massJohn / (heightJohn * heightJohn);
 console.log(BMIMark);
 console.log(BMIJohn);
 
-let markHigherBMI = false;
-if (BMIMark > BMIJohn) {
-    markHigherBMI = true;
-}
+let markHigherBMI = BMIMark > BMIJohn;
 console.log(markHigherBMI);
