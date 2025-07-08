@@ -87,6 +87,8 @@ console.log(`String
 /*******************************************************/
 if (2 > 3) {
     console.log(":)");
+} else if (2 > 1) {
+    console.log("wow");
 } else {
     console.log(":(");
 }
@@ -104,7 +106,7 @@ console.log(typeof NaN);
 /*******************************************************/
 // TYPE COERCION
 /*******************************************************/
-console.log('I am' + 23 + ".");
+console.log("I am" + 23 + ".");
 console.log("10" - "5" - 3);
 console.log("10" + "5" - 3);
 console.log("10" - 3 + "5");
@@ -113,19 +115,23 @@ console.log("10" - 3 + "5");
 // BOOLEAN CONVERSION
 /*******************************************************/
 // truthy values: values will be true when converted to boolean
-    // anything else
+// anything else
 // falsy values: values will be false when converted to boolean
-    // 0, '', undefine, null, NaN
+// 0, '', undefine, null, NaN
 
 /*******************************************************/
 // EQUALITY OPERATOR
 /*******************************************************/
 // === strict equality: no type coerion
-console.log(18 === '18');
+console.log(18 === "18");
 
 // very buggy usually don'y use it
 // == loose equality: type coerion
-console.log(18 == '18');
+console.log(18 == "18");
+
+// user input with pop up window
+const curTime = prompt("What time is it?");
+console.log(curTime);
 
 // output with pop up window
 alert("Hello World");
