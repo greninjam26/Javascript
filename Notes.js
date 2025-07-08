@@ -10,7 +10,9 @@ Javascript is a
 
 */
 
+/*******************************************************/
 // VALUES
+/*******************************************************/
 // primitive
 let js = "amazing";
 // 7 data types (JAVASCRIPT AUTOMATICLY DETERMINES THE DATA TYPE)
@@ -37,14 +39,48 @@ console.log(typeof js);
 // const //can't be changed
 // var //old javascript way, simiar to let
 
+/*******************************************************/
 // OPERATIONS
+/*******************************************************/
 // math operators
 // 2 to the power of 3
-console.log(2**3);
+console.log(2 ** 3);
 // assignment operators
+let x = 10;
 x += 5;
 x++;
 x--;
+
+/*******************************************************/
+// STRINGS
+/*******************************************************/
+const pokemonName = "Greninja";
+const type = "Water and Dark";
+const form = 1;
+
+const pokemon = pokemonName + " is " + type + " with " + form + " special form.";
+console.log(pokemon);
+
+/*******************************************************/
+// TEMPLATE LITERALS
+/*******************************************************/
+// construction of string
+const pokemonNew = `${pokemonName} is ${type} with ${form} special form.`;
+console.log(pokemonNew);
+
+// multi-line string
+// old way
+console.log(
+    "String\n\
+    with\n\
+    multiple\n\
+    lines"
+);
+// new way
+console.log(`String 
+    with 
+    multiple
+    lines`);
 
 // output with pop up window
 alert("Hello World");
