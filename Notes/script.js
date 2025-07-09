@@ -169,6 +169,22 @@ const age = 23;
 age >= 18 ? console.log("I like to drink") : console.log("I like to drink, too");
 const drink = age >= 18 ? "beer" : "water";
 
+/*******************************************************/
+// FUNCTION (Value)
+/*******************************************************/
+// function declarations: can be called before declaration
+function greninja (typing) {
+    return "best";
+}
+console.log(greninja('water'));
+
+// function expressionL can't be called before declaration
+const pokemonW = function () {
+    return "mega";
+}
+const lucario = pokemonW();
+console.log(lucario);
+
 // user input with pop up window
 const curTime = prompt("What time is it?");
 console.log(curTime);
