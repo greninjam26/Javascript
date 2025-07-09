@@ -139,7 +139,7 @@ console.log(18 == "18");
 /*******************************************************/
 // SWITCH STATEMENT
 /*******************************************************/
-// wh
+const day = "monday";
 switch (day) {
     case "mondey":
         console.log("hi");
@@ -158,6 +158,13 @@ switch (day) {
 /*******************************************************/
 // expression: they produce a value
 // statement: they do something
+
+/*******************************************************/
+// CONDITIONAL OPERATOR
+/*******************************************************/
+const age = 23;
+age >= 18 ? console.log("I like to drink") : console.log("I like to drink, too");
+const drink = age >= 18 ? "beer" : "water";
 
 // user input with pop up window
 const curTime = prompt("What time is it?");
