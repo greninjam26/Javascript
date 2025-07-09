@@ -173,17 +173,27 @@ const drink = age >= 18 ? "beer" : "water";
 // FUNCTION (Value)
 /*******************************************************/
 // function declarations: can be called before declaration
-function greninja (typing) {
+function greninja(typing) {
     return "best";
 }
-console.log(greninja('water'));
+console.log(greninja("water"));
 
-// function expressionL can't be called before declaration
+// function expression: can't be called before declaration
 const pokemonW = function () {
     return "mega";
-}
+};
 const lucario = pokemonW();
 console.log(lucario);
+
+// arrow function
+const lycanroc = (type) => "3 form";
+console.log(lycanroc("rock"));
+
+const exeggcute = (heads, type) => {
+    const difference = heads - 6;
+    return difference;
+};
+console.log(exeggcute(7, "grass"));
 
 // user input with pop up window
 const curTime = prompt("What time is it?");
