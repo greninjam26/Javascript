@@ -10,6 +10,9 @@ Javascript is a
 
 */
 
+// this helps to let javascript tell us if there
+"use strict";
+
 /*******************************************************/
 // VALUES
 /*******************************************************/
