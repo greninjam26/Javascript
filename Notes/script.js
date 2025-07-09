@@ -195,6 +195,31 @@ const exeggcute = (heads, type) => {
 };
 console.log(exeggcute(7, "grass"));
 
+/*******************************************************/
+// ARRAY (DATA STRUCTURE)
+/*******************************************************/
+// we can change elements of the array if it is const, just not the entire array
+let pokemons = new Array("", "", "");
+console.log(pokemons);
+pokemons = ["Greninja", "Lucario", "Lycanroc", 3];
+console.log(pokemons);
+// get elements
+console.log(pokemons[0]);
+// size of the array
+console.log(pokemons.length);
+// add elements to the back, also return the new length;
+const newLength = pokemons.push("Eevee");
+// add elements to the front, also return the new length;
+pokemons.unshift("pikachu");
+// remove the last element, alse returns the popped element
+pokemons.pop();
+// remove the first element
+pokemons.shift();
+// return the location of the elements, return -1 if the element is no in the array
+console.log(pokemons.indexOf("greninja"));
+// return wether this element is in the array or not
+console.log(pokemons.includes("eevee"));
+
 // user input with pop up window
 const curTime = prompt("What time is it?");
 console.log(curTime);
