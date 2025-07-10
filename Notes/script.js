@@ -61,8 +61,8 @@ const pokemonName = "Greninja";
 const type = "Water and Dark";
 const form = 1;
 
-const pokemon = pokemonName + " is " + type + " with " + form + " special form.";
-console.log(pokemon);
+const greninja = pokemonName + " is " + type + " with " + form + " special form.";
+console.log(greninja);
 
 /*******************************************************/
 // TEMPLATE LITERALS
@@ -173,10 +173,10 @@ const drink = age >= 18 ? "beer" : "water";
 // FUNCTION (Value)
 /*******************************************************/
 // function declarations: can be called before declaration
-function greninja(typing) {
+function greninjaT(typing) {
     return "best";
 }
-console.log(greninja("water"));
+console.log(greninjaT("water"));
 
 // function expression: can't be called before declaration
 const pokemonW = function () {
@@ -199,9 +199,10 @@ console.log(exeggcute(7, "grass"));
 // ARRAY (DATA STRUCTURE)
 /*******************************************************/
 // we can change elements of the array if it is const, just not the entire array
-let pokemons = new Array("", "", "");
-console.log(pokemons);
-pokemons = ["Greninja", "Lucario", "Lycanroc", 3];
+const greninjaW = ["Grass", "Electric", "Bug", "Fairy", "Fighting"];
+const greninjaS = ["Ghost", "Steel", "Fire", "Water", "Ice", "Dark"];
+const greninjaI = ["Psychic"];
+const pokemons = ["Greninja", "Lucario", "Lycanroc", 3];
 console.log(pokemons);
 // get elements
 console.log(pokemons[0]);
@@ -220,9 +221,62 @@ console.log(pokemons.indexOf("greninja"));
 // return wether this element is in the array or not
 console.log(pokemons.includes("eevee"));
 
-// user input with pop up window
-const curTime = prompt("What time is it?");
-console.log(curTime);
+/*******************************************************/
+// OBJECTS (DATA STRUCTURE)
+/*******************************************************/
+// 3 properties (nameP, type, form)
+const pokemon = {
+    nameP: "greninja",
+    type: ["Water", "Dark"],
+    forms: ["Greninja", "Ash-Greninja"],
+    // any function attached to an object is called METHOD
+    // we can use "this" to create new properties
+    calcDamage: function (attackType) {
+        if (greninjaW.includes(attackType)) {
+            return this[attackType] = "Super Effective";
+        } else if (greninjaS.includes(attackType)) {
+            return this[attackType] = "not vary effective";
+        } else if (attackType === "Psychic") {
+            return this[attackType] = "Immune";
+        } else {
+            return this[attackType] = "normal";
+        }
+    },
+    // "this." is used to call the properties within this object;
+    formNum: function () {
+        return this.forms.length + " forms";
+    },
+};
+// access the properties
+// dot notation: only works with .property-name (don't work with string or other variable names)
+console.log(pokemon.nameP);
+// bracket notation: works with string(so we can do an expression)
+console.log(pokemon["nameP"]);
+// this works but we can't do "name"+p with dot notation
+const p = "P";
+console.log(pokemon["name" + p]);
+console.log(pokemon["calcDamage"]("grass"));
+console.log(pokemon.calcDamage("Grass"));
+console.log(pokemon.formNum());
+
+// adding properties to te object
+pokemon.normalForm = "greninja";
+pokemon["specialForm"] = "Ash-Greninja";
+
+// PRACTICE
+console.log("HI");
+console.log(
+    `${pokemon.nameP} has ${pokemon.form} forms, it\'s best form is ${pokemon.specialForm}`
+);
+console.log("hi");
+
+// user input with pop up window (with application of objects)
+const info = prompt("What do you want to know about this pokemon?");
+if (pokemon[info]) {
+    console.log(pokemon[info]);
+} else {
+    console.log("That's not a thing....");
+}
 
 // output with pop up window
 alert("Hello World");
