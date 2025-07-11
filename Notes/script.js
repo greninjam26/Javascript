@@ -201,7 +201,10 @@ console.log(exeggcute(7, "grass"));
 const greninjaW = ["Grass", "Electric", "Bug", "Fairy", "Fighting"];
 const greninjaS = ["Ghost", "Steel", "Fire", "Water", "Ice", "Dark"];
 const greninjaI = ["Psychic"];
-const pokemons = ["Greninja", "Lucario", "Lycanroc", 3];
+const pikachu = ["pikachu"];
+const ash = ["Greninja", "Lucario", "Lycanroc", 3];
+// merge two arrays together
+const pokemons = ash.concat(pikachu);
 console.log(pokemons);
 // get elements
 console.log(pokemons[0]);
