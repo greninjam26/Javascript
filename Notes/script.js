@@ -127,6 +127,9 @@ console.log("10" - 3 + "5");
 /*******************************************************/
 // === strict equality / !== inequality: no type coerion
 console.log(18 === "18");
+// very buggy usually don'y use it
+// == loose equality / != inequality: type coerion
+console.log(18 == "18");
 
 /*******************************************************/
 // LOGICAL OPERATOR
@@ -134,10 +137,6 @@ console.log(18 === "18");
 // not: !
 // and: &&
 // or: ||
-
-// very buggy usually don'y use it
-// == loose equality / != inequality: type coerion
-console.log(18 == "18");
 
 /*******************************************************/
 // SWITCH STATEMENT
@@ -233,13 +232,13 @@ const pokemon = {
     // we can use "this" to create new properties
     calcDamage: function (attackType) {
         if (greninjaW.includes(attackType)) {
-            return this[attackType] = "Super Effective";
+            return (this[attackType] = "Super Effective");
         } else if (greninjaS.includes(attackType)) {
-            return this[attackType] = "not vary effective";
+            return (this[attackType] = "not vary effective");
         } else if (attackType === "Psychic") {
-            return this[attackType] = "Immune";
+            return (this[attackType] = "Immune");
         } else {
-            return this[attackType] = "normal";
+            return (this[attackType] = "normal");
         }
     },
     // "this." is used to call the properties within this object;
@@ -269,6 +268,24 @@ console.log(
     `${pokemon.nameP} has ${pokemon.form} forms, it\'s best form is ${pokemon.specialForm}`
 );
 console.log("hi");
+
+/*******************************************************/
+// FOR LOOP (ITERATION)
+/*******************************************************/
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+}
+// continue: next iteration
+// break: kill the loop
+
+/*******************************************************/
+// WHILE LOOP (ITERATION)
+/*******************************************************/
+let dice = -1;
+while (dice !== 6) {
+    // random generate a number between 1 and 6
+    dice = Math.trunc(Math.random() * 6) + 1;
+}
 
 // user input with pop up window (with application of objects)
 const info = prompt("What do you want to know about this pokemon?");
