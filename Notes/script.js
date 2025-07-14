@@ -290,6 +290,10 @@ while (dice !== 6) {
     dice = Math.trunc(Math.random() * 6) + 1;
 }
 
+/*******************************************************/
+// USEFUL THINGS
+/*******************************************************/
+
 // user input with pop up window (with application of objects)
 const info = prompt("What do you want to know about this pokemon?");
 if (pokemon[info]) {
@@ -304,3 +308,16 @@ alert("Hello World");
 if (js === "amazing") alert("Javascript is FUN!");
 
 js = "boring";
+
+// DOM are not part of Javascript, it is in the web APIs, javascript just use it
+/*******************************************************/
+// DOM(document object model) MANIPULATION (dom tree, tree structure)
+/*******************************************************/
+
+// select a html element (get the text)
+document.querySelector(".testing").textContent;
+// get the content of the input field
+document.querySelector(".test").value;
+// change the content (do .value for input)
+document.querySelector(".testing").textContent = "good morning :)";
+
