@@ -314,6 +314,7 @@ js = "boring";
 // DOM(document object model) MANIPULATION (dom tree, tree structure)
 /*******************************************************/
 
+// document.querySelectorAll: this select all the elements with this class and store in a nodeList
 // select a html element (get the text)
 document.querySelector(".testing").textContent;
 // get the content of the input field
@@ -321,3 +322,33 @@ document.querySelector(".test").value;
 // change the content (do .value for input)
 document.querySelector(".testing").textContent = "good morning :)";
 
+
+/**
+ * classList: 
+ * add: add the class
+ * remove: remove the class
+ * contains: return true or false for if the element have the class
+ */
+
+// save the class to a variable so it is easier to use it later
+const modal = document.querySelector(".modal");
+// add the class to element
+modal.classList.add("hidden");
+// remove the class to element
+modal.classList.remove("hidden");
+
+/**
+ * for EventListener, everytime an event happen javascript generate an object with the info
+ * 
+ * keyup: when the key is left go
+ * keydown: when the key is pressed (once)
+ * keypress: when the key is pressed (continuous)
+ */
+// this make sure that if the element is clicked this excute the function closeModal
+btnCloseModal.addEventListener("click", closeModal);
+// this listens to wether the "escape" key is pressed
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+        closeModal();
+    }
+});
