@@ -321,6 +321,8 @@ document.querySelector(".testing").textContent;
 document.querySelector(".test").value;
 // change the content (do .value for input)
 document.querySelector(".testing").textContent = "good morning :)";
+// another wat to select elements, but only work is ID (a little bit faster)
+document.getElementById('name');
 
 
 /**
