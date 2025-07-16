@@ -330,6 +330,7 @@ document.getElementById('name');
  * add: add the class
  * remove: remove the class
  * contains: return true or false for if the element have the class
+ * toggle: add/remove the class
  */
 
 // save the class to a variable so it is easier to use it later
