@@ -1,12 +1,61 @@
 /*
 Javascript is a 
+// basic version
     high-level: don't need to worry about complex things like memory management
     object-oriented: based on objects, which stores most kind of data
     multi-paradigm: we can use different kind of programming styles
     programming language: instruct the computer to do things
 
+// complex version
+    high-level: 
+        this means that the language have the process called "abstraction" that automaticly asks the computer for memory to store variable and things
+        The down side is that the program is less optimised
 
+    garbage-collected: 
+        this means the language have buildin algorithms to clean out the unused variables from the memory so we don't need to worry about it. 
 
+    prototype-based object-oriented: 
+        a lot of objects is buildin
+        objects like Arrays are prototypes than can be used as a blueprint. 
+        when we create an array we inherit all the methods from the prototype
+
+    multi-paradigm:
+        paradigm are approaches and mindsets of structuring code
+        There are 3 popular paradigms (javascript works with all three): 
+            1. Procedural Programming: 
+                a linear way to code and have functions here and there
+            2. Object Priented Programming(OOP): 
+
+            3. Functional Programming(FP): 
+
+    interpreted or just-in-time compiled: 
+        this means when we write readable javascript code, it will be translated to machine code with 0s and 1s for the computer to run
+            which called compiling or interpreting
+        this happen inside the Javascript engine
+
+    dynamic: 
+        dynamic typed: so we don't give the variables locked in type
+
+    single-threaded: 
+        In computing: 
+            a thread is a set of instructions the CPU need to execute
+
+        it can only do one thing at a time
+
+language with
+    first-class functions: 
+        this means functions are treated as variables
+            pass funtions into functions
+            return functions from functions
+
+and a 
+    non-blocking event loop concurrency model: 
+        blocking: 
+            long-running tasks(fetching data from remote server) is blocking the single-thread
+        event loop: 
+            this is a way to avoid blocking, it takes the long-running tasks and execute them in the background then put it back into the thread
+        concurrency model: 
+            javascript engine deals with multiple tasks happening at the same time
 
 */
 
@@ -322,11 +371,10 @@ document.querySelector(".test").value;
 // change the content (do .value for input)
 document.querySelector(".testing").textContent = "good morning :)";
 // another wat to select elements, but only work is ID (a little bit faster)
-document.getElementById('name');
-
+document.getElementById("name");
 
 /**
- * classList: 
+ * classList:
  * add: add the class
  * remove: remove the class
  * contains: return true or false for if the element have the class
@@ -342,7 +390,7 @@ modal.classList.remove("hidden");
 
 /**
  * for EventListener, everytime an event happen javascript generate an object with the info
- * 
+ *
  * keyup: when the key is left go
  * keydown: when the key is pressed (once)
  * keypress: when the key is pressed (continuous)
