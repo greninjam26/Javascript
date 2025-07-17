@@ -30,7 +30,16 @@ Javascript is a
 
     interpreted or just-in-time compiled: 
         this means when we write readable javascript code, it will be translated to machine code with 0s and 1s for the computer to run
-            which called compiling or interpreting
+            which called 
+                compiling:
+                    1. the entire code is converted to machine code at once, 
+                    2. then it is written in the portable file and can be used in any device. 
+                interpreting(interpreter): 
+                    1. the code is being converted line by line and executed immediately after translation
+        (interpreted languages are much much slower, so Javascript change now is using a mixed of compilation and interpretation)
+        This is called Just-in-time compilation: 
+            this method compiles the entire file then execute it immediately(no portable file needed)
+
         this happen inside the Javascript engine
 
     dynamic: 
@@ -57,6 +66,44 @@ and a
         concurrency model: 
             javascript engine deals with multiple tasks happening at the same time
 
+
+Javascript Engine:
+    a program that executes javascript code
+    
+    everything browser have their own engine:
+        most famous one is google's V8 Engine: 
+            it powers google chrome and Node.js
+
+    Every Engine have: 
+        Call Stack: 
+            where the code is executed using Execution ontext
+        Heap: 
+            unstructured memory pool which stores all the objects our application needs
+
+    The Process: 
+        1. Parsing: to read the code
+            spliting the code into different parts and stored in AST
+        2. Compilation: translate the AST to machine code
+        2.5) the engine first generate an unoptimized version of the machine code and get that start running, then it will optimize in the background and swap in the optimized code without stopping (this can happen many times)
+            This is the reason why modern Engine, like the V8 engine, is so fast
+        3. Execution
+
+Javascript Runtime:
+    a big box with everything we need to run javascript
+
+    In Browser: 
+        1. Javascript Engine(heart of the Runtime)
+        2. Web APIs (DOM Timer)
+            functionalities provided to the engine and not part of Javascript
+            they are accessed through the global window object
+        3. callback queue
+            when an event happen a backup function is put into the callback queue then passes to the call stack to execute
+            this happen through event loop
+
+    In Node.js: 
+        1. Javascript Engine
+        2. C++ Bindings and Thread Pools
+        3. callback queue
 */
 
 // this helps to let javascript tell us if there
