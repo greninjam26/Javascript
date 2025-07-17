@@ -76,7 +76,9 @@ Javascript Engine:
 
     Every Engine have: 
         Call Stack: 
-            where the code is executed using Execution ontext
+            where the code is executed using Execution context
+            it is also where the execution contexts are stacked ontop of each other in order to keep track on where we are in the program
+            the execution context on top will be the one currently running, it is removed when it is finished
         Heap: 
             unstructured memory pool which stores all the objects our application needs
 
@@ -87,6 +89,74 @@ Javascript Engine:
         2.5) the engine first generate an unoptimized version of the machine code and get that start running, then it will optimize in the background and swap in the optimized code without stopping (this can happen many times)
             This is the reason why modern Engine, like the V8 engine, is so fast
         3. Execution
+            1. a global execution contexts is created for the top level codes
+                top level code: code not in a function
+                Execution Contexts: an environment where Javacript is executed
+                    it contains the code and other necessary information that is needed to execute the code
+                    not matter how much code there are, there is always only one execution context for the top level code
+                    For each function or method, a new exection context is created and waiting for it to be called
+
+                    Contains: all these are generated during the creation phase, which is right before the execution phase. 
+                    (arrow function execution contexts don't have argument object or the "this")
+                    they use the ones from their closest parents
+                        Variable envirment: 
+                            this is where all the variable and function declarations are stored
+                            it also have a special arguments object
+                                this stores all the arguments passed into the object
+                            
+                            Hoisting: 
+                                What it is:
+                                    this makes some of the variable useable because they are defined in the code
+                                What it looks like: 
+                                    the variable it moved to the top of the scope
+                                How it works:
+                                    During the creation phase: 
+                                        the code scan for variable declaration before it is executed
+                                        for each variable a new property is created
+                            
+                            Temporal Dead Zone:
+                                this is the part of the code before a variable is create, so the engine knows that variable is going to be initalize but it is not initalized yet. 
+                                this makes it easier to found bugs and help coders to avoid using the variable before it is declared
+                            
+                        Scope chain:
+                            it contains the references to variables stored outside the function
+                            it allows the variable inside a scope to access all the variables in the parent scopes
+
+                            Scoping: this is how the program organize and access the variables
+                            Lexical scoping: the scoping is controlled by the placement of functions and blocks inside the code
+                            Scope: the space or envirment where a variable is declared
+                                Global Scope: top level code, the codes that are outside any function or block
+                                    these variable can be accessed anywhere
+                                Function Scope(also called local scope): every function create a function scope
+                                    the variable declared inside the function can only be accessed inside the function
+                                Block(anything inside {}) Scope: this only start at ES6
+                                    the variables(let and const) declared in a block can't be accessed outside of it
+
+                            The Scope of an Variable: is the region with the variable can be accessed
+                            
+
+                        "This" keyword:
+                            Definition: 
+                                it always takes the value of the "owner" of the function, or points to the function
+                            Examples:
+                                1. in a method(a function attached to an object): 
+                                    this = the object
+                                2. just there in the code:
+                                    this = the window object 
+                                3. inside a function that is not attached to anything
+                                    in strict mode
+                                        this = undefine
+                                    else
+                                        this = the window object
+                                4. in arrow function: 
+                                    this = the parent function of the arrow function(NOT the arrow function)
+                                5. in EventListener:
+                                    this = The DOM element
+                            it is NOT:
+                                point to the function itself
+                                its variable environment
+                
+
 
 Javascript Runtime:
     a big box with everything we need to run javascript
