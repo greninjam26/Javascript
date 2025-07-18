@@ -430,6 +430,20 @@ console.log(pokemons.indexOf("greninja"));
 // return wether this element is in the array or not
 console.log(pokemons.includes("eevee"));
 
+/////////////////////////////////////////////////////////
+// array destructuring
+/////////////////////////////////////////////////////////
+// this allow us to create 3 variable and store the first three elements of the array
+// const a = ash[0];
+// const c = ash[2];
+// we can set default values to prevent getting values with undefine, because IndexOutOfBound :)
+const [a=1, , c=1, , d=1] = ash;
+console.log(a, c, d);
+// swap elements
+let ditto = "normal";
+let flareon = "fire";
+[ditto, flareon] = [flareon, ditto];
+
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
 /*******************************************************/
