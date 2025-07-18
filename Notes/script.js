@@ -2,6 +2,44 @@
 Javascript is a 
 // basic version
     high-level: don't need to worry about complex things like memory management
+        Memory Management:
+            What it is:      
+                how the Javacript Engine allocate memory to create variables
+                Then free up the space when the variable is no longer needed
+            Memory Lifecycle:
+                1. a piece of memory is allocated to store the variable
+                    for different types of values, the memory is allocated from different part of the javascript engine
+                        technicly they are stored in the variable environment of the execution context, which is in the call stack
+                        objects: store in the heap
+                        references to objects: store in the call stack
+                            when a variable is set to an object, it does not store the function itself, it stores the references to the object
+                            in technical terms: it is the memory address of the object that is stored, not the object itself
+                                This is why when multiple variable store the reference to the same object, and when we change one of them all the other variable will also have altered result because the original object is changed. 
+                                to avoid this problem do this
+                                    This is a shallow copy, because it only copies the first level object, and the nest objects are still references
+                                    newObject = {...object};
+                                    but if the are objects inside this "object" then when copying the "object" we run into the same problem again, with change a reference we change the original object
+                                A Better Way:
+                                    This is called deep clone/copy
+                                    newObject = structuredClone(object);
+                        primitive: store in the call stack
+                        might be exception because the engine is so sophisticated
+                2. the memory is use to write, read, or update the variable
+                3. the memory occupies is released when the variable no longer needed
+                    Call Stack:
+                        when execution context is poped off, its variables are simply deleted
+                    Heap:
+                        The process called Garbage-Collection deals with it
+                        Modern Javascript Engine uses Mark-and-Sweep Algorithm to do this
+                        Mark-and-Sweep Algorithm:
+                            1. Mark Phase: marking all the objects that are reachable from a root(like Execution Contexts, EventListeners, Timer, Closure) as "alive"
+
+                            2. Sweep Phase: all unmarked objects are deleted and memory reclaimed
+                                MEMORY LEAK:
+                                    this is when an object in the heap is not needed but is still somehow reachable and not deleted
+                                By always deactivite EventListeners and Timers, it helps to prevent memory leaks
+
+
     object-oriented: based on objects, which stores most kind of data
     multi-paradigm: we can use different kind of programming styles
     programming language: instruct the computer to do things
