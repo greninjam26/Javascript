@@ -215,6 +215,10 @@ Javascript Runtime:
         1. Javascript Engine
         2. C++ Bindings and Thread Pools
         3. callback queue
+
+Iterables: 
+    Array, Strings, Maps, Sets, NOT Objects
+
 */
 
 // this helps to let javascript tell us if there
@@ -481,7 +485,7 @@ const pokemon = {
         return this.forms.length + " forms";
     },
     // with object destructuring we can also set default values to the argument
-    alive: function ({ damageType, incomingDamage, currentHP = 200}) {
+    alive: function ({ damageType, incomingDamage, currentHP = 200 }) {
         if (currentHP - incomingDamage * this.calcDamageN(damageType) > 0) {
             console.log("still battling");
         } else {
@@ -584,6 +588,21 @@ while (dice !== 6) {
     // random generate a number between 1 and 6
     dice = Math.trunc(Math.random() * 6) + 1;
 }
+
+/*******************************************************/
+// Spread Operator (works on all Iterables)
+/*******************************************************/
+// expand an array to all its element
+const arr = [2, 3, 4];
+// don't need to do [4, 5, arr[0], arr[1], arr[2]];
+const arrr = [4, 5, ...arr];
+// output all the elements seperatly (2 3 4) instead of ([2, 3, 4])
+console.log(...arr);
+
+// even though it works on all Iterables, but it can only be used to build an array and anywhere that expect values seperated by "," like pass function variables
+const str = "greninja";
+const strr = [...str, "W"];
+console.log(strr);
 
 /*******************************************************/
 // USEFUL THINGS
