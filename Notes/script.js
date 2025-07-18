@@ -332,7 +332,7 @@ console.log("10" - 3 + "5");
 // anything else
 // falsy values: values will be false when converted to boolean
 // 0, '', undefine, null, NaN
-// side notes: 
+// side notes:
 //      Nullish Values: null and undefined
 //          this helps to fix the problem with 0 and '' is false when we don't want it to be
 
@@ -362,7 +362,41 @@ console.log(18 == "18");
         so it returns the first falsy value, or the last value
  */
 // skip if statements
-10>5 && console.log("great");
+10 > 5 && console.log("great");
+
+const charizard = {
+    stage: 2,
+    form: 3,
+};
+const psyduck = {
+    stage: 0,
+};
+// one way to add the "form" to all the object
+charizard.form = charizard.form || 1;
+psyduck.form = psyduck.form || 1;
+
+/*******************************************************/
+// Nullish Coalescing Operator
+// Nullish Values: null and undefined
+//     this helps to fix the problem with 0 and '' is false when we don't want it to be
+/*******************************************************/
+console.log(0 || 10);
+console.log(0 ?? 10);
+
+/*******************************************************/
+// LOGICAL ASSIGNMENT OPERATOR
+/*******************************************************/
+// a better way to add all "form" to the objects
+// OR assignment operator
+charizard ||= 1;
+psyduck ||= 1;
+// even better way
+// nullish assignment operator
+charizard ??= 1;
+psyduck ??= 1;
+// AND assignement operator
+let aaa = 10;
+aaa &&= 1;
 
 /*******************************************************/
 // SWITCH STATEMENT
@@ -626,7 +660,7 @@ console.log(strr);
 // it must be the last element in destructuring
 const [aa, bb, ...other] = [1, 2, 3, 4, 5];
 // works with object destructuring too
-const {attack, ...otherStats} = pokemon.stats;
+const { attack, ...otherStats } = pokemon.stats;
 console.log(attack);
 console.log(otherStats);
 
@@ -639,14 +673,6 @@ team("Greninja");
 team("Lucario", "Mega Lucario");
 team(...ash);
 console.log(activeP);
-
-/*******************************************************/
-// Nullish Coalescing Operator
-// Nullish Values: null and undefined
-//     this helps to fix the problem with 0 and '' is false when we don't want it to be
-/*******************************************************/
-console.log(0 || 10);
-console.log(0 ?? 10);
 
 /*******************************************************/
 // USEFUL THINGS
