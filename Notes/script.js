@@ -437,7 +437,7 @@ console.log(pokemons.includes("eevee"));
 // const a = ash[0];
 // const c = ash[2];
 // we can set default values to prevent getting values with undefine, because IndexOutOfBound :)
-const [a=1, , c=1, , d=1] = ash;
+const [a = 1, , c = 1, , d = 1] = ash;
 console.log(a, c, d);
 // swap elements
 let ditto = "normal";
@@ -458,16 +458,61 @@ const pokemon = {
         if (greninjaW.includes(attackType)) {
             return (this[attackType] = "Super Effective");
         } else if (greninjaS.includes(attackType)) {
-            return (this[attackType] = "not vary effective");
+            return (this[attackType] = "not very effective");
         } else if (attackType === "Psychic") {
             return (this[attackType] = "Immune");
         } else {
             return (this[attackType] = "normal");
         }
     },
+    calcDamageN: function (attackType) {
+        if (greninjaW.includes(attackType)) {
+            return 2;
+        } else if (greninjaS.includes(attackType)) {
+            return 0.5;
+        } else if (attackType === "Psychic") {
+            return 0;
+        } else {
+            return 1;
+        }
+    },
     // "this." is used to call the properties within this object;
     formNum: function () {
         return this.forms.length + " forms";
+    },
+    // with object destructuring we can also set default values to the argument
+    alive: function ({ damageType, incomingDamage, currentHP = 200}) {
+        if (currentHP - incomingDamage * this.calcDamageN(damageType) > 0) {
+            console.log("still battling");
+        } else {
+            console.log("knocked out");
+        }
+    },
+    stats: {
+        hp: {
+            IV: 255,
+            EV: 255,
+        },
+        attack: {
+            IV: 255,
+            EV: 255,
+        },
+        defence: {
+            IV: 255,
+            EV: 255,
+        },
+        spAtk: {
+            IV: 255,
+            EV: 255,
+        },
+        spDef: {
+            IV: 255,
+            EV: 255,
+        },
+        spped: {
+            IV: 255,
+            EV: 255,
+        },
     },
 };
 // access the properties
@@ -492,6 +537,35 @@ console.log(
     `${pokemon.nameP} has ${pokemon.form} forms, it\'s best form is ${pokemon.specialForm}`
 );
 console.log("hi");
+
+/////////////////////////////////////////////////////////
+// object destructuring
+/////////////////////////////////////////////////////////
+// we don't need to care about the order of the properties but the variable name have to be the same as the properties name or use :
+const { nameP: pokemonN, forms } = pokemon;
+// we can set default value;
+const { region = [], stats: power = [] } = pokemon;
+
+// changing variables
+let m = 10;
+let n = 10;
+const nums = { a: 1, b: 2, c: 3 };
+// have to have the () around or a line start with { javascript expect a code block;
+({ m, n } = nums);
+
+// nested objects
+const {
+    stats: { spAtk: s, hp: h },
+} = pokemon;
+console.log(s);
+console.log(h);
+
+// application (pass many argument into a function without worrying about the order)
+pokemon.alive({
+    incomingDamage: 100,
+    damageType: "Normal",
+    currentHP: 100,
+});
 
 /*******************************************************/
 // FOR LOOP (ITERATION)
