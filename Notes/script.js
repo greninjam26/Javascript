@@ -103,6 +103,9 @@ Javascript Engine:
                             this is where all the variable and function declarations are stored
                             it also have a special arguments object
                                 this stores all the arguments passed into the object
+                                It is like the this keyword, expect of all the scoping problem
+                                argument can only be called in a function
+                                not really useful anymore
                             
                             Hoisting: 
                                 What it is:
