@@ -590,7 +590,7 @@ while (dice !== 6) {
 }
 
 /*******************************************************/
-// Spread Operator (works on all Iterables)
+// Spread Operator (right side of =)(works on all Iterables)
 /*******************************************************/
 // expand an array to all its element
 const arr = [2, 3, 4];
@@ -603,6 +603,27 @@ console.log(...arr);
 const str = "greninja";
 const strr = [...str, "W"];
 console.log(strr);
+
+/*******************************************************/
+// Rest Operator (left side of =)
+/*******************************************************/
+// combine elements together, collects the unused element during destructuring, if you skipped an element it is gone not collected
+// it must be the last element in destructuring
+const [aa, bb, ...other] = [1, 2, 3, 4, 5];
+// works with object destructuring too
+const {attack, ...otherStats} = pokemon.stats;
+console.log(attack);
+console.log(otherStats);
+
+let activeP = [];
+// with functions arguments
+function team(...pokemon) {
+    activeP = [...activeP, ...pokemon];
+}
+team("Greninja");
+team("Lucario", "Mega Lucario");
+team(...ash);
+console.log(activeP);
 
 /*******************************************************/
 // USEFUL THINGS
