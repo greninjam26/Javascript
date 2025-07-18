@@ -332,6 +332,9 @@ console.log("10" - 3 + "5");
 // anything else
 // falsy values: values will be false when converted to boolean
 // 0, '', undefine, null, NaN
+// side notes: 
+//      Nullish Values: null and undefined
+//          this helps to fix the problem with 0 and '' is false when we don't want it to be
 
 /*******************************************************/
 // EQUALITY OPERATOR
@@ -636,6 +639,14 @@ team("Greninja");
 team("Lucario", "Mega Lucario");
 team(...ash);
 console.log(activeP);
+
+/*******************************************************/
+// Nullish Coalescing Operator
+// Nullish Values: null and undefined
+//     this helps to fix the problem with 0 and '' is false when we don't want it to be
+/*******************************************************/
+console.log(0 || 10);
+console.log(0 ?? 10);
 
 /*******************************************************/
 // USEFUL THINGS
