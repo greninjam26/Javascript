@@ -345,9 +345,21 @@ console.log(18 == "18");
 /*******************************************************/
 // LOGICAL OPERATOR
 /*******************************************************/
-// not: !
-// and: &&
-// or: ||
+/**
+    not: !
+    and: &&
+    or: ||
+        && and || doesn't have to return boolean values
+        they can use any data type, return any data type through short-circuiting or short-circuit evaluation
+    ||: 
+        if the first value is a truthy value, then it will return the first value, or it return the second value
+        when multiple is chain together, it will return the first truthy value or the last value
+    &&:
+        exact opposite of ||
+        so it returns the first falsy value, or the last value
+ */
+// skip if statements
+10>5 && console.log("great");
 
 /*******************************************************/
 // SWITCH STATEMENT
