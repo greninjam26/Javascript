@@ -629,6 +629,19 @@ for (let i = 0; i < 10; i++) {
 // continue: next iteration
 // break: kill the loop
 
+/////////////////////////////////////////////////////////
+// for-of loop
+/////////////////////////////////////////////////////////
+// basic the "pokemon" is only the element in ash
+for (const pokemon of ash) {
+    console.log(pokemon);
+}
+// this allows the "pokemon" to be an array of the index and the element
+// and we can destructure it
+for (const [i, pokemon] of ash.entries()) {
+    console.log(`${i + 1}. ${pokemon}`);
+}
+
 /*******************************************************/
 // WHILE LOOP (ITERATION)
 /*******************************************************/
