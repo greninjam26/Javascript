@@ -376,7 +376,7 @@ charizard.form = charizard.form || 1;
 psyduck.form = psyduck.form || 1;
 
 /*******************************************************/
-// Nullish Coalescing Operator
+// Nullish Coalescing Operator (added in ES2020)
 // Nullish Values: null and undefined
 //     this helps to fix the problem with 0 and '' is false when we don't want it to be
 /*******************************************************/
@@ -599,6 +599,14 @@ console.log(
     `${pokemon.nameP} has ${pokemon.form} forms, it\'s best form is ${pokemon.specialForm}`
 );
 console.log("hi");
+
+/////////////////////////////////////////////////////////
+// optional chaining (added in ES2020)
+/////////////////////////////////////////////////////////
+// adding after ?. after a call checks wether 'atk' and 'stats' exist, if not return undefine
+console.log(pokemon.stats?.atk?.IV);
+// works with methods too, designed to work with ?? (they were added to the language together)
+console.log(pokemon.good?.() ?? "Method does not exist");
 
 /////////////////////////////////////////////////////////
 // object destructuring
