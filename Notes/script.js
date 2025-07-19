@@ -500,14 +500,47 @@ let flareon = "fire";
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
 /*******************************************************/
+const stats = {
+    hp: {
+        IV: 255,
+        EV: 255,
+    },
+    attack: {
+        IV: 255,
+        EV: 255,
+    },
+    defence: {
+        IV: 255,
+        EV: 255,
+    },
+    spAtk: {
+        IV: 255,
+        EV: 255,
+    },
+    spDef: {
+        IV: 255,
+        EV: 255,
+    },
+    spped: {
+        IV: 255,
+        EV: 255,
+    },
+};
 // 3 properties (nameP, type, form)
+// with ES6 we can do experssions for the property names
+const pro = ["nameP", "type", "form"];
+// object literal {}
 const pokemon = {
-    nameP: "greninja",
+    // with in [] it can be any expression
+    [pro[0]]: "greninja",
     type: ["Water", "Dark"],
-    forms: ["Greninja", "Ash-Greninja"],
+    ["form" + "s"]: ["Greninja", "Ash-Greninja"],
     // any function attached to an object is called METHOD
     // we can use "this" to create new properties
-    calcDamage: function (attackType) {
+    // With ES6 we can turn this
+    // calcDamage: function (attackType) {
+    // into
+    calcDamage(attackType) {
         if (greninjaW.includes(attackType)) {
             return (this[attackType] = "Super Effective");
         } else if (greninjaS.includes(attackType)) {
@@ -518,7 +551,7 @@ const pokemon = {
             return (this[attackType] = "normal");
         }
     },
-    calcDamageN: function (attackType) {
+    calcDamageN(attackType) {
         if (greninjaW.includes(attackType)) {
             return 2;
         } else if (greninjaS.includes(attackType)) {
@@ -530,43 +563,19 @@ const pokemon = {
         }
     },
     // "this." is used to call the properties within this object;
-    formNum: function () {
+    formNum() {
         return this.forms.length + " forms";
     },
     // with object destructuring we can also set default values to the argument
-    alive: function ({ damageType, incomingDamage, currentHP = 200 }) {
+    alive({ damageType, incomingDamage, currentHP = 200 }) {
         if (currentHP - incomingDamage * this.calcDamageN(damageType) > 0) {
             console.log("still battling");
         } else {
             console.log("knocked out");
         }
     },
-    stats: {
-        hp: {
-            IV: 255,
-            EV: 255,
-        },
-        attack: {
-            IV: 255,
-            EV: 255,
-        },
-        defence: {
-            IV: 255,
-            EV: 255,
-        },
-        spAtk: {
-            IV: 255,
-            EV: 255,
-        },
-        spDef: {
-            IV: 255,
-            EV: 255,
-        },
-        spped: {
-            IV: 255,
-            EV: 255,
-        },
-    },
+    // ES6 enhanced obejct literals, we don't need to do "stats: stats," anymore
+    stats,
 };
 // access the properties
 // dot notation: only works with .property-name (don't work with string or other variable names)
@@ -690,7 +699,7 @@ console.log(activeP);
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
-
+aaaaaa = 10;
 // user input with pop up window (with application of objects)
 const info = prompt("What do you want to know about this pokemon?");
 if (pokemon[info]) {
