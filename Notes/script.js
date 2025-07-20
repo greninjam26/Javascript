@@ -312,6 +312,87 @@ const form = 1;
 const greninja = pokemonName + " is " + type + " with " + form + " special form.";
 console.log(greninja);
 
+// we can get the element from a string, like an array
+console.log(pokemonName[0]);
+console.log("greninja"[5]);
+// get the length of a string
+console.log(pokemonName.length);
+console.log("greninja".length);
+
+/////////////////////////////////////////////////////////
+// string methods
+// HOW?? isn't string primitive??????
+// through boxing, which is whenever a method is called on a string, it is put into a string object and call the methods
+/////////////////////////////////////////////////////////
+// only return the first occurrence of the letter or words, if it is not in the string then return -1
+console.log(pokemonName.indexOf("n"));
+console.log(pokemonName.lastIndexOf("n"));
+
+// get substring from the string, starting from the index, inclusive, to the ending index, exclusive
+console.log(pokemonName.slice(3));
+console.log(pokemonName.slice(3, 5));
+//extract the first word
+console.log(type.slice(0, type.indexOf(" ")));
+console.log(type.slice(type.lastIndexOf(" ") + 1));
+// we use negative index, -1 is the last element
+console.log(type.slice(-3));
+console.log(type.slice(1, -1));
+
+// change string to all upper case or lower case
+console.log(pokemonName.toUpperCase());
+console.log("HI".toLowerCase());
+// this method removes all the whitespace infront and behind(NOT THE ONES IN THE MIDDLE) a string like space and \n
+// ES2019 added trimStart() and trimEnd()
+console.log("      .   \n  pokemon".trim());
+
+// applicaiton fix names
+function nameFix(name) {
+    const nameLower = name.toLowerCase();
+    const nameCorrected = nameLower[0].toUpperCase() + nameLower.slice(1);
+    return nameCorrected;
+}
+console.log(nameFix("grENINja"));
+// check emails, because capitalization for email doesn't matter
+function checkEmail(email, emailCorrect) {
+    return email.toLowerCase().trim() === emailCorrect;
+}
+if (checkEmail("     hElLo@Gmail.COM  \n", "hello@gmail.com")) {
+    console.log("Email is Correct");
+} else {
+    console.log("EMAIL is WRONG!!!");
+}
+
+// replace part of the string
+console.log(pokemonName.replace("G", "g").replace("ja", "ß"));
+console.log(pokemonName.replaceAll("n", ":)"));
+//before replaceAll we can use regular expression to make replace target all elements
+// the g stand for global, it makes replace target all "n" in the string
+console.log(pokemonName.replace(/n/g, "💀"));
+
+// these methods return boolean
+// returns wether the string contains "hi"
+console.log(pokemonName.includes("hi"));
+// returns wether the string starts with "hi"
+console.log(pokemonName.startsWith("hi"));
+// returns wether the string ends with "hi"
+console.log(pokemonName.endsWith("hi"));
+
+// split string into many parts base on the a divider string, it returns a array containing the chopped up strings and without the divider
+console.log("hello good morning".split(" "));
+const [pkName, pkType] = "Ditto Normal".split(" ");
+console.log(pkName, pkType);
+// join combines everything in the array into a string
+const arrrr = [10, 10];
+// the default for .join() is the same as .join(",")
+console.log(arrrr.join(" "));
+
+// padding, this add characters to the string until it is at the required length
+console.log(pokemonName.padStart(45, "greninja"));
+console.log(pokemonName.padEnd(45, "Ash"));
+
+// repeating the same string multiple times
+console.log("good morning?".repeat(5));
+
 /*******************************************************/
 // TEMPLATE LITERALS
 /*******************************************************/
