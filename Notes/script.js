@@ -712,7 +712,7 @@ team(...ash);
 console.log(activeP);
 
 /*******************************************************/
-// SET (DATA STRUCTURE)
+// SET (DATA STRUCTURE)(added in ES6)
 /*******************************************************/
 // a collection of unique values, so it can have no duplicate
 // we can't retrieve single element from a set, but we can for-of loop it
@@ -778,6 +778,40 @@ console.log(team1.isDisjointFrom(team2));
 console.log(team1.isSubsetOf(team2));
 // output a boolean showing if team1 contains team2
 console.log(team1.isSupersetOf(team2));
+
+/*******************************************************/
+// MAP (DATA STRUCTURE) (added in ES6)
+// it is still keys matches with values
+// but the key can be any data type
+/*******************************************************/
+// create a map
+const pokemonType = new Map();
+// the .set() adds new key and value to the map and also return the map
+pokemonType.set("name", "pokemon");
+pokemonType.set(10, 100);
+console.log(pokemonType.set([10, 10], new Set("greninja")));
+// can't set the same key multiple times
+console.log(
+    pokemonType
+        .set(20, 20)
+        .set(30, 10)
+        .set(40, 10)
+        .set(50, 10)
+        .set(60, 10)
+        .set(70, 10)
+        .set(80, 10)
+);
+// how to get a value
+console.log(pokemonType.get(20));
+// this would give undefine because when objects like arrays are stored the one the set and this one in get are store as 2 different arrays, so even though their values match, they themselves are different, so when get is called, it would return undefine, because their memory address are different. 
+console.log(pokemonType.get([10, 10]));
+// delete an element from the map
+pokemonType.delete(20);
+console.log(pokemonType);
+// get the size of the map
+console.log(pokemonType.size);
+// clear the map
+pokemonType.clear();
 
 /*******************************************************/
 // USEFUL THINGS
