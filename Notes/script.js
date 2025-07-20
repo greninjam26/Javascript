@@ -785,6 +785,11 @@ console.log(team1.isSupersetOf(team2));
 // but the key can be any data type
 /*******************************************************/
 // create a map
+const question = new Map([
+    [1, "java"],
+    [2, "C++"],
+    [3, "javascript"],
+]);
 const pokemonType = new Map();
 // the .set() adds new key and value to the map and also return the map
 pokemonType.set("name", "pokemon");
@@ -803,7 +808,7 @@ console.log(
 );
 // how to get a value
 console.log(pokemonType.get(20));
-// this would give undefine because when objects like arrays are stored the one the set and this one in get are store as 2 different arrays, so even though their values match, they themselves are different, so when get is called, it would return undefine, because their memory address are different. 
+// this would give undefine because when objects like arrays are stored the one the set and this one in get are store as 2 different arrays, so even though their values match, they themselves are different, so when get is called, it would return undefine, because their memory address are different.
 console.log(pokemonType.get([10, 10]));
 // delete an element from the map
 pokemonType.delete(20);
@@ -812,6 +817,24 @@ console.log(pokemonType);
 console.log(pokemonType.size);
 // clear the map
 pokemonType.clear();
+
+// convert objects to map
+const objMap = new Map(Object.entries(pokemon));
+console.log(objMap);
+
+// for loop map
+for (const [key, value] of question) {
+    if (typeof key === 'number') {
+        console.log(value);
+    }
+}
+
+// convert map to array, same is .entries()
+console.log([...question]);
+// convert only the value
+console.log([...question.values()]);
+// convert only the key
+console.log([...question.keys()]);
 
 /*******************************************************/
 // USEFUL THINGS
