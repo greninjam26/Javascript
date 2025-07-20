@@ -600,6 +600,13 @@ console.log(
 );
 console.log("hi");
 
+// this convert all the key names of the object into an array
+console.log(Object.keys(pokemon));
+// this convert all the values of the object into an array
+console.log(Object.values(pokemon));
+// this cenvert all the key matching the values of the obejct into an array
+console.log(Object.entries(pokemon));
+
 /////////////////////////////////////////////////////////
 // optional chaining (added in ES2020)
 /////////////////////////////////////////////////////////
