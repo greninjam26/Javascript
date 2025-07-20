@@ -712,8 +712,46 @@ team(...ash);
 console.log(activeP);
 
 /*******************************************************/
+// SET (DATA STRUCTURE)
+/*******************************************************/
+// a collection of unique values, so it can have no duplicate
+// we can't retrieve single element from a set, but we can for-of loop it
+const teamActive = new Set([
+    "greninja",
+    "greninja",
+    "greninja",
+    "greninja",
+    "greninja",
+    "greninja",
+]); // need to an iterable that is passed in(usually an array)
+console.log(teamActive);
+// string is also an iterable
+const gren = new Set("greninja");
+console.log(gren);
+// size of the set
+console.log(gren.size);
+// check if a set contain a certain element
+console.log(gren.has(10));
+// add elements to a set, when adding it won't automaticly break apart iterables
+gren.add([10, 20]);
+// delete element from a set
+gren.delete('a');
+console.log(gren);
+// clear the set, delete everything
+gren.clear();
+
+// remove dup from array
+const teamType = ["water", 'dark', 'fighting', 'steel', 'electric', 'dragon', 'ice', 'dragon', 'flying'];
+const teamTypeNoDup = [...new Set(teamType)];
+console.log(teamType);
+console.log(teamTypeNoDup);
+//if we only want how many different elements there are
+console.log(new Set(teamType).size);
+
+/*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
+console.log("=========================================");
 aaaaaa = 10;
 // user input with pop up window (with application of objects)
 const info = prompt("What do you want to know about this pokemon?");
