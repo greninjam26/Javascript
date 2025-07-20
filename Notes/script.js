@@ -219,6 +219,43 @@ Javascript Runtime:
 Iterables: 
     Array, Strings, Maps, Sets, NOT Objects
 
+Data Structures:
+    build-in:
+        array:
+            store values in order or need duplicate values
+            manipulate data
+        set: 
+            use when we need to work with unique values
+            or we want the code to be very fast when searching or removing values
+            it is 10 times faster
+        object:
+            traditional key/values storeage
+            it is much easier to access values with the . and []
+        map: 
+            map key can be any type
+            it is also easier to iterate
+            easier to compute the size of a map
+            "this" doesn't work with map
+
+        weakmap, weakset
+    non Build-in:
+        stack, queue, linked list, tree, hash table
+    data can come from: 
+        1. the program itself
+            data from the source code
+        2. the UI
+            user input data from data in the DOM
+        3. external sources (most common source of data income)
+            data fetched from web API, that got the data from other web apps
+                data coming from web API usually comes in the data format of JSON
+                    JSON: uses the same format as javascript objects and arrays
+
+    How to Store the Data:
+        in lists?
+            array and set
+        in key/value pairs?
+            object and map
+    
 */
 
 // this helps to let javascript tell us if there
@@ -824,7 +861,7 @@ console.log(objMap);
 
 // for loop map
 for (const [key, value] of question) {
-    if (typeof key === 'number') {
+    if (typeof key === "number") {
         console.log(value);
     }
 }
