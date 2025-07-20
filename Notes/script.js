@@ -735,18 +735,49 @@ console.log(gren.has(10));
 // add elements to a set, when adding it won't automaticly break apart iterables
 gren.add([10, 20]);
 // delete element from a set
-gren.delete('a');
+gren.delete("a");
 console.log(gren);
 // clear the set, delete everything
 gren.clear();
 
 // remove dup from array
-const teamType = ["water", 'dark', 'fighting', 'steel', 'electric', 'dragon', 'ice', 'dragon', 'flying'];
+const teamType = [
+    "water",
+    "dark",
+    "fighting",
+    "steel",
+    "electric",
+    "dragon",
+    "ice",
+    "dragon",
+    "flying",
+];
 const teamTypeNoDup = [...new Set(teamType)];
 console.log(teamType);
 console.log(teamTypeNoDup);
 //if we only want how many different elements there are
 console.log(new Set(teamType).size);
+
+/////////////////////////////////////////////////////////
+// ES2025 new addons
+/////////////////////////////////////////////////////////
+const team1 = new Set(["greninja", "pikachu", "lucario"]);
+const team2 = new Set(["pikachu", "lucario", "charizard"]);
+// we can check for common elements between two sets
+console.log(team1.intersection(team2));
+// we can combine the two set
+console.log(team1.union(team2));
+// we can check the difference between the 2 sets, then put the none duplicate from the first set into a new set
+console.log(team1.difference(team2));
+console.log(team2.difference(team1));
+// this one give the difference between 2 sets
+console.log(team1.symmetricDifference(team2));
+// check if 2 sets have common elements
+console.log(team1.isDisjointFrom(team2));
+// output a boolean showing if team1 is the subset of team2 (team2 contains team1)
+console.log(team1.isSubsetOf(team2));
+// output a boolean showing if team1 contains team2
+console.log(team1.isSupersetOf(team2));
 
 /*******************************************************/
 // USEFUL THINGS
