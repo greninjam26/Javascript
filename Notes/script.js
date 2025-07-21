@@ -27,7 +27,9 @@ Javascript is a
                 2. the memory is use to write, read, or update the variable
                 3. the memory occupies is released when the variable no longer needed
                     Call Stack:
-                        when execution context is poped off, its variables are simply deleted
+                        when execution context is poped off, its variables are simply deleted (not very true, the variables with in the execution context still lives in the memory and stored in the heap)
+                        Closure: makes a function rememeber all the variables that is there when it is born/created
+                            it makes the functions created have access to the variable envirement of. the execution context it was created in
                     Heap:
                         The process called Garbage-Collection deals with it
                         Modern Javascript Engine uses Mark-and-Sweep Algorithm to do this
@@ -626,9 +628,9 @@ greet1("hello")("lucario");
 /////////////////////////////////////////////////////////
 const dragonite = {
     name: "dragonite",
-    fly (height, time) {
+    fly(height, time) {
         console.log(`${this.name} flied at the height of ${height}m for ${time}mintes`);
-    }
+    },
 };
 const talonflame = {
     name: "talonflame",
@@ -646,14 +648,14 @@ fly.call(talonflame, 20, 20);
 fly.apply(dragonite, [50, 50]);
 
 // .bind() also allows us to set "this" manually, but returns a new function is "this" locked in
-// if we add more values to .bind() it will be the same as .call() and everything in there is locked in. 
+// if we add more values to .bind() it will be the same as .call() and everything in there is locked in.
 const talonflameFly = fly.bind(talonflame);
-talonflameFly(10,10);
+talonflameFly(10, 10);
 // partical application
 // we can use the .bind(null) to lock in argumen for the function
 const hiiiiii = function (n) {
     console.log("hi".repeat(n));
-}
+};
 const hi5 = hiiiiii.bind(null, 5);
 hi5();
 // without bind to do the same thing
@@ -668,13 +670,12 @@ console.log(addVAT(100));
 // with function there are scopes and all variables in a function is private, which means that it will not be overwritten by other variables or external scripts
 // this way we can run the codes onces and protect it from other sources
 // this way of using functions are not used anymore in modern javascript anymore
-// because in ES6, when const and let is encapsulated in {} they will also be private and can't be accessed. 
+// because in ES6, when const and let is encapsulated in {} they will also be private and can't be accessed.
 (function () {
     console.log("this will not run again");
 })();
 
 (() => console.log("this also will not run again"))();
-
 
 /*******************************************************/
 // ARRAY (DATA STRUCTURE)
@@ -1061,6 +1062,11 @@ console.log([...question.keys()]);
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
+// timer (the second argument is in ms, so 10000 is 10 seconds)
+setTimeout(function () {
+    console.log("hi");
+}, 10000);
+
 console.log("=========================================");
 aaaaaa = 10;
 // user input with pop up window (with application of objects)
