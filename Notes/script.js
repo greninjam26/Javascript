@@ -621,6 +621,46 @@ greeting("greninja");
 greet("hello")("pikachu");
 greet1("hello")("lucario");
 
+/////////////////////////////////////////////////////////
+// THIS KEYWORD
+/////////////////////////////////////////////////////////
+const dragonite = {
+    name: "dragonite",
+    fly (height, time) {
+        console.log(`${this.name} flied at the height of ${height}m for ${time}mintes`);
+    }
+};
+const talonflame = {
+    name: "talonflame",
+};
+
+dragonite.fly(10, 10);
+const fly = dragonite.fly;
+// this.name breaks because this function is not in an object any more so this points to undefine
+// fly(10, 10);
+// .call() allow us to define what "this" is pointing to with the first argument
+fly.call(dragonite, 10, 10);
+fly.call(talonflame, 20, 20);
+// .apply() does the same things by the argument for the function need to be an array
+// not used much any more because we can spread arrays
+fly.apply(dragonite, [50, 50]);
+
+// .bind() also allows us to set "this" manually, but returns a new function is "this" locked in
+// if we add more values to .bind() it will be the same as .call() and everything in there is locked in. 
+const talonflameFly = fly.bind(talonflame);
+talonflameFly(10,10);
+// partical application
+// we can use the .bind(null) to lock in argumen for the function
+const hiiiiii = function (n) {
+    console.log("hi".repeat(n));
+}
+const hi5 = hiiiiii.bind(null, 5);
+hi5();
+// without bind to do the same thing
+const addTax = (rate) => (value) => value + value * rate;
+const addVAT = addTax(0.23);
+console.log(addVAT(100));
+
 /*******************************************************/
 // ARRAY (DATA STRUCTURE)
 /*******************************************************/
