@@ -548,6 +548,11 @@ const drink = age >= 18 ? "beer" : "water";
 
 /*******************************************************/
 // FUNCTION (Value)
+// javascript don't have pass by reference only pass by value, even though it might be passing a reference of objects, it is passing that reference as a value
+// FIRST CLASS function: 
+//     functions in javascript can be treated as values that can be stored
+// HIGHER-ORDER function:
+//     functions that recieves or returns another function
 /*******************************************************/
 // function declarations: can be called before declaration
 function greninjaT(typing) {
