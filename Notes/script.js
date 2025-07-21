@@ -549,7 +549,7 @@ const drink = age >= 18 ? "beer" : "water";
 /*******************************************************/
 // FUNCTION (Value)
 // javascript don't have pass by reference only pass by value, even though it might be passing a reference of objects, it is passing that reference as a value
-// FIRST CLASS function: 
+// FIRST CLASS function:
 //     functions in javascript can be treated as values that can be stored
 // HIGHER-ORDER function:
 //     functions that recieves or returns another function
@@ -587,6 +587,39 @@ hi(2);
 hi();
 // if we want to skip an argument we set it to undefine
 hi(undefine, 2);
+
+// low level functions doing basic jobs
+const oneWord = function (str) {
+    return str.replaceAll(" ", "").toLowerCase();
+};
+const upperFirstWord = function (str) {
+    const [first, ...other] = str.split(" ");
+    return [first.toUpperCase(), ...other].join(" ");
+};
+/////////////////////////////////////////////////////////
+// higher-order function
+/////////////////////////////////////////////////////////
+// abstraction: by taking how the "fn" and make it into another function we create a level of abstraction, so this transformer function don't care how the str is transformed it only transform it.
+const transformer = function (str, fn) {
+    console.log(`Original String: ${str}`);
+    console.log(`Transformed String: ${fn(str)}`);
+    // functions also have methods build in which we can call
+    console.log(`Transformed by: ${fn.name}`);
+};
+transformer("Autobots rollout!!!", upperFirstWord);
+transformer("Autobots rollout!!!", oneWord);
+
+// function return another function
+const greet = function (greeting) {
+    return function (name) {
+        console.log(`${greeting} ${name}`);
+    };
+};
+const greet1 = (greeting) => (name) => console.log(`${greeting} ${name}`);
+const greeting = greet("hi");
+greeting("greninja");
+greet("hello")("pikachu");
+greet1("hello")("lucario");
 
 /*******************************************************/
 // ARRAY (DATA STRUCTURE)
