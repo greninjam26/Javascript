@@ -663,6 +663,7 @@ console.log(addVAT(100));
 
 /////////////////////////////////////////////////////////
 // Immediately Invoked Function Expressions (IIFE)
+// functions only runs once
 /////////////////////////////////////////////////////////
 // with function there are scopes and all variables in a function is private, which means that it will not be overwritten by other variables or external scripts
 // this way we can run the codes onces and protect it from other sources
