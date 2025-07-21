@@ -572,6 +572,17 @@ const exeggcute = (heads, type) => {
 };
 console.log(exeggcute(7, "grass"));
 
+// we can have default values the arguments (added in ES6)
+// the dynamic calculation of the default value have to follow the rule from left to right
+function hi(num = 0, sum = num * 4) {
+    console.log(num);
+    console.log(sum);
+}
+hi(2);
+hi();
+// if we want to skip an argument we set it to undefine
+hi(undefine, 2);
+
 /*******************************************************/
 // ARRAY (DATA STRUCTURE)
 /*******************************************************/
