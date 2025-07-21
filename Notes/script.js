@@ -661,6 +661,20 @@ const addTax = (rate) => (value) => value + value * rate;
 const addVAT = addTax(0.23);
 console.log(addVAT(100));
 
+/////////////////////////////////////////////////////////
+// Immediately Invoked Function Expressions (IIFE)
+/////////////////////////////////////////////////////////
+// with function there are scopes and all variables in a function is private, which means that it will not be overwritten by other variables or external scripts
+// this way we can run the codes onces and protect it from other sources
+// this way of using functions are not used anymore in modern javascript anymore
+// because in ES6, when const and let is encapsulated in {} they will also be private and can't be accessed. 
+(function () {
+    console.log("this will not run again");
+})();
+
+(() => console.log("this also will not run again"))();
+
+
 /*******************************************************/
 // ARRAY (DATA STRUCTURE)
 /*******************************************************/
