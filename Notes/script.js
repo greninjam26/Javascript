@@ -742,6 +742,8 @@ console.log(ash.slice(-1)[0]);
 console.log(ash.at(-1));
 
 // forEach() require a function and apply that to every element, which is past in as the argument of the function, it also passes the index, and the array
+// for map, the argument are pasted in the order of (value, key, map)
+// for set, the argument are pasted in the order of (value, _, map) (_ in javascript is used for throw away variables)
 ash.forEach(function(element, i, arr) {
     console.log(`${i}: ${element}`);
     console.log(arr);
