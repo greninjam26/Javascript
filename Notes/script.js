@@ -720,6 +720,27 @@ let ditto = "normal";
 let flareon = "fire";
 [ditto, flareon] = [flareon, ditto];
 
+/////////////////////////////////////////////////////////
+// more array methods
+/////////////////////////////////////////////////////////
+// works the same as the string.slice(), start from the first index, inclusive, and end with the second index, exclusive. it returns a new array without modifying the original array. 
+console.log(ash.slice(0, -1));
+// .splice() cut off the part from the original array
+// the second parameter is not the ending index it is how many elements are going to be cut
+console.log(ash.splice(-1));
+console.log(ash);
+// .reverse() reverses the original array
+console.log(ash.reverse());
+console.log(ash);
+
+// getting the last element of an array
+// old ways
+console.log(ash[ash.length-1]);
+console.log(ash.slice(-1)[0]);
+// new way at() (added in ES2022)
+// the at() also works on strings, so it treats arrays and strings the same
+console.log(ash.at(-1));
+
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
 /*******************************************************/
