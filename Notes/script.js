@@ -741,6 +741,12 @@ console.log(ash.slice(-1)[0]);
 // the at() also works on strings, so it treats arrays and strings the same
 console.log(ash.at(-1));
 
+// forEach() require a function and apply that to every element, which is past in as the argument of the function, it also passes the index, and the array
+ash.forEach(function(element, i, arr) {
+    console.log(`${i}: ${element}`);
+    console.log(arr);
+});
+
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
 /*******************************************************/
