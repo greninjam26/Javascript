@@ -749,6 +749,15 @@ ash.forEach(function (element, i, arr) {
     console.log(arr);
 });
 
+/////////////////////////////////////////////////////////
+// array transformation methods
+/////////////////////////////////////////////////////////
+// map: this can perform an operation on each element of the array and store them in a new array
+const teamAsh = ash.map((pokemon, i) => `${i + 1}. ${pokemon}🎉`);
+console.log(teamAsh);
+// filter: it returns a new array after being filtered, which mean some of the elements are removed
+// reduce: through an operation reduce all the element down to one value
+
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
 /*******************************************************/
