@@ -758,10 +758,17 @@ console.log(teamAsh);
 // filter: it returns a new array after being filtered, which mean some of the elements are removed
 ash.push(3);
 const ashNew = ash.filter(function (pokemon) {
-    return typeof pokemon === 'string';
-})
+    return typeof pokemon === "string";
+});
 console.log(ashNew);
 // reduce: through an operation reduce all the element down to one value
+// we need to not only define the function, but also give an initial value of the "acc", or it will be set to the first element in the array
+ash.pop();
+const AshTeamI = ash.reduce(function (acc, cur, i, arr) {
+    console.log(acc);
+    return acc+cur[0];
+}, "")
+console.log(AshTeamI);
 
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
