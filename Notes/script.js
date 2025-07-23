@@ -773,6 +773,8 @@ console.log(AshTeamI);
 const numbers = [10, 5, 10, 10, 20, 100];
 const max = numbers.reduce((maxNum, cur) => maxNum > cur ? maxNum : cur);
 console.log(max);
+// this is used to find the first element in the array that matches the condition, and return the element itself
+console.log(ash.find(pokemon => pokemon.toLocaleLowerCase() === 'greninja'));
 
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
