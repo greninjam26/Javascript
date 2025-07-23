@@ -756,6 +756,11 @@ ash.forEach(function (element, i, arr) {
 const teamAsh = ash.map((pokemon, i) => `${i + 1}. ${pokemon}🎉`);
 console.log(teamAsh);
 // filter: it returns a new array after being filtered, which mean some of the elements are removed
+ash.push(3);
+const ashNew = ash.filter(function (pokemon) {
+    return typeof pokemon === 'string';
+})
+console.log(ashNew);
 // reduce: through an operation reduce all the element down to one value
 
 /*******************************************************/
