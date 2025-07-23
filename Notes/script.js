@@ -769,6 +769,10 @@ const AshTeamI = ash.reduce(function (acc, cur, i, arr) {
     return acc+cur[0];
 }, "")
 console.log(AshTeamI);
+// we can use reduce to find the max value
+const numbers = [10, 5, 10, 10, 20, 100];
+const max = numbers.reduce((maxNum, cur) => maxNum > cur ? maxNum : cur);
+console.log(max);
 
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
