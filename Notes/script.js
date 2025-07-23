@@ -1178,6 +1178,7 @@ modal.classList.remove("hidden");
  * keypress: when the key is pressed (continuous)
  */
 // this make sure that if the element is clicked this excute the function closeModal
+// if the button is in a form, it automaticly reloads
 btnCloseModal.addEventListener("click", closeModal);
 // this listens to wether the "escape" key is pressed
 document.addEventListener("keydown", function (e) {
