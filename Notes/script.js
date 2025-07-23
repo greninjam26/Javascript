@@ -773,8 +773,16 @@ console.log(AshTeamI);
 const numbers = [10, 5, 10, 10, 20, 100];
 const max = numbers.reduce((maxNum, cur) => maxNum > cur ? maxNum : cur);
 console.log(max);
+// Added in ES6
 // this is used to find the first element in the array that matches the condition, and return the element itself
 console.log(ash.find(pokemon => pokemon.toLocaleLowerCase() === 'greninja'));
+// this is similar just returns the index instead of the element
+console.log(ash.findIndex(pokemon => pokemon.toLocaleLowerCase() === 'greninja'));
+// Added in ES2023
+// .findLast
+// .findLastIndex
+// they works the exactly the same as .find and .findIndex
+// they just return the "last" instead of "first" as they name states
 
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
