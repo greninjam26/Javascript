@@ -723,7 +723,7 @@ let flareon = "fire";
 /////////////////////////////////////////////////////////
 // more array methods
 /////////////////////////////////////////////////////////
-// works the same as the string.slice(), start from the first index, inclusive, and end with the second index, exclusive. it returns a new array without modifying the original array. 
+// works the same as the string.slice(), start from the first index, inclusive, and end with the second index, exclusive. it returns a new array without modifying the original array.
 console.log(ash.slice(0, -1));
 // .splice() cut off the part from the original array
 // the second parameter is not the ending index it is how many elements are going to be cut
@@ -735,7 +735,7 @@ console.log(ash);
 
 // getting the last element of an array
 // old ways
-console.log(ash[ash.length-1]);
+console.log(ash[ash.length - 1]);
 console.log(ash.slice(-1)[0]);
 // new way at() (added in ES2022)
 // the at() also works on strings, so it treats arrays and strings the same
@@ -744,7 +744,7 @@ console.log(ash.at(-1));
 // forEach() require a function and apply that to every element, which is past in as the argument of the function, it also passes the index, and the array
 // for map, the argument are pasted in the order of (value, key, map)
 // for set, the argument are pasted in the order of (value, _, map) (_ in javascript is used for throw away variables)
-ash.forEach(function(element, i, arr) {
+ash.forEach(function (element, i, arr) {
     console.log(`${i}: ${element}`);
     console.log(arr);
 });
@@ -1158,3 +1158,21 @@ document.addEventListener("keydown", function (e) {
         closeModal();
     }
 });
+
+/*
+For adding new code to HTML we need this
+fill the black with [];
+[html element].insertAdjacentHTML([position], [code]);
+
+for the position: 
+    "beforebegin"
+    <[element]>
+        "afterbegin"
+        [things]
+        "before end"
+    </[element]>
+    "afterend"
+*/
+
+// this will return all the html code in "body"
+console.log(document.querySelector("body").innerHTML);
