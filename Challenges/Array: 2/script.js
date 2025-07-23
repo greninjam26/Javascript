@@ -12,7 +12,10 @@ const calcAverageHumanAge = function (ages) {
     const adultDogs = humanAge.filter((cur) => cur >= 18);
     console.log(adultDogs);
     // 3. Calculate the average human age of all adult dogs (you should already know from other challenges how we calculate averages 😉)
-    const aveAdultDogs = adultDogs.reduce((acc, cur, i, arr) => acc + cur/arr.length, 0);
+    const aveAdultDogs = adultDogs.reduce(
+        (acc, cur, i, arr) => acc + cur / arr.length,
+        0
+    );
     console.log(aveAdultDogs);
 };
 // 4. Run the function for both test datasets
