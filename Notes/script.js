@@ -1386,6 +1386,11 @@ console.log(Date.now());
 // this is the same as the .get...()
 // this give us the ability to modify the 6 numbers
 
+// calculation
+const daysPassed = (start, end) => Math.round((end - start) / 1000 / 60 / 60 / 24);
+console.log(+new Date(2020, 4, 10), +new Date(2020, 4, 20));
+console.log(daysPassed(new Date(2020, 4, 10), new Date(2020, 4, 20)));
+
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
