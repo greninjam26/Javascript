@@ -257,6 +257,50 @@ Data Structures:
             array and set
         in key/value pairs?
             object and map
+
+What Array Method?
+    Mutate the original (avoid if possible, we shouldn't be changing the original array too much):
+        add:
+            .push()
+            .unshift()
+        remove:
+            .pop()
+            .shift()
+            .splice()
+        alter:
+            .reverse()
+            .fill()
+            .sort()
+    Create new Array:
+        same length as original:
+            .map()
+            .slice() (copy)
+            .with() (replace)
+        filter:
+            .filter()
+        take part of the original
+            .slice()
+        flatten:
+            .flat()
+            .flatMap()
+        non-alter:
+            .toReversed()
+            .toSpliced()
+            .toSorted()
+        join arrays:
+            .concat()
+    Find index:
+        base on the value:
+            .indexOf()
+        base on condition:
+            return index:
+                .findIndex()
+                .findLastIndex()
+            return element:
+                .find()
+                .findLast()
+        retrive element: 
+            .at()
     
 */
 
@@ -803,7 +847,7 @@ console.log(arrrrr.flat(2));
 
 // added in ES2024
 // this returns an object contains two arrays with matching property names
-console.log(Object.groupBy(arrrrrr, num => (num > 0 ? "greater" : "smaller")));
+console.log(Object.groupBy(arrrrr, num => (num > 0 ? "greater" : "smaller")));
 
 /////////////////////////////////////////////////////////
 // array altering methods (destructive)
