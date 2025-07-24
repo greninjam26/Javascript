@@ -1270,7 +1270,7 @@ console.log([...question.values()]);
 console.log([...question.keys()]);
 
 /*******************************************************/
-// Number
+// NUMBER OPERATIONS
 /*******************************************************/
 // in javacript numbers are always stored as decimals
 console.log(23 === 23.0);
@@ -1345,6 +1345,46 @@ console.log(3 % 2);
 // numeric separator, have to be between 2 numbers
 // for human reading only, no meaning
 const numSep = 10_000_000_000;
+
+/*******************************************************/
+// DATE
+/*******************************************************/
+// create a date
+const date = new Date();
+console.log(date);
+// string we create ourselves can be unreliable
+// but the ones javascript create itself works fine
+console.log(new Date("2019-11-18T21:31:17.178Z"));
+// we can also pass in the number represening the date and time
+//                   year  m-1 dd  h   min second
+console.log(new Date(2037, 11, 10, 15, 23, 65));
+// javascript will automatically correct the overflow, like the 65 seconds
+// we can also have a single value in Date(), which means it will return how many ms after Wed Dec 31 1969 19:00:00 GMT-0500 (Eastern Standard Time)
+console.log(new Date(0));
+console.log(new Date(-2000));
+console.log(new Date(2000));
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+// modify a date
+console.log(date.getFullYear());
+console.log(date.getMonth());
+// this is the day
+console.log(date.getDate());
+// not the day but the day of the week
+console.log(date.getDay());
+console.log(date.getHours());
+console.log(date.getMinutes());
+console.log(date.getSeconds());
+// convert date to string
+console.log(date.toISOString());
+// time stamp: get how many ms has passed after Wed Dec 31 1969 19:00:00 GMT-0500 (Eastern Standard Time)
+console.log(date.getTime());
+// current time stamp
+console.log(Date.now());
+
+// the .set...()
+// this is the same as the .get...()
+// this give us the ability to modify the 6 numbers
 
 /*******************************************************/
 // USEFUL THINGS
