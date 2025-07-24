@@ -738,13 +738,6 @@ let flareon = "fire";
 /////////////////////////////////////////////////////////
 // works the same as the string.slice(), start from the first index, inclusive, and end with the second index, exclusive. it returns a new array without modifying the original array.
 console.log(ash.slice(0, -1));
-// .splice() cut off the part from the original array
-// the second parameter is not the ending index it is how many elements are going to be cut
-console.log(ash.splice(-1));
-console.log(ash);
-// .reverse() reverses the original array
-console.log(ash.reverse());
-console.log(ash);
 
 // getting the last element of an array
 // old ways
@@ -762,9 +755,6 @@ ash.forEach(function (element, i, arr) {
     console.log(arr);
 });
 
-/////////////////////////////////////////////////////////
-// array transformation methods
-/////////////////////////////////////////////////////////
 // map: this can perform an operation on each element of the array and store them in a new array
 const teamAsh = ash.map((pokemon, i) => `${i + 1}. ${pokemon}🎉`);
 console.log(teamAsh);
@@ -811,6 +801,24 @@ console.log(arrrrr.flat(2));
 // because we use .map([function]).flat() a lot
 // .flatMap([function]) is created, the only difference is that we can't make .flatMap() expand more than one layer
 
+// added in ES2024
+// this returns an object contains two arrays with matching property names
+console.log(Object.groupBy(arrrrrr, num => (num > 0 ? "greater" : "smaller")));
+
+/////////////////////////////////////////////////////////
+// array altering methods (destructive)
+/////////////////////////////////////////////////////////
+// these methods will alter the original array instead of returning a new array
+
+// .splice() cut off the part from the original array
+// the second parameter is not the ending index it is how many elements are going to be cut
+console.log(ash.splice(-1));
+console.log(ash);
+
+// .reverse() reverses the original array
+console.log(ash.reverse());
+console.log(ash);
+
 // sorting array
 // this changes the original array, it is sorting the array but converting it to strings first, do when sorting numbers is it wrong(so we need a function to pass into the sort())
 ash.sort();
@@ -823,9 +831,15 @@ const arrrrrr = [10000, 200, 15, 30, -10];
 arrrrrr.sort((a, b) => a - b);
 console.log(arrrrrr);
 
-// added in ES2024
-// this returns an object contains two arrays with matching property names
-console.log(Object.groupBy(arrrrrr, num => (num > 0 ? "greater" : "smaller")));
+/////////////////////////////////////////////////////////
+// array altering methods fix
+/////////////////////////////////////////////////////////
+// these new methods were added to use and not alter the original array
+// .reverse() ===> .toReversed()
+// .splice() ===> .toSpliced()
+// .sort() ===> .toSorted()
+// there is a new addition for replacing elements in array
+// arr[0] = 20 ===> .with(0, 20)
 
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
