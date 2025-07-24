@@ -58,5 +58,5 @@ console.log(okDogs);
 // 8. Create a shallow copy of the 'dogs' array and sort it by recommended food portion in an ascending order (keep in mind that the portions are inside the array's objects 😉)
 const sortedDogs = [...dogs];
 console.log(sortedDogs);
-sortedDogs.sort((dog1, dog2) => dog1.recommendedFood > dog2.recommendedFood);
+sortedDogs.sort((dog1, dog2) => dog1.recommendedFood - dog2.recommendedFood);
 console.log(sortedDogs);

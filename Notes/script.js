@@ -798,6 +798,18 @@ console.log(arrrrr.flat(2));
 // because we use .map([function]).flat() a lot
 // .flatMap([function]) is created, the only difference is that we can't make .flatMap() expand more than one layer
 
+// sorting array
+// this changes the original array, it is sorting the array but converting it to strings first, do when sorting numbers is it wrong(so we need a function to pass into the sort())
+ash.sort()
+console.log(ash);
+//numbers accending
+const arrrrrr = [10000, 200, 15, 30, -10];
+// a is the curent element b is the next element
+// if return > 0 B A
+// if return < 0 A B
+arrrrrr.sort((a, b) => a-b);
+console.log(arrrrrr);
+
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
 /*******************************************************/
