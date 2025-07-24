@@ -301,7 +301,18 @@ What Array Method?
                 .findLast()
         retrive element: 
             .at()
-    
+    Check if the array meet the condition:
+        base on the element:
+            .includes()
+        base on condition:
+            .some()
+            .every()
+    Transform to string:
+        .join()
+    Transform to a single value:
+        .reduce()
+    Loop the array:
+        .forEach()
 */
 
 // this helps to let javascript tell us if there
