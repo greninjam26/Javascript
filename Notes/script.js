@@ -1236,6 +1236,75 @@ console.log([...question.values()]);
 console.log([...question.keys()]);
 
 /*******************************************************/
+// Number
+/*******************************************************/
+// in javacript numbers are always stored as decimals
+console.log(23 === 23.0);
+// because everything is stored in binary, so things like this breaks
+console.log(0.1 + 0.2);
+
+// convert string to number
+// the normal way
+console.log(Number("23"));
+// shortcut, type coercion
+console.log(+"23");
+
+// parsing
+// it can cut off everything in the back, but if there is anything(white space doesn't count) in front of the letter it breaks
+// should add the 10 in the back to prevent some bugs
+// this only works with integer
+console.log(Number.parseInt(" 1.5 goo morn hi", 10));
+console.log(Number.parseInt("i1.5 goo morn h", 10));
+// this works with decimal and integers
+console.log(Number.parseFloat("1 goo morn hi", 10));
+console.log(Number.parseFloat("1.5 goo morn h", 10));
+
+// check if the argument is NaN
+console.log(Number.isNaN(23));
+// check if the argument is a number
+console.log(Number.isFinite(10 / 0));
+console.log(Number.isFinite(23));
+// check if the argument is an integer
+console.log(Number.isInteger(2.5));
+
+/////////////////////////////////////////////////////////
+// Math
+/////////////////////////////////////////////////////////
+// square root
+console.log(Math.sqrt(4));
+console.log(4 ** (1 / 2));
+// nth root
+console.log(8 ** (1 / 3));
+// max value
+console.log(Math.max(2, "4"));
+// min value
+console.log(Math.min(2, "4"));
+// pi: π
+console.log(Math.PI);
+// random number
+// between 0, inclusive, and 1, exclusive
+console.log(Math.random());
+// between 1 and 5
+console.log(Math.trunc(Math.random() * 5) + 1);
+// between any two number, inclusive
+const random = (min, max) => Math.trunc(Math.random() * (max - min + 1)) + min;
+console.log(random(-5, -1));
+/////////////////////////////////////////////////////////
+// rounding numbers
+// round the number
+console.log(Math.round(2.5));
+// round up the number
+console.log(Math.ceil(2.5));
+// these two does the same for positive number....
+// but negative ceil() and trunc() will be the same
+// round down the number
+console.log(Math.floor(2.5));
+// cut off everything after the decimal points
+console.log(Math.trunc(2.5));
+// rounding to a decimal point, n digit after the decimal place: .toFixed(n)
+console.log((2.7).toFixed(3));
+
+/*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
 // timer (the second argument is in ms, so 10000 is 10 seconds)
