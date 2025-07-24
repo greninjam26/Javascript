@@ -680,6 +680,19 @@ console.log(addVAT(100));
 /*******************************************************/
 // ARRAY (DATA STRUCTURE)
 /*******************************************************/
+// this create an emputy array with 7 spaces
+const aaaa = new Array(7);
+// the only way to fill this without doing it with loop is
+// we can add starting index, inclusive, after the added number, and ending index, exclusive.
+aaaa.fill(10);
+console.log(aaaa);
+// another way to fill array is by doing this
+// this fill the entire array with 1
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+// we can do better
+const z = Array.from(y, (cur, i) => cur + i);
+console.log(z);
 // we can change elements of the array if it is const, just not the entire array
 const greninjaW = ["Grass", "Electric", "Bug", "Fairy", "Fighting"];
 const greninjaS = ["Ghost", "Steel", "Fire", "Water", "Ice", "Dark"];
