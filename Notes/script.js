@@ -321,19 +321,53 @@ What Array Method?
 /*******************************************************/
 // VALUES
 /*******************************************************/
+/////////////////////////////////////////////////////////
 // primitive
+/////////////////////////////////////////////////////////
 let js = "amazing";
-// 7 data types (JAVASCRIPT AUTOMATICLY DETERMINES THE DATA TYPE)
+// 7 primitive data types (JAVASCRIPT AUTOMATICLY DETERMINES THE DATA TYPE)
 // Javascript have dynamic typing, which means we can change the data type of variables
+/////////////////////////////////////////////////////////
+// 1.
+// represented internally as 64 bits, only 53 are used, the reset are used to store the decimal points and the sign.
 let number = 23; //decimals and integers
+// the largest number Number can store, anything bigger than this sometimes work, sometimes doesn't
+let maxNum = Number.MAX_SAFE_INTEGER;
+/////////////////////////////////////////////////////////
+// 2.
 let string = "Greninja"; //text
+/////////////////////////////////////////////////////////
+// 3.
 let boolean = true; //true and false
+/////////////////////////////////////////////////////////
+// 4.
 let undefine; // no value
+/////////////////////////////////////////////////////////
+// 5.
 null; //empty value
+/////////////////////////////////////////////////////////
+// 6.
 // symbol: value that is unique and can't be changed
-// BigInt: numbers that are too large for the number type
+/////////////////////////////////////////////////////////
+// 7.
+// added in ES2020
+// BigInt: numbers that are too large for the number type, But it have to be Integer not decimal numbers
+// this works will with all the operation with Number
+// BUT it can't do operations with other types and Math.
+//      exceptions:
+//          logic operator still works
+//          adding with string still works
+// don't really work
+console.log(242346342626432624524354353425);
+// with BigInt it works (n converts it to bigInt)
+console.log(12532626543254325124523452345324n);
+// even with the BigInt() javascript still need to use Number and convert it to BigInt
+// so this should only be used with smaller number the do calculation
+console.log(BigInt(124535325353253224));
 
-// object
+/////////////////////////////////////////////////////////
+// object (more below)
+/////////////////////////////////////////////////////////
 let me = {
     name: "Greninja",
 };
@@ -1268,7 +1302,7 @@ console.log(Number.isFinite(23));
 console.log(Number.isInteger(2.5));
 
 /////////////////////////////////////////////////////////
-// Math
+// Math (only with Number not BigInt)
 /////////////////////////////////////////////////////////
 // square root
 console.log(Math.sqrt(4));
@@ -1303,6 +1337,14 @@ console.log(Math.floor(2.5));
 console.log(Math.trunc(2.5));
 // rounding to a decimal point, n digit after the decimal place: .toFixed(n)
 console.log((2.7).toFixed(3));
+
+// remainder operator
+console.log(3 % 2);
+
+// added in ES2021
+// numeric separator, have to be between 2 numbers
+// for human reading only, no meaning
+const numSep = 10_000_000_000;
 
 /*******************************************************/
 // USEFUL THINGS
