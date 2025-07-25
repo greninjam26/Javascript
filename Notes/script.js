@@ -1456,36 +1456,7 @@ const clock = setInterval(
 setTimeout(() => clearInterval(clock), 10000);
 
 /////////////////////////////////////////////////////////
-// Creating and inserting elements
-// [element].insertAdjacentHTML("[position]", [the html code in a string])
-// or we can create a DOM element, then modify it and add it to the DOM
-// create
-const message = document.createElement("div");
-// modify
-message.classList.add("hi");
-message.textContent = "good morning";
-// add to the DOM
-/*
-    prepend: the first element in the selected DOM
-    append: the second element in the selected DOM
-    before: the element before the selected DOM
-    after: the element right after the selected DOM
-*/
-// this add the "message" as the first element in the DOM element selected
-document.body.prepend(message);
-// this add the "message" as the last element in the DOM element selected
-// the secomd one will over ride the first, which means message can only be added once
-document.body.append(message);
-// to add it multiple times, we need to clone the DOM element
-document.body.prepend(message.cloneNode(true));
-
-// removing the DOM element
-document.body.addEventListener("click", function () {
-    // the old way
-    // message.parentElement.removeChild(message);
-    // the new way
-    message.remove();
-});
+// styles
 
 /*******************************************************/
 // USEFUL THINGS
@@ -1535,6 +1506,51 @@ document.getElementsByTagName("button");
 // this also returns HTMLCollection, but it get the element by class name
 document.getElementsByClassName("btn");
 
+/////////////////////////////////////////////////////////
+// Creating and inserting elements
+/*
+this adds the block of code in the string to html, it also need a position to add the code
+for the position: 
+    "beforebegin"
+    <[element]>
+        "afterbegin"
+        [things]
+        "before end"
+    </[element]>
+    "afterend"
+fill the black with [];
+[html element].insertAdjacentHTML([position], [code]);
+[element].insertAdjacentHTML("[position]", [the html code in a string])
+*/
+// or we can create a DOM element, then modify it and add it to the DOM
+// create
+const message = document.createElement("div");
+// modify
+message.classList.add("hi");
+message.textContent = "good morning";
+// add to the DOM
+/*
+    prepend: the first element in the selected DOM
+    append: the second element in the selected DOM
+    before: the element before the selected DOM
+    after: the element right after the selected DOM
+*/
+// this add the "message" as the first element in the DOM element selected
+document.body.prepend(message);
+// this add the "message" as the last element in the DOM element selected
+// the secomd one will over ride the first, which means message can only be added once
+document.body.append(message);
+// to add it multiple times, we need to clone the DOM element
+document.body.prepend(message.cloneNode(true));
+
+// removing the DOM element
+document.body.addEventListener("click", function () {
+    // the old way
+    // message.parentElement.removeChild(message);
+    // the new way
+    message.remove();
+});
+
 /**
  * classList:
  * add: add the class
@@ -1566,21 +1582,3 @@ document.addEventListener("keydown", function (e) {
         closeModal();
     }
 });
-
-/*
-For adding new code to HTML we need this
-fill the black with [];
-[html element].insertAdjacentHTML([position], [code]);
-
-for the position: 
-    "beforebegin"
-    <[element]>
-        "afterbegin"
-        [things]
-        "before end"
-    </[element]>
-    "afterend"
-*/
-
-// this will return all the html code in "body"
-console.log(document.querySelector("body").innerHTML);
