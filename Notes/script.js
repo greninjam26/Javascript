@@ -1392,6 +1392,39 @@ console.log(+new Date(2020, 4, 10), +new Date(2020, 4, 20));
 console.log(daysPassed(new Date(2020, 4, 10), new Date(2020, 4, 20)));
 
 /*******************************************************/
+// INTERNATIONALIZATION API
+/*******************************************************/
+// provide support for different regions of the world
+/////////////////////////////////////////////////////////
+// modify the date
+console.log(new Intl.DateTimeFormat('en-GB').format(new Date()));
+// we can change things with an external object
+let options = {
+    year: 'numeric',     // also have 2-digit
+    // month: 'numeric',    1 to 12
+    month: 'long',   //  January to December
+    // month: '2-digit',    similar to numeric, but only in 2 digit
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric'
+}
+// usually get those setting from the user browser
+const locale = navigator.language;
+console.log(new Intl.DateTimeFormat(locale, options).format(new Date()));
+/////////////////////////////////////////////////////////
+// modify the number
+const numss = 10242342.2152353;
+// we have a lot of options, check MDN
+options = {
+    style: 'unit',
+    unit: "mile-per-hour"
+}
+console.log(new Intl.NumberFormat("en-GB", options).format(numss));
+console.log(new Intl.NumberFormat("de-DE", options).format(numss));
+console.log(new Intl.NumberFormat("ar-SY", options).format(numss));
+console.log(new Intl.NumberFormat(locale, options).format(numss));
+
+/*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
 // timer (the second argument is in ms, so 10000 is 10 seconds)
