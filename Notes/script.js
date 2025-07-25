@@ -1441,13 +1441,51 @@ const testTimer = setTimeout(
 if (true) clearTimeout(testTimer);
 
 // works the same as setTimeout, but it will keep running the function every 1000ms (1 second)
-const clock = setInterval(() => console.log(new Intl.DateTimeFormat(locale, {
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-}).format(new Date())), 1000);
+const clock = setInterval(
+    () =>
+        console.log(
+            new Intl.DateTimeFormat(locale, {
+                hour: "numeric",
+                minute: "numeric",
+                second: "numeric",
+            }).format(new Date())
+        ),
+    1000
+);
 
 setTimeout(() => clearInterval(clock), 10000);
+
+/////////////////////////////////////////////////////////
+// Creating and inserting elements
+// [element].insertAdjacentHTML("[position]", [the html code in a string])
+// or we can create a DOM element, then modify it and add it to the DOM
+// create
+const message = document.createElement("div");
+// modify
+message.classList.add("hi");
+message.textContent = "good morning";
+// add to the DOM
+/*
+    prepend: the first element in the selected DOM
+    append: the second element in the selected DOM
+    before: the element before the selected DOM
+    after: the element right after the selected DOM
+*/
+// this add the "message" as the first element in the DOM element selected
+document.body.prepend(message);
+// this add the "message" as the last element in the DOM element selected
+// the secomd one will over ride the first, which means message can only be added once
+document.body.append(message);
+// to add it multiple times, we need to clone the DOM element
+document.body.prepend(message.cloneNode(true));
+
+// removing the DOM element
+document.body.addEventListener("click", function () {
+    // the old way
+    // message.parentElement.removeChild(message);
+    // the new way
+    message.remove();
+});
 
 /*******************************************************/
 // USEFUL THINGS
@@ -1474,7 +1512,15 @@ js = "boring";
 /*******************************************************/
 // DOM(document object model) MANIPULATION (dom tree, tree structure)
 /*******************************************************/
-
+/////////////////////////////////////////////////////////
+// Selecting elements
+// this is how we can select all the elements in the html, just do document is not enough
+console.log(document.documentElement);
+// select the head
+console.log(document.head);
+// selectthe body
+console.log(document.body);
+// everything else we need querySelector
 // document.querySelectorAll: this select all the elements with this class and store in a nodeList
 // select a html element (get the text)
 document.querySelector(".testing").textContent;
@@ -1484,6 +1530,10 @@ document.querySelector(".test").value;
 document.querySelector(".testing").textContent = "good morning :)";
 // another wat to select elements, but only work is ID (a little bit faster)
 document.getElementById("name");
+// select all the buttons, this return a HTMLCollection, it will automaticly update when a button is remove or added, this is very different from a NodeList
+document.getElementsByTagName("button");
+// this also returns HTMLCollection, but it get the element by class name
+document.getElementsByClassName("btn");
 
 /**
  * classList:
