@@ -1455,9 +1455,6 @@ const clock = setInterval(
 
 setTimeout(() => clearInterval(clock), 10000);
 
-/////////////////////////////////////////////////////////
-// styles
-
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
@@ -1550,6 +1547,40 @@ document.body.addEventListener("click", function () {
     // the new way
     message.remove();
 });
+
+/////////////////////////////////////////////////////////
+// styles
+// we can access any inline style in html and any style we add with this will be stored as inline styles
+console.log(document.body.style.backgroundColor);
+// we can get all the styles of the element with this, no matter where it is defined
+console.log(getComputedStyle(document.body));
+// usually just use this to get a style
+console.log(getComputedStyle(document.body).height);
+// another way to change the style is with this
+// the benefit of this is we can change the custom variables in css too
+document.documentElement.style.setProperty("color", "red");
+
+/////////////////////////////////////////////////////////
+// attributes
+// we can also access the attributes of HTML tags
+console.log(document.querySelector("input").name);
+console.log(document.querySelector("input").type);
+console.log(document.querySelector("script").src);
+console.log(document.querySelector("p").className);
+// to get non-standard attributes
+console.log(document.querySelector("input").pokemon);
+console.log(document.querySelector("input").getAttribute("pokemon"));
+// we can also set
+document.querySelector('p').setAttribute("pokemon", "lucario");
+// there are difference between these two, src and href
+// this is how it is accessed
+console.log(document.querySelector("script").src);
+// this is how it is written in the code
+console.log(document.querySelector("script").getAttribute("src"));
+
+// Data attributes
+// these attributes start with the name data
+// these attrubutes have its information all stored in dataset
 
 /**
  * classList:
