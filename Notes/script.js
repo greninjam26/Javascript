@@ -1640,6 +1640,8 @@ section1.scrollIntoView({ behavior: "smooth" });
 
 /**
  * for listening to event, everytime an event happen javascript generate an object with the info
+ * The listeners only care about the bubbling phase so even if in capture phase events are passing through, they don't care
+ * Even though no one really use this anyone but we can make EventListeners not listen during the bubbling phase and listen in the capturing phase by doing .addEventListener([event], [function], true);
  *
  * check MDN for the full list
  * mouseenter: when the cursor is hover over the element
@@ -1656,6 +1658,13 @@ const checkEscape = function (e) {
     if (e.key === "Escape") {
         closeModal();
     }
+    // this outputs the target of the event, it doesn't have to where this event listener is attached to, it can be its child elements passing the event through propagation
+    console.log(e.target);
+    // this will be returning the current target, which is probobly where the event listener is attached to
+    console.log(e.currentTarget);
+    // we can also stop the propagation, usually shoudn't but just in case
+    // this way tge parents elements won't recive the event
+    e.stopPropagation();
 };
 document.addEventListener("keydown", checkEscape);
 
