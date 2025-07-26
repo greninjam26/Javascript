@@ -1571,7 +1571,7 @@ console.log(document.querySelector("p").className);
 console.log(document.querySelector("input").pokemon);
 console.log(document.querySelector("input").getAttribute("pokemon"));
 // we can also set
-document.querySelector('p').setAttribute("pokemon", "lucario");
+document.querySelector("p").setAttribute("pokemon", "lucario");
 // there are difference between these two, src and href
 // this is how it is accessed
 console.log(document.querySelector("script").src);
@@ -1597,6 +1597,27 @@ modal.classList.add("hidden");
 // remove the class to element
 modal.classList.remove("hidden");
 
+/////////////////////////////////////////////////////////
+// location and size
+// the location of the section 1
+const s1coords = section1.getBoundingClientRect();
+// output the current location of the window
+console.log(window.scrollX, window.scrollY);
+// size of the window
+console.log(document.documentElement.clientHeight, document.documentElement.clientHeight);
+
+// scroll to section
+    // old way
+    // the location of the section 1
+    // const s1coords = section1.getBoundingClientRect();
+    // window.scrollTo({
+    //     left: s1coords.left + window.scrollX,
+    //     top: s1coords.top + window.scrollY,
+    //     behavior: "smooth",
+    // });
+    // new way
+    section1.scrollIntoView({ behavior: "smooth" });
+
 /**
  * for EventListener, everytime an event happen javascript generate an object with the info
  *
@@ -1613,3 +1634,4 @@ document.addEventListener("keydown", function (e) {
         closeModal();
     }
 });
+
