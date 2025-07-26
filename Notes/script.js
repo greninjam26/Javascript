@@ -1607,20 +1607,26 @@ console.log(window.scrollX, window.scrollY);
 console.log(document.documentElement.clientHeight, document.documentElement.clientHeight);
 
 // scroll to section
-    // old way
-    // the location of the section 1
-    // const s1coords = section1.getBoundingClientRect();
-    // window.scrollTo({
-    //     left: s1coords.left + window.scrollX,
-    //     top: s1coords.top + window.scrollY,
-    //     behavior: "smooth",
-    // });
-    // new way
-    section1.scrollIntoView({ behavior: "smooth" });
+// old way
+// the location of the section 1
+// const s1coords = section1.getBoundingClientRect();
+// window.scrollTo({
+//     left: s1coords.left + window.scrollX,
+//     top: s1coords.top + window.scrollY,
+//     behavior: "smooth",
+// });
+// new way
+section1.scrollIntoView({ behavior: "smooth" });
+
+/////////////////////////////////////////////////////////
+// Event listen
 
 /**
- * for EventListener, everytime an event happen javascript generate an object with the info
+ * for listening to event, everytime an event happen javascript generate an object with the info
  *
+ * check MDN for the full list
+ * mouseenter: when the cursor is hover over the element
+ * click: when the element is clicked
  * keyup: when the key is left go
  * keydown: when the key is pressed (once)
  * keypress: when the key is pressed (continuous)
@@ -1629,9 +1635,23 @@ console.log(document.documentElement.clientHeight, document.documentElement.clie
 // if the button is in a form, it automaticly reloads
 btnCloseModal.addEventListener("click", closeModal);
 // this listens to wether the "escape" key is pressed
-document.addEventListener("keydown", function (e) {
+const checkEscape = function (e) {
     if (e.key === "Escape") {
         closeModal();
     }
-});
+};
+document.addEventListener("keydown", checkEscape);
 
+// EventListener is better
+//      we can add multiple functions
+//      we can remove the listener
+// because we need to call the function again to remove it, we have to export it to a variable
+document.removeEventListener("keydown", checkEscape);
+// for listening to any events, we can do .on[event] (not used much any more replaced by EventListener)
+modal.onmouseenter = function () {
+    console.log("hi");
+};
+
+// we shouldn't be using this!!
+// doing inline event listening in HTML
+// <h1 onclick="console.log("HI")>
