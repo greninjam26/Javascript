@@ -1621,6 +1621,23 @@ section1.scrollIntoView({ behavior: "smooth" });
 /////////////////////////////////////////////////////////
 // Event listen
 
+// propagation
+/**
+ * NOT ALL EVENTS HAVE THE CAPTURE AND BUBBLE PHASES
+ * this is important because when the event pass through the parent elements it is as if the event is happening on them as well
+ * so if there is event listeners on the parent elements the same action will be executed multiple times
+ * when the event is traveling it only pass through the parent elements
+ * capturing phase:
+ *      an event is generated in the root(document)
+ *      then passed through each level the of html until it reaches the element with the action listener
+ * target phase:
+ *      the EventListener waits for the action to happened
+ *      then execute the attached function
+ * bubbling phase:
+ *      the document go from the target back to the root(document) of the file
+ * (htb this make sense, when an action is performed on the element it is also performed on the parents elements because the parent elements contain the child elements)
+ */
+
 /**
  * for listening to event, everytime an event happen javascript generate an object with the info
  *
