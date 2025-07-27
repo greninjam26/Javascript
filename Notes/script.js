@@ -1455,6 +1455,22 @@ const clock = setInterval(
 
 setTimeout(() => clearInterval(clock), 10000);
 
+/////////////////////////////////////////////////////////
+// Intersection Observer API
+// create the observer
+const obsOption = {
+    // the element the target is intersecting (null is the viewport)
+    root: null,
+    // this is how many percent of the window is intersecting
+    threshold: 0.1,
+};
+// this function will be called everytime the target selected matches the root and threshold set in the option
+const obsFunction = function (entries, observer) {
+    entries.forEach(entry => console.log(entries));
+};
+const observer = new IntersectionObserver(obsFunction, obsOption);
+observer.observe(document.querySelector('p'));
+
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
