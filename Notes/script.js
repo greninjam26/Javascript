@@ -1686,6 +1686,9 @@ section1.scrollIntoView({ behavior: "smooth" });
  *
  * check MDN for the full list
  * mouseenter: when the cursor is hover over the element
+ * != mouseleave
+ * mouseover: same thing as mouseenter just it bubbles
+ * != mouseout
  * click: when the element is clicked
  * keyup: when the key is left go
  * keydown: when the key is pressed (once)
