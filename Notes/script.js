@@ -1471,6 +1471,8 @@ const obsFunction = function (entries, observer) {
 const observer = new IntersectionObserver(obsFunction, obsOption);
 observer.observe(document.querySelector('p'));
 
+// Intersection Observers and be used to archieve lazy loading image, which is a way to improve the web's performance by loading a vary low quality image and then replace it with a better one when needed, this way when the image is not needed, it will not effect the performance of the website too much
+
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
