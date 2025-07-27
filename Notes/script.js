@@ -1482,6 +1482,10 @@ js = "boring";
 /*******************************************************/
 /////////////////////////////////////////////////////////
 // Selecting elements
+//=======================================================
+// going down select child elements(no range limit)
+// .querySelector and .querySelectorAll
+//=======================================================
 // this is how we can select all the elements in the html, just do document is not enough
 console.log(document.documentElement);
 // select the head
@@ -1502,6 +1506,43 @@ document.getElementById("name");
 document.getElementsByTagName("button");
 // this also returns HTMLCollection, but it get the element by class name
 document.getElementsByClassName("btn");
+//=======================================================
+// going down select child elements(only direct child)
+// children
+//=======================================================
+// return everything html elements and texts
+document.childNodes;
+// return HTMLCollection of all the html elements
+document.children;
+// return the first child
+document.firstElementChild;
+// return the second child
+document.lastElementChild;
+//=======================================================
+// going up select parent elements(only direct parents)
+// parent
+//=======================================================
+const para = document.querySelector("p");
+// select the parent
+para.parentElement;
+para.parentNode;
+//=======================================================
+// going up select parent elements(no range limit)
+// closest
+//=======================================================
+// select the closest parent with class header
+para.closest(".header");
+//=======================================================
+// going sideway select sibling elements(only direct siblings, javascript can only reach the direct siblings)
+// so if we want to select all the sibling elements we need to go up to parents and select all the children
+// sibling
+//=======================================================
+// select sibling elements next to para
+para.previousElementSibling;
+para.nextElementSibling;
+// this can select anything, include random texts
+para.previousSibling;
+para.nextSibling;
 
 /////////////////////////////////////////////////////////
 // Creating and inserting elements
