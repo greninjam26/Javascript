@@ -1536,9 +1536,9 @@ const Pokemon = function (name, types) {
     // this.calcType = function () {
     //     console.log(types.length);
     // }
-}
+};
 // when we call we call it with "new"
-const greninjaC = new Pokemon("greninja", ["water", "dark"])
+const greninjaC = new Pokemon("greninja", ["water", "dark"]);
 console.log(greninjaC);
 const lucarioC = new Pokemon("lucario", ["fighting", "steel"]);
 console.log(lucarioC);
@@ -1551,6 +1551,22 @@ console.log(lucarioC);
 // check if a variable is an instance of a constructor function
 console.log(greninja instanceof Pokemon);
 console.log(greninjaC instanceof Pokemon);
+
+// Prototype, this way there are only one copy of the method
+Pokemon.prototype.calcType = function () {
+    console.log(this.types.length);
+};
+
+greninjaC.calcType();
+console.log(greninjaC.__proto__);
+console.log(greninjaC.__proto__ === Pokemon.prototype);
+console.log(Pokemon.prototype.isPrototypeOf(greninjaC));
+
+Pokemon.prototype.type = "Dual Type";
+console.log(greninjaC.type);
+// check if the property is in the objects itself(true) or in the prototype(false)
+console.log(greninjaC.hasOwnProperty("type"));
+console.log(greninjaC.hasOwnProperty("types"));
 
 /*******************************************************/
 // USEFUL THINGS
@@ -1838,6 +1854,6 @@ const obsFunction = function (entries, observer) {
     entries.forEach(entry => console.log(entries));
 };
 const observer = new IntersectionObserver(obsFunction, obsOption);
-observer.observe(document.querySelector('p'));
+observer.observe(document.querySelector("p"));
 
 // Intersection Observers and be used to archieve lazy loading image, which is a way to improve the web's performance by loading a vary low quality image and then replace it with a better one when needed, this way when the image is not needed, it will not effect the performance of the website too much
