@@ -1588,7 +1588,7 @@ Array.prototype.unique = function () {
 // Static Methods, not inherited on the constructor can call
 Pokemon.team = function () {
     console.log("?????");
-}
+};
 Pokemon.team();
 
 /////////////////////////////////////////////////////////
@@ -1648,6 +1648,28 @@ const testings = {
 console.log(testings.lastE);
 testings.changeFirstEl = 100;
 console.log(testings.nums);
+
+/////////////////////////////////////////////////////////
+// Object.create()
+/////////////////////////////////////////////////////////
+const TestProto = {
+    hi() {
+        console.log("hi");
+    },
+
+    init(name, hi) {
+        this.name = name;
+        this.hi = hi;
+    },
+};
+const clp = Object.create(TestProto);
+console.log(clp);
+// not the best way
+// clp.name = "fe";
+// clp.time = "hi";
+// the better way
+clp.init("fe", "hi");
+console.log(clp);
 
 /*******************************************************/
 // USEFUL THINGS
