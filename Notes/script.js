@@ -1569,6 +1569,22 @@ console.log(greninjaC.type);
 console.log(greninjaC.hasOwnProperty("type"));
 console.log(greninjaC.hasOwnProperty("types"));
 
+// Prototype Chain
+console.log(greninjaC.__proto__);
+console.log(greninjaC.__proto__.__proto__);
+console.log(greninjaC.__proto__.__proto__.__proto__);
+
+// Array Prototype
+console.log(ash.__proto__);
+console.log(ash.__proto__ === Array.prototype);
+// with this we can add many new methods we want to the arrays
+// usually don't do this
+// if hte next version all the same method, then everything breaks
+// if there are multiple developer adding the same methods to the Array, things get messy
+Array.prototype.unique = function () {
+    return [...new Set(this)];
+}
+
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
