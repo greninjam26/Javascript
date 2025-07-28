@@ -1508,7 +1508,49 @@ setTimeout(() => clearInterval(clock), 10000);
 
 /*******************************************************/
 // OOP
+// Prototypal Inheritance
 /*******************************************************/
+/*
+Prototype
+    In javascript each object is linked to a prototype
+    unlike the normal inheritance, the objects are delegating their methods to the prototype
+how to Create:
+    1. through constructor functions
+    2. use ES6 classes
+        they are not real classes, they are just constructor functions with a new look
+    3. Object.create();
+        not really used
+*/
+/////////////////////////////////////////////////////////
+// constructor functions
+/////////////////////////////////////////////////////////
+// the function is always captitalized
+// arrow function won't work we need "this"
+const Pokemon = function (name, types) {
+    // instance properties
+    this.name = name;
+    this.types = types;
+    // instance methods
+    // NEVER do this, bad practice
+    // there is are too many instance there are too many copy of this function
+    // this.calcType = function () {
+    //     console.log(types.length);
+    // }
+}
+// when we call we call it with "new"
+const greninjaC = new Pokemon("greninja", ["water", "dark"])
+console.log(greninjaC);
+const lucarioC = new Pokemon("lucario", ["fighting", "steel"]);
+console.log(lucarioC);
+// new does this
+// 1. New {} is created
+// 2. function is called, this = {}
+// 3. {} linked to prototype
+// 4. function automatically return {}
+
+// check if a variable is an instance of a constructor function
+console.log(greninja instanceof Pokemon);
+console.log(greninjaC instanceof Pokemon);
 
 /*******************************************************/
 // USEFUL THINGS
