@@ -313,6 +313,41 @@ What Array Method?
         .reduce()
     Loop the array:
         .forEach()
+
+Script Loading:
+    regular:
+        In the <head>:
+            part of the HTML will be parsed
+            then the script is fetched
+            then the script executed
+            then finish parsed HTML
+            return DOMContentLoaded event
+        in the end of the <body>:
+            all the HTML will be parsed
+            then the script is fetched and executed
+            return the DOMContentLoaded event
+    async:
+        In the <head>:
+            part of the HTML will be parsed while the script is fetched
+            then the script is executed
+            then finish parsing the HTML
+            return the DOMContentLoaded event
+        Problem:
+            1. DOMContentLoaded
+                the DOMContentLoaded will be return when the HTML is parsed
+                but if the fetching process of the script takes longer than the parsing of HTML
+                then the DOMContentLoaded event will be return without finishing fetching and executing the script
+            2. Script Execution Order
+                the scripts fetched in this format will be not guaranteed to execute in order
+        Use Cases:
+            we can use this when the order of the javascript loaded doesn't matter like 3rd party scripts
+    defer:
+        In the <head>:
+            the entire HTML is parsed and the script is fetch during this time
+            then the script is executed
+            return the DOMContentLoaded event
+        Use Cases:
+            generally a good option for our owns scripts and other libraries that loading order matters. 
 */
 
 // this helps to let javascript tell us if there
@@ -1711,6 +1746,7 @@ section1.scrollIntoView({ behavior: "smooth" });
  * keyup: when the key is left go
  * keydown: when the key is pressed (once)
  * keypress: when the key is pressed (continuous)
+ * load: when the image is loaded
  */
 // this make sure that if the element is clicked this excute the function closeModal
 // if the button is in a form, it automaticly reloads
