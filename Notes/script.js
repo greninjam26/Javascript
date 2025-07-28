@@ -1506,22 +1506,6 @@ const clock = setInterval(
 
 setTimeout(() => clearInterval(clock), 10000);
 
-/////////////////////////////////////////////////////////
-// Intersection Observer API
-// create the observer
-const obsOption = {
-    // the element the target is intersecting (null is the viewport)
-    root: null,
-    // this is how many percent of the window is intersecting
-    threshold: 0.1,
-};
-// this function will be called everytime the target selected matches the root and threshold set in the option
-const obsFunction = function (entries, observer) {
-    entries.forEach(entry => console.log(entries));
-};
-const observer = new IntersectionObserver(obsFunction, obsOption);
-observer.observe(document.querySelector('p'));
-
 // Intersection Observers and be used to archieve lazy loading image, which is a way to improve the web's performance by loading a vary low quality image and then replace it with a better one when needed, this way when the image is not needed, it will not effect the performance of the website too much
 
 /*******************************************************/
@@ -1795,3 +1779,19 @@ modal.onmouseenter = function () {
 // we shouldn't be using this!!
 // doing inline event listening in HTML
 // <h1 onclick="console.log("HI")>
+
+/////////////////////////////////////////////////////////
+// Intersection Observer API
+// create the observer
+const obsOption = {
+    // the element the target is intersecting (null is the viewport)
+    root: null,
+    // this is how many percent of the window is intersecting
+    threshold: 0.1,
+};
+// this function will be called everytime the target selected matches the root and threshold set in the option
+const obsFunction = function (entries, observer) {
+    entries.forEach(entry => console.log(entries));
+};
+const observer = new IntersectionObserver(obsFunction, obsOption);
+observer.observe(document.querySelector('p'));
