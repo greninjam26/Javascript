@@ -1585,6 +1585,12 @@ Array.prototype.unique = function () {
     return [...new Set(this)];
 };
 
+// Static Methods, not inherited on the constructor can call
+Pokemon.team = function () {
+    console.log("?????");
+}
+Pokemon.team();
+
 /////////////////////////////////////////////////////////
 // ES6 classes
 /////////////////////////////////////////////////////////
@@ -1598,6 +1604,7 @@ class PokemonCl {
         this.name = name;
         this.types = types;
     }
+    // Instance methods
     // this is the prototype
     calcType() {
         console.log(this.types.length);
@@ -1615,6 +1622,11 @@ class PokemonCl {
     // this prevent the constructer and the set name trying to change the variable at the same time
     get name() {
         return this._name;
+    }
+
+    // static methods
+    static hi() {
+        console.log("???????????");
     }
 }
 const lycanrocC = new PokemonCl("Lucanroc", "rock");
