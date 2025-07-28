@@ -1671,6 +1671,27 @@ console.log(clp);
 clp.init("fe", "hi");
 console.log(clp);
 
+/////////////////////////////////////////////////////////
+// inheritance between classes
+/////////////////////////////////////////////////////////
+const AshTeam = function (name, types, position) {
+    // can't just call, we need to set "this" too, or "this" will be undefined
+    Pokemon.call(this, name, types);
+    this.position = position;
+};
+// this have to be done the prototype is empty or it will override everything in the prototype
+// we need the Object.create() to link the prototypes and and make them the exact same
+// which means we are adding like a way for AshTeam to reach Pokemon's prototype
+AshTeam.prototype = Object.create(Pokemon.prototype);
+// this set the constructor of the prototype to AshTeam, instead of Pokemon(which is the result of using Object.create)
+AshTeam.prototype.constructor = AshTeam;
+AshTeam.prototype.output = function () {
+    console.log(this.name);
+};
+const greninjaIn = new AshTeam("Greninja", ["water", "dark", 1]);
+greninjaIn.output();
+console.log(greninjaIn);
+
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
