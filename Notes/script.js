@@ -65,7 +65,23 @@ Javascript is a
             1. Procedural Programming: 
                 a linear way to code and have functions here and there
             2. Object Priented Programming(OOP): 
-
+                this is based on the concept of objects
+                we use objects to model the real world(user or todo list) and abstract features(HTML components and data structures)
+                with objects we can pack all the related information to one block
+                objects can contain data(the properties) and actions(the methods)
+                objects are self contained blocks and used to interact with each other from A Public Interface(API):
+                    methods codes outside the object can access and communicate with the object
+                This paradigm is designed to organize the code and make it more flexable and easier to maintain. 
+                use CLASS as a template to copy to many other objects
+                CLASS TEMPLATE GUIDE LINES:
+                    Abstraction:
+                        ignore some details to get a better view of the big picture
+                    Encapsulation:
+                        keeping some properties and methods private to protect it
+                    Inheritance:
+                        parent classes and child classes, the child classes will get all the properties and methods of the parent class. 
+                    Polymorphism:
+                        by have the same name of the the methods in the child class, it will replace the one inherited from the parent class. 
             3. Functional Programming(FP): 
 
     interpreted or just-in-time compiled: 
