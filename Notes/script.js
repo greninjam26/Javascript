@@ -1583,7 +1583,28 @@ console.log(ash.__proto__ === Array.prototype);
 // if there are multiple developer adding the same methods to the Array, things get messy
 Array.prototype.unique = function () {
     return [...new Set(this)];
+};
+
+/////////////////////////////////////////////////////////
+// ES6 classes
+/////////////////////////////////////////////////////////
+// 1. Classes are not hoisted, can't access before declarition
+// 2. Classes are first-class citizens
+// 3. Classes are always executed in strict mode, even if the file is not in strict mode
+// class declaration, there is also the experision form the same as functions
+class PokemonCl {
+    // this is still the constructor function
+    constructor(name, types) {
+        this.name = name;
+        this.types = types;
+    }
+    // this is the prototype
+    calcType() {
+        console.log(this.types.length);
+    }
 }
+const lycanrocC = new PokemonCl("Lucanroc", "rock");
+console.log(lycanrocC);
 
 /*******************************************************/
 // USEFUL THINGS
