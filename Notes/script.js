@@ -1602,9 +1602,40 @@ class PokemonCl {
     calcType() {
         console.log(this.types.length);
     }
+
+    // we need these get and set to change a variable already in the constructor, or we get error
+    // set name
+    set name(nam) {
+        if (nam.includes(" ")) {
+            alert("no space");
+        } else {
+            this._name = nam;
+        }
+    }
+    // this prevent the constructer and the set name trying to change the variable at the same time
+    get name() {
+        return this._name;
+    }
 }
 const lycanrocC = new PokemonCl("Lucanroc", "rock");
 console.log(lycanrocC);
+
+/////////////////////////////////////////////////////////
+// Getter and Setter
+/////////////////////////////////////////////////////////
+// in object
+const testings = {
+    nums: [10, 102, 34, 4, 34, 32],
+    get lastE() {
+        return this.nums.at(-1);
+    },
+    set changeFirstEl(el) {
+        this.nums[0] = el;
+    },
+};
+console.log(testings.lastE);
+testings.changeFirstEl = 100;
+console.log(testings.nums);
 
 /*******************************************************/
 // USEFUL THINGS
