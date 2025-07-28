@@ -1546,6 +1546,7 @@ console.log(lucarioC);
 // 1. New {} is created
 // 2. function is called, this = {}
 // 3. {} linked to prototype
+//      .__proto__ = [constructure].prototype
 // 4. function automatically return {}
 
 // check if a variable is an instance of a constructor function
