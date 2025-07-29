@@ -1674,6 +1674,9 @@ console.log(clp);
 /////////////////////////////////////////////////////////
 // inheritance between classes
 /////////////////////////////////////////////////////////
+//=======================================================
+// with constructor functions
+//=======================================================
 const AshTeam = function (name, types, position) {
     // can't just call, we need to set "this" too, or "this" will be undefined
     Pokemon.call(this, name, types);
@@ -1691,6 +1694,17 @@ AshTeam.prototype.output = function () {
 const greninjaIn = new AshTeam("Greninja", ["water", "dark", 1]);
 greninjaIn.output();
 console.log(greninjaIn);
+//=======================================================
+// with ES6 Classes
+//=======================================================
+class LikoTeam extends Pokemon {
+    constructor(name, types, position) {
+        super(name, types);
+        this.position = position;
+    }
+}
+const terapagos = new LikoTeam("Terapagos", "normal", 1);
+console.log(terapagos);
 
 /*******************************************************/
 // USEFUL THINGS
