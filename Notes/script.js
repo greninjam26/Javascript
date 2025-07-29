@@ -1705,6 +1705,27 @@ class LikoTeam extends Pokemon {
 }
 const terapagos = new LikoTeam("Terapagos", "normal", 1);
 console.log(terapagos);
+//=======================================================
+// with Object.create()
+//=======================================================
+const TestingProto = {
+    hiii() {
+        console.log("hi");
+    },
+
+    init(name, hii) {
+        this.name = name;
+        this.hi = hi;
+    },
+};
+const ocip = Object.create(TestingProto);
+ocip.init = function (name, hii, hihi) {
+    TestingProto.init.call(this, name, hii);
+    this.hihi = hihi;
+};
+const ob = Object.create(ocip);
+ob.init("1", "1", "2");
+ob.hiii();
 
 /*******************************************************/
 // USEFUL THINGS
