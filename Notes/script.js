@@ -1,4 +1,16 @@
 /*
+Planning for a project
+    1. user stories
+        this the functionality of the app in the user's perspective
+        Common format:
+            As [who?], I want to do [What?] so that [why?]
+    2. features
+        from the user stories we can develop features to make the stories work
+    3. Flowchart(what will be build)
+        then we make a flowchart showing what the user can do and what will happen when the user did that
+    4. Architecture(how will it be build)
+        how do we organize the code, and what javascript features will we be using
+
 Javascript is a 
 // basic version
     high-level: don't need to worry about complex things like memory management
