@@ -1754,12 +1754,15 @@ class BankAccount {
     // public methods
     getTransactions() {
         return this.#transactions;
+        // can't be chained because it already have "return", but can have it in the vary end
     }
     deposit(amount) {
         this.#transactions.push(amount);
+        return this;
     }
     withdrawal(amount) {
         this.deposit(-amount);
+        return this;
     }
     // private methods
     #freeMoney() {
@@ -1774,6 +1777,12 @@ const account1 = new BankAccount("greninja", "water", "USD");
 console.log(account1);
 // static methods
 // BankAccount.test();
+/////////////////////////////////////////////////////////
+// QOL: methods chaining
+/////////////////////////////////////////////////////////
+// to archieve this we need to return the account1 in all the method
+account1.deposit(10).deposit(100).deposit(100).withdrawal(200).deposit(30);
+console.log(account1);
 
 /*******************************************************/
 // USEFUL THINGS
