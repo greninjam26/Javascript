@@ -1727,6 +1727,54 @@ const ob = Object.create(ocip);
 ob.init("1", "1", "2");
 ob.hiii();
 
+/////////////////////////////////////////////////////////
+// private classes and data encapsulation
+// achieved through class fields(Added in ES2022)
+// this rised the idea that javascript is moving away from prototype based language to a class based language like Java and C++
+/////////////////////////////////////////////////////////
+// these are like being declared in the constructor and not inherited to the prototype
+// 1. Public Field
+// 2. Private Field
+// 3. Public Methods
+// 4. Private Methods
+// 5. Static counter parts
+class BankAccount {
+    // public fields, it will remain the same for any object created
+    locale = navigator.language;
+    bank = "Bankist";
+    // private fields, same as public fields just can't be accessed from outside of the class
+    #transactions = [];
+    #pin;
+
+    constructor(owner, pin, currency) {
+        this.owner = owner;
+        this.#pin = pin;
+        this.currency = currency;
+    }
+    // public methods
+    getTransactions() {
+        return this.#transactions;
+    }
+    deposit(amount) {
+        this.#transactions.push(amount);
+    }
+    withdrawal(amount) {
+        this.deposit(-amount);
+    }
+    // private methods
+    #freeMoney() {
+        return true;
+    }
+    // static methods
+    static #test() {
+        console.log("TEST");
+    }
+}
+const account1 = new BankAccount("greninja", "water", "USD");
+console.log(account1);
+// static methods
+// BankAccount.test();
+
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
