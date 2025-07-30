@@ -1519,6 +1519,284 @@ const clock = setInterval(
 setTimeout(() => clearInterval(clock), 10000);
 
 /*******************************************************/
+// OOP
+// Prototypal Inheritance
+/*******************************************************/
+/*
+Prototype
+    In javascript each object is linked to a prototype
+    unlike the normal inheritance, the objects are delegating their methods to the prototype
+how to Create:
+    1. through constructor functions
+    2. use ES6 classes
+        they are not real classes, they are just constructor functions with a new look
+    3. Object.create();
+        not really used
+*/
+/////////////////////////////////////////////////////////
+// constructor functions
+/////////////////////////////////////////////////////////
+// the function is always captitalized
+// arrow function won't work we need "this"
+const Pokemon = function (name, types) {
+    // instance properties
+    this.name = name;
+    this.types = types;
+    // instance methods
+    // NEVER do this, bad practice
+    // there is are too many instance there are too many copy of this function
+    // this.calcType = function () {
+    //     console.log(types.length);
+    // }
+};
+// when we call we call it with "new"
+const greninjaC = new Pokemon("greninja", ["water", "dark"]);
+console.log(greninjaC);
+const lucarioC = new Pokemon("lucario", ["fighting", "steel"]);
+console.log(lucarioC);
+// new does this
+// 1. New {} is created
+// 2. function is called, this = {}
+// 3. {} linked to prototype
+//      .__proto__ = [constructure].prototype
+// 4. function automatically return {}
+
+// check if a variable is an instance of a constructor function
+console.log(greninja instanceof Pokemon);
+console.log(greninjaC instanceof Pokemon);
+
+// Prototype, this way there are only one copy of the method
+Pokemon.prototype.calcType = function () {
+    console.log(this.types.length);
+};
+
+greninjaC.calcType();
+console.log(greninjaC.__proto__);
+console.log(greninjaC.__proto__ === Pokemon.prototype);
+console.log(Pokemon.prototype.isPrototypeOf(greninjaC));
+
+Pokemon.prototype.type = "Dual Type";
+console.log(greninjaC.type);
+// check if the property is in the objects itself(true) or in the prototype(false)
+console.log(greninjaC.hasOwnProperty("type"));
+console.log(greninjaC.hasOwnProperty("types"));
+
+// Prototype Chain
+console.log(greninjaC.__proto__);
+console.log(greninjaC.__proto__.__proto__);
+console.log(greninjaC.__proto__.__proto__.__proto__);
+
+// Array Prototype
+console.log(ash.__proto__);
+console.log(ash.__proto__ === Array.prototype);
+// with this we can add many new methods we want to the arrays
+// usually don't do this
+// if hte next version all the same method, then everything breaks
+// if there are multiple developer adding the same methods to the Array, things get messy
+Array.prototype.unique = function () {
+    return [...new Set(this)];
+};
+
+// Static Methods, not inherited on the constructor can call
+Pokemon.team = function () {
+    console.log("?????");
+};
+Pokemon.team();
+
+/////////////////////////////////////////////////////////
+// ES6 classes
+/////////////////////////////////////////////////////////
+// 1. Classes are not hoisted, can't access before declarition
+// 2. Classes are first-class citizens
+// 3. Classes are always executed in strict mode, even if the file is not in strict mode
+// class declaration, there is also the experision form the same as functions
+class PokemonCl {
+    // this is still the constructor function
+    constructor(name, types) {
+        this.name = name;
+        this.types = types;
+    }
+    // Instance methods
+    // this is the prototype
+    calcType() {
+        console.log(this.types.length);
+    }
+
+    // we need these get and set to change a variable already in the constructor, or we get error
+    // set name
+    set name(nam) {
+        if (nam.includes(" ")) {
+            alert("no space");
+        } else {
+            this._name = nam;
+        }
+    }
+    // this prevent the constructer and the set name trying to change the variable at the same time
+    get name() {
+        return this._name;
+    }
+
+    // static methods
+    static hi() {
+        console.log("???????????");
+    }
+}
+const lycanrocC = new PokemonCl("Lucanroc", "rock");
+console.log(lycanrocC);
+
+/////////////////////////////////////////////////////////
+// Getter and Setter
+/////////////////////////////////////////////////////////
+// in object
+const testings = {
+    nums: [10, 102, 34, 4, 34, 32],
+    get lastE() {
+        return this.nums.at(-1);
+    },
+    set changeFirstEl(el) {
+        this.nums[0] = el;
+    },
+};
+console.log(testings.lastE);
+testings.changeFirstEl = 100;
+console.log(testings.nums);
+
+/////////////////////////////////////////////////////////
+// Object.create()
+/////////////////////////////////////////////////////////
+const TestProto = {
+    hi() {
+        console.log("hi");
+    },
+
+    init(name, hi) {
+        this.name = name;
+        this.hi = hi;
+    },
+};
+const clp = Object.create(TestProto);
+console.log(clp);
+// not the best way
+// clp.name = "fe";
+// clp.time = "hi";
+// the better way
+clp.init("fe", "hi");
+console.log(clp);
+
+/////////////////////////////////////////////////////////
+// inheritance between classes
+/////////////////////////////////////////////////////////
+//=======================================================
+// with constructor functions
+//=======================================================
+const AshTeam = function (name, types, position) {
+    // can't just call, we need to set "this" too, or "this" will be undefined
+    Pokemon.call(this, name, types);
+    this.position = position;
+};
+// this have to be done the prototype is empty or it will override everything in the prototype
+// we need the Object.create() to link the prototypes and and make them the exact same
+// which means we are adding like a way for AshTeam to reach Pokemon's prototype
+AshTeam.prototype = Object.create(Pokemon.prototype);
+// this set the constructor of the prototype to AshTeam, instead of Pokemon(which is the result of using Object.create)
+AshTeam.prototype.constructor = AshTeam;
+AshTeam.prototype.output = function () {
+    console.log(this.name);
+};
+const greninjaIn = new AshTeam("Greninja", ["water", "dark", 1]);
+greninjaIn.output();
+console.log(greninjaIn);
+//=======================================================
+// with ES6 Classes
+//=======================================================
+class LikoTeam extends Pokemon {
+    constructor(name, types, position) {
+        super(name, types);
+        this.position = position;
+    }
+}
+const terapagos = new LikoTeam("Terapagos", "normal", 1);
+console.log(terapagos);
+//=======================================================
+// with Object.create()
+//=======================================================
+const TestingProto = {
+    hiii() {
+        console.log("hi");
+    },
+
+    init(name, hii) {
+        this.name = name;
+        this.hi = hi;
+    },
+};
+const ocip = Object.create(TestingProto);
+ocip.init = function (name, hii, hihi) {
+    TestingProto.init.call(this, name, hii);
+    this.hihi = hihi;
+};
+const ob = Object.create(ocip);
+ob.init("1", "1", "2");
+ob.hiii();
+
+/////////////////////////////////////////////////////////
+// private classes and data encapsulation
+// achieved through class fields(Added in ES2022)
+// this rised the idea that javascript is moving away from prototype based language to a class based language like Java and C++
+/////////////////////////////////////////////////////////
+// these are like being declared in the constructor and not inherited to the prototype
+// 1. Public Field
+// 2. Private Field
+// 3. Public Methods
+// 4. Private Methods
+// 5. Static counter parts
+class BankAccount {
+    // public fields, it will remain the same for any object created
+    locale = navigator.language;
+    bank = "Bankist";
+    // private fields, same as public fields just can't be accessed from outside of the class
+    #transactions = [];
+    #pin;
+
+    constructor(owner, pin, currency) {
+        this.owner = owner;
+        this.#pin = pin;
+        this.currency = currency;
+    }
+    // public methods
+    getTransactions() {
+        return this.#transactions;
+        // can't be chained because it already have "return", but can have it in the vary end
+    }
+    deposit(amount) {
+        this.#transactions.push(amount);
+        return this;
+    }
+    withdrawal(amount) {
+        this.deposit(-amount);
+        return this;
+    }
+    // private methods
+    #freeMoney() {
+        return true;
+    }
+    // static methods
+    static #test() {
+        console.log("TEST");
+    }
+}
+const account1 = new BankAccount("greninja", "water", "USD");
+console.log(account1);
+// static methods
+// BankAccount.test();
+/////////////////////////////////////////////////////////
+// QOL: methods chaining
+/////////////////////////////////////////////////////////
+// to archieve this we need to return the account1 in all the method
+account1.deposit(10).deposit(100).deposit(100).withdrawal(200).deposit(30);
+console.log(account1);
+
+/*******************************************************/
 // Geolocation API
 /*******************************************************/
 // this way to check if the navigator exist, so we don't get errors on old browsers
@@ -1840,281 +2118,3 @@ const observer = new IntersectionObserver(obsFunction, obsOption);
 observer.observe(document.querySelector("p"));
 
 // Intersection Observers and be used to archieve lazy loading image, which is a way to improve the web's performance by loading a vary low quality image and then replace it with a better one when needed, this way when the image is not needed, it will not effect the performance of the website too much
-
-/*******************************************************/
-// OOP
-// Prototypal Inheritance
-/*******************************************************/
-/*
-Prototype
-    In javascript each object is linked to a prototype
-    unlike the normal inheritance, the objects are delegating their methods to the prototype
-how to Create:
-    1. through constructor functions
-    2. use ES6 classes
-        they are not real classes, they are just constructor functions with a new look
-    3. Object.create();
-        not really used
-*/
-/////////////////////////////////////////////////////////
-// constructor functions
-/////////////////////////////////////////////////////////
-// the function is always captitalized
-// arrow function won't work we need "this"
-const Pokemon = function (name, types) {
-    // instance properties
-    this.name = name;
-    this.types = types;
-    // instance methods
-    // NEVER do this, bad practice
-    // there is are too many instance there are too many copy of this function
-    // this.calcType = function () {
-    //     console.log(types.length);
-    // }
-};
-// when we call we call it with "new"
-const greninjaC = new Pokemon("greninja", ["water", "dark"]);
-console.log(greninjaC);
-const lucarioC = new Pokemon("lucario", ["fighting", "steel"]);
-console.log(lucarioC);
-// new does this
-// 1. New {} is created
-// 2. function is called, this = {}
-// 3. {} linked to prototype
-//      .__proto__ = [constructure].prototype
-// 4. function automatically return {}
-
-// check if a variable is an instance of a constructor function
-console.log(greninja instanceof Pokemon);
-console.log(greninjaC instanceof Pokemon);
-
-// Prototype, this way there are only one copy of the method
-Pokemon.prototype.calcType = function () {
-    console.log(this.types.length);
-};
-
-greninjaC.calcType();
-console.log(greninjaC.__proto__);
-console.log(greninjaC.__proto__ === Pokemon.prototype);
-console.log(Pokemon.prototype.isPrototypeOf(greninjaC));
-
-Pokemon.prototype.type = "Dual Type";
-console.log(greninjaC.type);
-// check if the property is in the objects itself(true) or in the prototype(false)
-console.log(greninjaC.hasOwnProperty("type"));
-console.log(greninjaC.hasOwnProperty("types"));
-
-// Prototype Chain
-console.log(greninjaC.__proto__);
-console.log(greninjaC.__proto__.__proto__);
-console.log(greninjaC.__proto__.__proto__.__proto__);
-
-// Array Prototype
-console.log(ash.__proto__);
-console.log(ash.__proto__ === Array.prototype);
-// with this we can add many new methods we want to the arrays
-// usually don't do this
-// if hte next version all the same method, then everything breaks
-// if there are multiple developer adding the same methods to the Array, things get messy
-Array.prototype.unique = function () {
-    return [...new Set(this)];
-};
-
-// Static Methods, not inherited on the constructor can call
-Pokemon.team = function () {
-    console.log("?????");
-};
-Pokemon.team();
-
-/////////////////////////////////////////////////////////
-// ES6 classes
-/////////////////////////////////////////////////////////
-// 1. Classes are not hoisted, can't access before declarition
-// 2. Classes are first-class citizens
-// 3. Classes are always executed in strict mode, even if the file is not in strict mode
-// class declaration, there is also the experision form the same as functions
-class PokemonCl {
-    // this is still the constructor function
-    constructor(name, types) {
-        this.name = name;
-        this.types = types;
-    }
-    // Instance methods
-    // this is the prototype
-    calcType() {
-        console.log(this.types.length);
-    }
-
-    // we need these get and set to change a variable already in the constructor, or we get error
-    // set name
-    set name(nam) {
-        if (nam.includes(" ")) {
-            alert("no space");
-        } else {
-            this._name = nam;
-        }
-    }
-    // this prevent the constructer and the set name trying to change the variable at the same time
-    get name() {
-        return this._name;
-    }
-
-    // static methods
-    static hi() {
-        console.log("???????????");
-    }
-}
-const lycanrocC = new PokemonCl("Lucanroc", "rock");
-console.log(lycanrocC);
-
-/////////////////////////////////////////////////////////
-// Getter and Setter
-/////////////////////////////////////////////////////////
-// in object
-const testings = {
-    nums: [10, 102, 34, 4, 34, 32],
-    get lastE() {
-        return this.nums.at(-1);
-    },
-    set changeFirstEl(el) {
-        this.nums[0] = el;
-    },
-};
-console.log(testings.lastE);
-testings.changeFirstEl = 100;
-console.log(testings.nums);
-
-/////////////////////////////////////////////////////////
-// Object.create()
-/////////////////////////////////////////////////////////
-const TestProto = {
-    hi() {
-        console.log("hi");
-    },
-
-    init(name, hi) {
-        this.name = name;
-        this.hi = hi;
-    },
-};
-const clp = Object.create(TestProto);
-console.log(clp);
-// not the best way
-// clp.name = "fe";
-// clp.time = "hi";
-// the better way
-clp.init("fe", "hi");
-console.log(clp);
-
-/////////////////////////////////////////////////////////
-// inheritance between classes
-/////////////////////////////////////////////////////////
-//=======================================================
-// with constructor functions
-//=======================================================
-const AshTeam = function (name, types, position) {
-    // can't just call, we need to set "this" too, or "this" will be undefined
-    Pokemon.call(this, name, types);
-    this.position = position;
-};
-// this have to be done the prototype is empty or it will override everything in the prototype
-// we need the Object.create() to link the prototypes and and make them the exact same
-// which means we are adding like a way for AshTeam to reach Pokemon's prototype
-AshTeam.prototype = Object.create(Pokemon.prototype);
-// this set the constructor of the prototype to AshTeam, instead of Pokemon(which is the result of using Object.create)
-AshTeam.prototype.constructor = AshTeam;
-AshTeam.prototype.output = function () {
-    console.log(this.name);
-};
-const greninjaIn = new AshTeam("Greninja", ["water", "dark", 1]);
-greninjaIn.output();
-console.log(greninjaIn);
-//=======================================================
-// with ES6 Classes
-//=======================================================
-class LikoTeam extends Pokemon {
-    constructor(name, types, position) {
-        super(name, types);
-        this.position = position;
-    }
-}
-const terapagos = new LikoTeam("Terapagos", "normal", 1);
-console.log(terapagos);
-//=======================================================
-// with Object.create()
-//=======================================================
-const TestingProto = {
-    hiii() {
-        console.log("hi");
-    },
-
-    init(name, hii) {
-        this.name = name;
-        this.hi = hi;
-    },
-};
-const ocip = Object.create(TestingProto);
-ocip.init = function (name, hii, hihi) {
-    TestingProto.init.call(this, name, hii);
-    this.hihi = hihi;
-};
-const ob = Object.create(ocip);
-ob.init("1", "1", "2");
-ob.hiii();
-
-/////////////////////////////////////////////////////////
-// private classes and data encapsulation
-// achieved through class fields(Added in ES2022)
-// this rised the idea that javascript is moving away from prototype based language to a class based language like Java and C++
-/////////////////////////////////////////////////////////
-// these are like being declared in the constructor and not inherited to the prototype
-// 1. Public Field
-// 2. Private Field
-// 3. Public Methods
-// 4. Private Methods
-// 5. Static counter parts
-class BankAccount {
-    // public fields, it will remain the same for any object created
-    locale = navigator.language;
-    bank = "Bankist";
-    // private fields, same as public fields just can't be accessed from outside of the class
-    #transactions = [];
-    #pin;
-
-    constructor(owner, pin, currency) {
-        this.owner = owner;
-        this.#pin = pin;
-        this.currency = currency;
-    }
-    // public methods
-    getTransactions() {
-        return this.#transactions;
-        // can't be chained because it already have "return", but can have it in the vary end
-    }
-    deposit(amount) {
-        this.#transactions.push(amount);
-        return this;
-    }
-    withdrawal(amount) {
-        this.deposit(-amount);
-        return this;
-    }
-    // private methods
-    #freeMoney() {
-        return true;
-    }
-    // static methods
-    static #test() {
-        console.log("TEST");
-    }
-}
-const account1 = new BankAccount("greninja", "water", "USD");
-console.log(account1);
-// static methods
-// BankAccount.test();
-/////////////////////////////////////////////////////////
-// QOL: methods chaining
-/////////////////////////////////////////////////////////
-// to archieve this we need to return the account1 in all the method
-account1.deposit(10).deposit(100).deposit(100).withdrawal(200).deposit(30);
-console.log(account1);
