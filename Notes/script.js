@@ -246,6 +246,34 @@ Javascript Runtime:
         2. C++ Bindings and Thread Pools
         3. callback queue
 
+Synchronous code:
+    most of the code are synchronous
+    they will be executed line by line in order
+    it is executed in the execution thread(part of the execution context)
+    if a line take a long time to run, like a alert or prompt it will block the code
+
+Asynchronous code:
+    like a timer
+    they will execute the code after a task is executed in the background
+    so this makes asynchronous code non-blocking
+    execution doesn't wait for asynchronous code to finish it will just keep going
+    Examples:
+        loading img:
+        geolocation
+        AJAX(Asynchronous Javascript And XML(the old data transfer format)):
+            this allows us to communicate with the web server in an asynchronous way. 
+            we can request data dynamically
+
+API(Application Programming Interface):
+    What it is:
+        piece of software used with another software to allow application communicate with each other. 
+    Examples:
+        DOM API
+        Geolocation API
+        Class APIs
+        "Online" APIs:
+            application on a server have recive data requests and send the data. 
+
 Iterables: 
     Array, Strings, Maps, Sets, NOT Objects
 
