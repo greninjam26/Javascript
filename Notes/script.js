@@ -1526,7 +1526,7 @@ if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
         function (pos) {
             console.log(pos.coords);
-            const {latitude, longitude} = pos.coords;
+            const { latitude, longitude } = pos.coords;
             console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
         },
         function () {
@@ -1534,6 +1534,22 @@ if (navigator.geolocation) {
         }
     );
 }
+
+/*******************************************************/
+// LocalStorage API
+// it is not good, so only use for small things
+// it have blocking
+// we can access it on the application tab of the browser in the section LocalStorage
+/*******************************************************/
+// the first argument is the name of the item stored, the second one is the content
+// they both have to be string, so JSON.stringify and change anything to a string
+localStorage.setItem("pokemons", JSON.stringify(ash));
+// get the data from the LocalStorage, JSON.parse will transform the from back to the original data types
+console.log(JSON.parse(localStorage.getItem("pokemons")));
+// this deletes the data from LocalStorage
+localStorage.removeItem("pokemons");
+// PROBLEM
+// when when store and convert back the inheritence prototype chain will be deleted
 
 /*******************************************************/
 // USEFUL THINGS
