@@ -263,6 +263,8 @@ Asynchronous code:
         AJAX(Asynchronous Javascript And XML(the old data transfer format)):
             this allows us to communicate with the web server in an asynchronous way. 
             we can request data dynamically
+            HOW TO CALL CHECK "COUTNRY INFO" MINI PROJECT
+            use with promises(ADDED in ES6)
 
 API(Application Programming Interface):
     What it is:
