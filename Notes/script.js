@@ -274,6 +274,53 @@ API(Application Programming Interface):
         "Online" APIs:
             application on a server have recive data requests and send the data. 
 
+Web Requests and Responses:
+    Name:
+        The Request-response Model
+        Client-server architecture
+    https://countries-api-836d.onrender.com/countries
+   Protocol|          Domain name          |Resources
+    Protocol: "http" or "https"
+    Domain name:
+        this might not be the real link we are trying to access
+        so we need something to translate
+        DNS: Domain Name Server
+            this matches the server IP address to the url
+    The Real Address:
+    https://104.27.432.434:443
+   Protocol|  IP Address  |Resources
+    
+    Then after all these a connection between the browser and the server will be established
+    The connections:
+        TCP(Transmission Control Protocol) socket connection
+        IP(Internet Protocol) socket connection
+            These two are the ones setting the rules on how data move in the internet. 
+            These connections are kept for the entire time for transmating data. 
+    
+    Then a HTTP(Hypertext Transfer Protocol) request is made
+    When the server have all the data ready
+    Then it will send it all back with a HTTP Response
+        the Response have the same strucutre as the Resquest
+        but the header include a status code and message(200: OK, 404: not found)
+
+    Communication Protocol: 
+        a system of rules that allows two or more parties to communicate
+        HTTP:
+            a protocol allows client and server to communicate
+            we can get and send data to a server
+            Resquest:
+                when the request is send, the target will be the Resouces in the url
+                Then it is the header of the request, which contain information about the request
+                When sending data to the server there will also be a request body
+        HTTPS: the only difference is, it is encrypted TLS and SSL
+        TCP:
+            Break the the requests and responds into small packets then transported. 
+            Then way it can go very fast. 
+            then it will assemble all of them back to the requests and responds at the destination.
+        IP:
+            this only make sure that the small packets arrives at the correct destination
+
+
 Iterables: 
     Array, Strings, Maps, Sets, NOT Objects
 
