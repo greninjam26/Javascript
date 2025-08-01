@@ -1910,6 +1910,16 @@ if (navigator.geolocation) {
         }
     );
 }
+/////////////////////////////////////////////////////////
+// Promisify
+/////////////////////////////////////////////////////////
+// the resolve will return the location into the promise
+const getPosition = function () {
+    return new Promise(function (resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+};
+getPosition().then(pos => console.log(pos));
 
 /*******************************************************/
 // LocalStorage API
