@@ -239,7 +239,28 @@ Javascript Runtime:
             they are accessed through the global window object
         3. callback queue
             when an event happen a backup function is put into the callback queue then passes to the call stack to execute
-            this happen through event loop
+
+            this is like a todo list, where all the callback function need to be executed
+            when a new callback function need to be executed then it will be added to the end of the callback queue.
+            so if there are a lot of callback functions need to be executed it might take a while
+            Example:
+                so if a timer is set to be executed after 5 seconds, it means it will not be executed before 5 second, but it can be executed at any time after 5 seconds. 
+                this is because normal it suppose to executed right away after 5 seconds, but if there are other callback being executed, it need to wait for its term. 
+
+            What it have:
+                all the asynchonous functions will be passed in
+                    the promises will not be in the callback queue, it is in the microtasks queue. 
+                DOM eventlisteners
+
+            this happen through event loop:
+                1. it checks if the call stack is empty or not
+                2. if it is empty, which means it is not executing any code
+                3. then it passes in the first function from the callback queue to the call stack
+        4. Microtasks(promises) queue:
+            this is for promises
+            this queue also have priority over the callback queue
+            so when the event loop checks what functions to run it will pass the function in this queue to the call stack
+            then when this queue is empty it will go back to passing the function in the callback queue
 
     In Node.js: 
         1. Javascript Engine
@@ -1905,6 +1926,31 @@ console.log(JSON.parse(localStorage.getItem("pokemons")));
 localStorage.removeItem("pokemons");
 // PROBLEM
 // when when store and convert back the inheritence prototype chain will be deleted
+
+/*******************************************************/
+// PROMISE
+/*******************************************************/
+// create a new promise(executor function)
+const lottery = new Promise(function (resolve, reject) {
+    // this should return the future value of the promise
+    if (Math.random() >= 0.5) {
+        resolve("You won!");
+    } else {
+        reject("You lost");
+    }
+});
+
+lottery.then(res => console.log(res)).catch(err => console.error(err));
+
+// promisifying the timer
+const wait = seconds => new Promise(resolve => setTimeout(resolve, seconds * 1000));
+
+wait(2)
+    .then(() => {
+        console.log("2 seconds ago");
+        return wait(1);
+    })
+    .then(() => console.log("1 second ago"));
 
 /*******************************************************/
 // USEFUL THINGS
