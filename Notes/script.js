@@ -474,6 +474,17 @@ Script Loading:
             return the DOMContentLoaded event
         Use Cases:
             generally a good option for our owns scripts and other libraries that loading order matters. 
+
+Modern Javascript
+    divide a big script into many different modules
+    we can also add 3rd party modules(packages)
+    NPM repository have a lot of these packages
+    NPM is the repository and the software that we use to install these packages
+    Sections:
+        1. we write all the code in modules
+        2. javascript bundlers will bundle all the codes together
+        3. then it will be translated to ES5 setax so old browers can run the code
+        4. then upload to the server
 */
 
 // this helps to let javascript tell us if there
