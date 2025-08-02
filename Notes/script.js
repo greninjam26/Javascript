@@ -2021,6 +2021,37 @@ const multiCountry = async function (c1, c2, c3) {
 multiCountry("Canada", "USA", "China");
 
 /*******************************************************/
+// Promise Combinators
+/*******************************************************/
+// Promise.all()
+// this return an array of all the promises
+
+// Promise.race()
+(async function (c1, c2, c3) {
+    // this return the first promise that is fulfilled(resolved or rejected)
+    const data = await Promise.race([
+        fetch(`https://countries-api-836d.onrender.com/countries/name/${c1}`),
+        fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`),
+        fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`),
+    ]);
+    console.log(data);
+})("Canada", "USA", "China");
+
+// Promise.allSettled() (added in ES2020)
+// this is the same as the Promise.all() but it will not stop then one promise is rejected
+
+// Promise.any() (added in ES2021)
+(async function (c1, c2, c3) {
+    // return the first resolved promise, ignore the rejected ones
+    const data = await Promise.any([
+        Promise.reject("hi"),
+        fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`),
+        fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`),
+    ]);
+    console.log(data);
+})("Canada", "USA", "China");
+
+/*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
 
