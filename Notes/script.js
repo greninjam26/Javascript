@@ -1963,6 +1963,35 @@ wait(2)
     .then(() => console.log("1 second ago"));
 
 /*******************************************************/
+// try catch
+/*******************************************************/
+try {
+    const y = 0;
+    let x = 1;
+    y = x;
+} catch (err) {
+    console.error(err.message);
+}
+
+/*******************************************************/
+// async await
+/*******************************************************/
+// by creating a async function, it will return a promise and not block the code
+const asyncHI = async function () {
+    try {
+        const country = await fetch(
+            "https://countries-api-836d.onrender.com/countries/name/Canada"
+        );
+        console.log(country);
+        const data = await country.json();
+        console.log(data);
+    } catch (err) {
+        console.error(err);
+    }
+};
+asyncHI();
+
+/*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
 
