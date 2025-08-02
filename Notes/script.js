@@ -1991,6 +1991,35 @@ const asyncHI = async function () {
 };
 asyncHI();
 
+/////////////////////////////////////////////////////////
+// parallel promises
+/////////////////////////////////////////////////////////
+const multiCountry = async function (c1, c2, c3) {
+    try {
+        // these three country are not depended on each other why should they with for each other
+        // const country1 = await fetch(
+        //     `https://countries-api-836d.onrender.com/countries/name/${c1}`
+        // );
+        // const country2 = await fetch(
+        //     `https://countries-api-836d.onrender.com/countries/name/${c2}`
+        // );
+        // const country3 = await fetch(
+        //     `https://countries-api-836d.onrender.com/countries/name/${c3}`
+        // );
+        // make them load the same time
+        // but if one promise break then all of them break
+        const data = await Promise.all([
+            fetch(`https://countries-api-836d.onrender.com/countries/name/${c1}`),
+            fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`),
+            fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`),
+        ]);
+        console.log(data);
+    } catch (err) {
+        console.error(err);
+    }
+};
+multiCountry("Canada", "USA", "China");
+
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
