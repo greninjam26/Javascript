@@ -35,3 +35,12 @@ const shoppingCartOld = function () {
         hi,
     };
 };
+
+// CommonJS (A lot of Node.js)(don't really work here)
+// // import
+// const { hi } = require("./shoppingCart.js");
+// // export
+// export.addToCart = function (product, quantity) {
+//     cart.push({ product, quantity });
+//     console.log(`${quantity} ${product} added to the cart.`);
+// };
