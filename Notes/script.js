@@ -482,6 +482,28 @@ Modern Javascript
     NPM is the repository and the software that we use to install these packages
     Sections:
         1. we write all the code in modules
+            General coding:
+                Modules: are reuseable codes that encapsulates implementation details
+                they are usually in their own file
+                import and export
+                Benefit: 
+                    we can isolate components
+                    when we develop these modules we don't need to be thinking about all the different details and how the application work we just need to focus on this one part
+                    this can help us to develop highlevel abstract modules and can be used with many other modules
+                    better organization
+                    better reusability
+            Javascript:Modules(added in ES6)
+                each module is stored in one file
+                default: 
+                    all the variables in the modules are private
+                    always strict modes
+                    "this" to undefine and not window
+                    export and import variables, but they have to be on the toplevel(outside any code block)
+                    link to HTML have to have type set to module
+                    file download is always asynchronous
+                    
+                    (only javascript modules work like this)
+                    for exporting and importing the imported value is only the reference to the export value, if the export value change the imported value will also change
         2. javascript bundlers will bundle all the codes together
         3. then it will be translated to ES5 setax so old browers can run the code
         4. then upload to the server
