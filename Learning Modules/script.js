@@ -18,3 +18,20 @@ const res = await fetch("https://jsonplaceholder.typicode.com/posts");
 console.log(res);
 const data = await res.json();
 console.log(data);
+
+// (old) module pattern
+const shoppingCartOld = function () {
+    const shippingCost = 10;
+    const cart = [];
+
+    // named default(add export front of anything)
+    const addToCart = function (product, quantity) {
+        cart.push({ product, quantity });
+        console.log(`${quantity} ${product} added to the cart.`);
+    };
+    const hi = 0;
+    return {
+        addToCart,
+        hi,
+    };
+};
