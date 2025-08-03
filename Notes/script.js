@@ -2008,6 +2008,8 @@ try {
 
 /*******************************************************/
 // async await
+// we can now use await outside of a async function, but it blocks the code (added in ES2022)
+// if it is blocking a module, it will block all the module that imported that module
 /*******************************************************/
 // by creating a async function, it will return a promise and not block the code
 const asyncHI = async function () {
