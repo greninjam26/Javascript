@@ -1173,6 +1173,9 @@ console.log(arrrrrr);
 /*******************************************************/
 // OBJECTS (DATA STRUCTURE)
 /*******************************************************/
+// this prevent us to add more properties to the object
+// but this is only a shallow freeze, so nested object will not be frozen
+// Object.freeze({})
 const stats = {
     hp: {
         IV: 255,
