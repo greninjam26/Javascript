@@ -95,6 +95,15 @@ Javascript is a
                     Polymorphism:
                         by have the same name of the the methods in the child class, it will replace the one inherited from the parent class. 
             3. Functional Programming(FP): 
+                this is a declarative programming paradigm
+                based on the idea that writing software by combining many pure function to avoid side effects or data mutation
+                    side effects:
+                        modification of any data outside of the function 
+                    pure functions:
+                        functions that have no side effects, which means it will not mutate or rely on any external variables. When we give it the same input it will also return the same thing
+                    immutability: 
+                        this avoids mutation of data. 
+                        To achieve this we copy the state(data) then mutate and return the copy. 
 
     interpreted or just-in-time compiled: 
         this means when we write readable javascript code, it will be translated to machine code with 0s and 1s for the computer to run
@@ -507,6 +516,43 @@ Modern Javascript
         2. javascript bundlers will bundle all the codes together
         3. then it will be translated to ES5 setax so old browers can run the code
         4. then upload to the server
+
+Modern and Clean Code:
+    readable code:
+        don't be too clever with your solution, so others will be able to understand it
+        make descriptive variable and function name
+    General:
+        DRY principle (refactor codes)
+        don't pollute global namespace, encapsulate them
+        don't use var
+        use === instead ==
+    Function:
+        function should only do one thing
+        don't have too much function parameters(3 or above)
+        use default parameter when possible
+        generally return the same data type as the input
+    OOP:
+        use ES6 classes
+        encapsulate the data so no accidents, do API for data mutate
+        have methods chaining for the needed ones
+        arrow function have no "this" avoid for methods
+    Avoid Nested Code:
+        use guard (return)
+        ? instead of if(){}
+        multiple if and less else if
+        avoid for loop and use array methods
+        void callback based asynchronous APIs
+    Asynchronous:
+        use async/await for better readability
+        run promises in parallel with Promise.all()
+        always handle error and promise rejection
+    more Declarative paradigm and less Imperative paradigm:
+        Declarative:
+            abstract away all the details and just tell javascript how to do it
+            sub-section:
+                functional programming
+        Imperative:
+            have all the code in one place, telling javascript what to do step by step
 */
 
 // this helps to let javascript tell us if there
