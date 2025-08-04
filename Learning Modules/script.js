@@ -72,3 +72,25 @@ console.log(num3);
 if (module.hot) {
     module.hot.accept();
 }
+
+class Greet {
+    #greeting = "Hey";
+    constructor(name) {
+        this.name = name;
+        console.log(`${this.#greeting}, ${this.name}`);
+    }
+}
+
+const greninja = new Greet("greninja");
+console.log("greninjs");
+
+console.log("greninja" ?? null);
+
+const numbers = [10, 10, 34, 32, 423, 5245, 23, 5];
+console.log(numbers.find(num => num >= 50));
+
+// usually put it on the top of the file
+// this polyfill everything even if we don't need it
+import "core-js/stable";
+// polyfilling async functions
+import "regenerator-runtime/runtime";

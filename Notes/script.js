@@ -2107,6 +2107,8 @@ parcel:
         no configuration needed
     Intall:
         npm i parcel --save-dev
+        add this for 
+        npm i core-js
     Commands:
         intall locally in the node_modules:
             run: 
@@ -2114,6 +2116,7 @@ parcel:
             build(this makes it ready for the web(makes the code unreadable)):
                 npx parcel build index.html
         intall globally is not reall use because we want to stay up to date
+    
 
 WebPack:
     Why use it?
