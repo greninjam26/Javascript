@@ -7,7 +7,10 @@ import * as shoppingCart from "./shoppingCart.js";
 // default exports we don't need to put it in {}
 import num from "./shoppingCart.js";
 
-import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
+// not practical
+// import cloneDeep from "lodash-es/cloneDeep.js";
+// with module bundler
+import cloneDeep from "lodash-es";
 
 console.log("Importing Module");
 
@@ -17,10 +20,10 @@ console.log(good);
 console.log(shoppingCart);
 console.log(num);
 
-const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-console.log(res);
-const data = await res.json();
-console.log(data);
+// const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+// console.log(res);
+// const data = await res.json();
+// console.log(data);
 
 // (old) module pattern
 const shoppingCartOld = function () {
@@ -64,3 +67,8 @@ num1.iiii.hi = 20;
 console.log(num1);
 console.log(num2);
 console.log(num3);
+
+// when a module is modified it will not trigger a page reload
+if (module.hot) {
+    module.hot.accept();
+}

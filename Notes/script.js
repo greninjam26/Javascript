@@ -2087,7 +2087,7 @@ multiCountry("Canada", "USA", "China");
 })("Canada", "USA", "China");
 
 /*******************************************************/
-// USEFUL THINGS
+// NPM
 /*******************************************************/
 ///////////////////// to start using npm in the project we do 
 // npm init
@@ -2096,6 +2096,30 @@ multiCountry("Canada", "USA", "China");
 // npm install [name]
 ///////////////////// intall everything that is recorded in package.json
 // npm i
+
+/*******************************************************/
+// MODULE BUNDLER
+/*******************************************************/
+/*
+parcel:
+    Why use it?
+        easy to use
+        no configuration needed
+    Intall:
+        npm i parcel --save-dev
+    Commands:
+        intall locally in the node_modules:
+            run: 
+                npx parcel index.html
+            build(this makes it ready for the web(makes the code unreadable)):
+                npx parcel build index.html
+        intall globally is not reall use because we want to stay up to date
+
+WebPack:
+    Why use it?
+        Most Popular
+        Especally in React
+*/
 
 /*******************************************************/
 // USEFUL THINGS
