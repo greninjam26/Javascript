@@ -2089,6 +2089,17 @@ multiCountry("Canada", "USA", "China");
 /*******************************************************/
 // USEFUL THINGS
 /*******************************************************/
+///////////////////// to start using npm in the project we do 
+// npm init
+///////////////////// to install anything
+// npm i [name]
+// npm install [name]
+///////////////////// intall everything that is recorded in package.json
+// npm i
+
+/*******************************************************/
+// USEFUL THINGS
+/*******************************************************/
 
 console.log("=========================================");
 aaaaaa = 10;

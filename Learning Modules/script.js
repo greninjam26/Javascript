@@ -6,6 +6,9 @@ import { addToCart, no, hiii as good } from "./shoppingCart.js";
 import * as shoppingCart from "./shoppingCart.js";
 // default exports we don't need to put it in {}
 import num from "./shoppingCart.js";
+
+import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
+
 console.log("Importing Module");
 
 addToCart("breads", 5);
@@ -44,3 +47,20 @@ const shoppingCartOld = function () {
 //     cart.push({ product, quantity });
 //     console.log(`${quantity} ${product} added to the cart.`);
 // };
+
+const num1 = {
+    hi: [
+        { h: 0, i: 10 },
+        { h: 0, i: 10 },
+    ],
+    iiii: { hi: 10 },
+};
+// this works
+const num2 = structuredClone(num1);
+// but we can do this too
+const num3 = cloneDeep(num1);
+num1.hi[0].h = 1000;
+num1.iiii.hi = 20;
+console.log(num1);
+console.log(num2);
+console.log(num3);
