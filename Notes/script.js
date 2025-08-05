@@ -2156,8 +2156,8 @@ parcel:
         no configuration needed
     Intall:
         npm i parcel --save-dev
-        add this for 
-        npm i core-js
+        version 2:
+            npm i parcel@2
     Commands:
         intall locally in the node_modules:
             run: 
