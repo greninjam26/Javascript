@@ -609,7 +609,7 @@ console.log(BigInt(124535325353253224));
 // object (more below)
 /////////////////////////////////////////////////////////
 let me = {
-    name: "Greninja",
+	name: "Greninja",
 };
 
 // output the type of the value
@@ -678,19 +678,19 @@ console.log("      .   \n  pokemon".trim());
 
 // applicaiton fix names
 function nameFix(name) {
-    const nameLower = name.toLowerCase();
-    const nameCorrected = nameLower[0].toUpperCase() + nameLower.slice(1);
-    return nameCorrected;
+	const nameLower = name.toLowerCase();
+	const nameCorrected = nameLower[0].toUpperCase() + nameLower.slice(1);
+	return nameCorrected;
 }
 console.log(nameFix("grENINja"));
 // check emails, because capitalization for email doesn't matter
 function checkEmail(email, emailCorrect) {
-    return email.toLowerCase().trim() === emailCorrect;
+	return email.toLowerCase().trim() === emailCorrect;
 }
 if (checkEmail("     hElLo@Gmail.COM  \n", "hello@gmail.com")) {
-    console.log("Email is Correct");
+	console.log("Email is Correct");
 } else {
-    console.log("EMAIL is WRONG!!!");
+	console.log("EMAIL is WRONG!!!");
 }
 
 // replace part of the string
@@ -734,7 +734,7 @@ console.log(pokemonNew);
 // multi-line string
 // old way
 console.log(
-    "String\n\
+	"String\n\
     with\n\
     multiple\n\
     lines"
@@ -749,11 +749,11 @@ console.log(`String
 // If/Else (CONTROLED STRUCTURE)
 /*******************************************************/
 if (2 > 3) {
-    console.log(":)");
+	console.log(":)");
 } else if (2 > 1) {
-    console.log("wow");
+	console.log("wow");
 } else {
-    console.log(":(");
+	console.log(":(");
 }
 
 /*******************************************************/
@@ -814,11 +814,11 @@ console.log(18 == "18");
 10 > 5 && console.log("great");
 
 const charizard = {
-    stage: 2,
-    form: 3,
+	stage: 2,
+	form: 3,
 };
 const psyduck = {
-    stage: 0,
+	stage: 0,
 };
 // one way to add the "form" to all the object
 charizard.form = charizard.form || 1;
@@ -852,16 +852,16 @@ aaa &&= 1;
 /*******************************************************/
 const day = "monday";
 switch (day) {
-    case "mondey":
-        console.log("hi");
-        console.log("hello");
-        break;
-    case "tuesday":
-    case "thursday":
-        console.log("NO");
-        break;
-    default:
-        console.log("great");
+	case "mondey":
+		console.log("hi");
+		console.log("hello");
+		break;
+	case "tuesday":
+	case "thursday":
+		console.log("NO");
+		break;
+	default:
+		console.log("great");
 }
 
 /*******************************************************/
@@ -887,13 +887,13 @@ const drink = age >= 18 ? "beer" : "water";
 /*******************************************************/
 // function declarations: can be called before declaration
 function greninjaT(typing) {
-    return "best";
+	return "best";
 }
 console.log(greninjaT("water"));
 
 // function expression: can't be called before declaration
 const pokemonW = function () {
-    return "mega";
+	return "mega";
 };
 const lucario = pokemonW();
 console.log(lucario);
@@ -903,16 +903,16 @@ const lycanroc = type => "3 form";
 console.log(lycanroc("rock"));
 
 const exeggcute = (heads, type) => {
-    const difference = heads - 6;
-    return difference;
+	const difference = heads - 6;
+	return difference;
 };
 console.log(exeggcute(7, "grass"));
 
 // we can have default values the arguments (added in ES6)
 // the dynamic calculation of the default value have to follow the rule from left to right
 function hi(num = 0, sum = num * 4) {
-    console.log(num);
-    console.log(sum);
+	console.log(num);
+	console.log(sum);
 }
 hi(2);
 hi();
@@ -921,30 +921,30 @@ hi(undefine, 2);
 
 // low level functions doing basic jobs
 const oneWord = function (str) {
-    return str.replaceAll(" ", "").toLowerCase();
+	return str.replaceAll(" ", "").toLowerCase();
 };
 const upperFirstWord = function (str) {
-    const [first, ...other] = str.split(" ");
-    return [first.toUpperCase(), ...other].join(" ");
+	const [first, ...other] = str.split(" ");
+	return [first.toUpperCase(), ...other].join(" ");
 };
 /////////////////////////////////////////////////////////
 // higher-order function
 /////////////////////////////////////////////////////////
 // abstraction: by taking how the "fn" and make it into another function we create a level of abstraction, so this transformer function don't care how the str is transformed it only transform it.
 const transformer = function (str, fn) {
-    console.log(`Original String: ${str}`);
-    console.log(`Transformed String: ${fn(str)}`);
-    // functions also have methods build in which we can call
-    console.log(`Transformed by: ${fn.name}`);
+	console.log(`Original String: ${str}`);
+	console.log(`Transformed String: ${fn(str)}`);
+	// functions also have methods build in which we can call
+	console.log(`Transformed by: ${fn.name}`);
 };
 transformer("Autobots rollout!!!", upperFirstWord);
 transformer("Autobots rollout!!!", oneWord);
 
 // function return another function
 const greet = function (greeting) {
-    return function (name) {
-        console.log(`${greeting} ${name}`);
-    };
+	return function (name) {
+		console.log(`${greeting} ${name}`);
+	};
 };
 const greet1 = greeting => name => console.log(`${greeting} ${name}`);
 const greeting = greet("hi");
@@ -956,13 +956,13 @@ greet1("hello")("lucario");
 // THIS KEYWORD
 /////////////////////////////////////////////////////////
 const dragonite = {
-    name: "dragonite",
-    fly(height, time) {
-        console.log(`${this.name} flied at the height of ${height}m for ${time}mintes`);
-    },
+	name: "dragonite",
+	fly(height, time) {
+		console.log(`${this.name} flied at the height of ${height}m for ${time}mintes`);
+	},
 };
 const talonflame = {
-    name: "talonflame",
+	name: "talonflame",
 };
 
 dragonite.fly(10, 10);
@@ -983,7 +983,7 @@ talonflameFly(10, 10);
 // partical application
 // we can use the .bind(null) to lock in argumen for the function
 const hiiiiii = function (n) {
-    console.log("hi".repeat(n));
+	console.log("hi".repeat(n));
 };
 const hi5 = hiiiiii.bind(null, 5);
 hi5();
@@ -1001,7 +1001,7 @@ console.log(addVAT(100));
 // this way of using functions are not used anymore in modern javascript anymore
 // because in ES6, when const and let is encapsulated in {} they will also be private and can't be accessed.
 (function () {
-    console.log("this will not run again");
+	console.log("this will not run again");
 })();
 
 (() => console.log("this also will not run again"))();
@@ -1080,8 +1080,8 @@ console.log(ash.at(-1));
 // for map, the argument are pasted in the order of (value, key, map)
 // for set, the argument are pasted in the order of (value, _, map) (_ in javascript is used for throw away variables)
 ash.forEach(function (element, i, arr) {
-    console.log(`${i}: ${element}`);
-    console.log(arr);
+	console.log(`${i}: ${element}`);
+	console.log(arr);
 });
 
 // map: this can perform an operation on each element of the array and store them in a new array
@@ -1090,15 +1090,15 @@ console.log(teamAsh);
 // filter: it returns a new array after being filtered, which mean some of the elements are removed
 ash.push(3);
 const ashNew = ash.filter(function (pokemon) {
-    return typeof pokemon === "string";
+	return typeof pokemon === "string";
 });
 console.log(ashNew);
 // reduce: through an operation reduce all the element down to one value
 // we need to not only define the function, but also give an initial value of the "acc", or it will be set to the first element in the array
 ash.pop();
 const AshTeamI = ash.reduce(function (acc, cur, i, arr) {
-    console.log(acc);
-    return acc + cur[0];
+	console.log(acc);
+	return acc + cur[0];
 }, "");
 console.log(AshTeamI);
 // we can use reduce to find the max value
@@ -1177,81 +1177,81 @@ console.log(arrrrrr);
 // but this is only a shallow freeze, so nested object will not be frozen
 // Object.freeze({})
 const stats = {
-    hp: {
-        IV: 255,
-        EV: 255,
-    },
-    attack: {
-        IV: 255,
-        EV: 255,
-    },
-    defence: {
-        IV: 255,
-        EV: 255,
-    },
-    spAtk: {
-        IV: 255,
-        EV: 255,
-    },
-    spDef: {
-        IV: 255,
-        EV: 255,
-    },
-    spped: {
-        IV: 255,
-        EV: 255,
-    },
+	hp: {
+		IV: 255,
+		EV: 255,
+	},
+	attack: {
+		IV: 255,
+		EV: 255,
+	},
+	defence: {
+		IV: 255,
+		EV: 255,
+	},
+	spAtk: {
+		IV: 255,
+		EV: 255,
+	},
+	spDef: {
+		IV: 255,
+		EV: 255,
+	},
+	spped: {
+		IV: 255,
+		EV: 255,
+	},
 };
 // 3 properties (nameP, type, form)
 // with ES6 we can do experssions for the property names
 const pro = ["nameP", "type", "form"];
 // object literal {}
 const pokemon = {
-    // with in [] it can be any expression
-    [pro[0]]: "greninja",
-    type: ["Water", "Dark"],
-    ["form" + "s"]: ["Greninja", "Ash-Greninja"],
-    // any function attached to an object is called METHOD
-    // we can use "this" to create new properties
-    // With ES6 we can turn this
-    // calcDamage: function (attackType) {
-    // into
-    calcDamage(attackType) {
-        if (greninjaW.includes(attackType)) {
-            return (this[attackType] = "Super Effective");
-        } else if (greninjaS.includes(attackType)) {
-            return (this[attackType] = "not very effective");
-        } else if (attackType === "Psychic") {
-            return (this[attackType] = "Immune");
-        } else {
-            return (this[attackType] = "normal");
-        }
-    },
-    calcDamageN(attackType) {
-        if (greninjaW.includes(attackType)) {
-            return 2;
-        } else if (greninjaS.includes(attackType)) {
-            return 0.5;
-        } else if (attackType === "Psychic") {
-            return 0;
-        } else {
-            return 1;
-        }
-    },
-    // "this." is used to call the properties within this object;
-    formNum() {
-        return this.forms.length + " forms";
-    },
-    // with object destructuring we can also set default values to the argument
-    alive({ damageType, incomingDamage, currentHP = 200 }) {
-        if (currentHP - incomingDamage * this.calcDamageN(damageType) > 0) {
-            console.log("still battling");
-        } else {
-            console.log("knocked out");
-        }
-    },
-    // ES6 enhanced obejct literals, we don't need to do "stats: stats," anymore
-    stats,
+	// with in [] it can be any expression
+	[pro[0]]: "greninja",
+	type: ["Water", "Dark"],
+	["form" + "s"]: ["Greninja", "Ash-Greninja"],
+	// any function attached to an object is called METHOD
+	// we can use "this" to create new properties
+	// With ES6 we can turn this
+	// calcDamage: function (attackType) {
+	// into
+	calcDamage(attackType) {
+		if (greninjaW.includes(attackType)) {
+			return (this[attackType] = "Super Effective");
+		} else if (greninjaS.includes(attackType)) {
+			return (this[attackType] = "not very effective");
+		} else if (attackType === "Psychic") {
+			return (this[attackType] = "Immune");
+		} else {
+			return (this[attackType] = "normal");
+		}
+	},
+	calcDamageN(attackType) {
+		if (greninjaW.includes(attackType)) {
+			return 2;
+		} else if (greninjaS.includes(attackType)) {
+			return 0.5;
+		} else if (attackType === "Psychic") {
+			return 0;
+		} else {
+			return 1;
+		}
+	},
+	// "this." is used to call the properties within this object;
+	formNum() {
+		return this.forms.length + " forms";
+	},
+	// with object destructuring we can also set default values to the argument
+	alive({ damageType, incomingDamage, currentHP = 200 }) {
+		if (currentHP - incomingDamage * this.calcDamageN(damageType) > 0) {
+			console.log("still battling");
+		} else {
+			console.log("knocked out");
+		}
+	},
+	// ES6 enhanced obejct literals, we don't need to do "stats: stats," anymore
+	stats,
 };
 // access the properties
 // dot notation: only works with .property-name (don't work with string or other variable names)
@@ -1272,7 +1272,7 @@ pokemon["specialForm"] = "Ash-Greninja";
 // PRACTICE
 console.log("HI");
 console.log(
-    `${pokemon.nameP} has ${pokemon.form} forms, it\'s best form is ${pokemon.specialForm}`
+	`${pokemon.nameP} has ${pokemon.form} forms, it\'s best form is ${pokemon.specialForm}`
 );
 console.log("hi");
 
@@ -1280,8 +1280,10 @@ console.log("hi");
 console.log(Object.keys(pokemon));
 // this convert all the values of the object into an array
 console.log(Object.values(pokemon));
-// this cenvert all the key matching the values of the obejct into an array
+// this convert all the key matching the values of the obejct into an array
 console.log(Object.entries(pokemon));
+// converts the array to an object
+const data = Object.fromEntries(dataArr);
 
 /////////////////////////////////////////////////////////
 // optional chaining (added in ES2020)
@@ -1308,23 +1310,23 @@ const nums = { a: 1, b: 2, c: 3 };
 
 // nested objects
 const {
-    stats: { spAtk: s, hp: h },
+	stats: { spAtk: s, hp: h },
 } = pokemon;
 console.log(s);
 console.log(h);
 
 // application (pass many argument into a function without worrying about the order)
 pokemon.alive({
-    incomingDamage: 100,
-    damageType: "Normal",
-    currentHP: 100,
+	incomingDamage: 100,
+	damageType: "Normal",
+	currentHP: 100,
 });
 
 /*******************************************************/
 // FOR LOOP (ITERATION)
 /*******************************************************/
 for (let i = 0; i < 10; i++) {
-    console.log(i);
+	console.log(i);
 }
 // continue: next iteration
 // break: kill the loop
@@ -1334,12 +1336,12 @@ for (let i = 0; i < 10; i++) {
 /////////////////////////////////////////////////////////
 // basic the "pokemon" is only the element in ash
 for (const pokemon of ash) {
-    console.log(pokemon);
+	console.log(pokemon);
 }
 // this allows the "pokemon" to be an array of the index and the element
 // and we can destructure it
 for (const [i, pokemon] of ash.entries()) {
-    console.log(`${i + 1}. ${pokemon}`);
+	console.log(`${i + 1}. ${pokemon}`);
 }
 
 /*******************************************************/
@@ -1347,8 +1349,8 @@ for (const [i, pokemon] of ash.entries()) {
 /*******************************************************/
 let dice = -1;
 while (dice !== 6) {
-    // random generate a number between 1 and 6
-    dice = Math.trunc(Math.random() * 6) + 1;
+	// random generate a number between 1 and 6
+	dice = Math.trunc(Math.random() * 6) + 1;
 }
 
 /*******************************************************/
@@ -1380,7 +1382,7 @@ console.log(otherStats);
 let activeP = [];
 // with functions arguments
 function team(...pokemon) {
-    activeP = [...activeP, ...pokemon];
+	activeP = [...activeP, ...pokemon];
 }
 team("Greninja");
 team("Lucario", "Mega Lucario");
@@ -1393,12 +1395,12 @@ console.log(activeP);
 // a collection of unique values, so it can have no duplicate
 // we can't retrieve single element from a set, but we can for-of loop it
 const teamActive = new Set([
-    "greninja",
-    "greninja",
-    "greninja",
-    "greninja",
-    "greninja",
-    "greninja",
+	"greninja",
+	"greninja",
+	"greninja",
+	"greninja",
+	"greninja",
+	"greninja",
 ]); // need to an iterable that is passed in(usually an array)
 console.log(teamActive);
 // string is also an iterable
@@ -1418,15 +1420,15 @@ gren.clear();
 
 // remove dup from array
 const teamType = [
-    "water",
-    "dark",
-    "fighting",
-    "steel",
-    "electric",
-    "dragon",
-    "ice",
-    "dragon",
-    "flying",
+	"water",
+	"dark",
+	"fighting",
+	"steel",
+	"electric",
+	"dragon",
+	"ice",
+	"dragon",
+	"flying",
 ];
 const teamTypeNoDup = [...new Set(teamType)];
 console.log(teamType);
@@ -1462,9 +1464,9 @@ console.log(team1.isSupersetOf(team2));
 /*******************************************************/
 // create a map
 const question = new Map([
-    [1, "java"],
-    [2, "C++"],
-    [3, "javascript"],
+	[1, "java"],
+	[2, "C++"],
+	[3, "javascript"],
 ]);
 const pokemonType = new Map();
 // the .set() adds new key and value to the map and also return the map
@@ -1473,14 +1475,14 @@ pokemonType.set(10, 100);
 console.log(pokemonType.set([10, 10], new Set("greninja")));
 // can't set the same key multiple times
 console.log(
-    pokemonType
-        .set(20, 20)
-        .set(30, 10)
-        .set(40, 10)
-        .set(50, 10)
-        .set(60, 10)
-        .set(70, 10)
-        .set(80, 10)
+	pokemonType
+		.set(20, 20)
+		.set(30, 10)
+		.set(40, 10)
+		.set(50, 10)
+		.set(60, 10)
+		.set(70, 10)
+		.set(80, 10)
 );
 // how to get a value
 console.log(pokemonType.get(20));
@@ -1500,9 +1502,9 @@ console.log(objMap);
 
 // for loop map
 for (const [key, value] of question) {
-    if (typeof key === "number") {
-        console.log(value);
-    }
+	if (typeof key === "number") {
+		console.log(value);
+	}
 }
 
 // convert map to array, same is .entries()
@@ -1643,13 +1645,13 @@ console.log(daysPassed(new Date(2020, 4, 10), new Date(2020, 4, 20)));
 console.log(new Intl.DateTimeFormat("en-GB").format(new Date()));
 // we can change things with an external object
 let options = {
-    year: "numeric", // also have 2-digit
-    // month: 'numeric',    1 to 12
-    month: "long", //  January to December
-    // month: '2-digit',    similar to numeric, but only in 2 digit
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
+	year: "numeric", // also have 2-digit
+	// month: 'numeric',    1 to 12
+	month: "long", //  January to December
+	// month: '2-digit',    similar to numeric, but only in 2 digit
+	day: "numeric",
+	hour: "numeric",
+	minute: "numeric",
 };
 // usually get those setting from the user browser
 const locale = navigator.language;
@@ -1659,8 +1661,8 @@ console.log(new Intl.DateTimeFormat(locale, options).format(new Date()));
 const numss = 10242342.2152353;
 // we have a lot of options, check MDN
 options = {
-    style: "unit",
-    unit: "mile-per-hour",
+	style: "unit",
+	unit: "mile-per-hour",
 };
 console.log(new Intl.NumberFormat("en-GB", options).format(numss));
 console.log(new Intl.NumberFormat("de-DE", options).format(numss));
@@ -1674,26 +1676,26 @@ console.log(new Intl.NumberFormat(locale, options).format(numss));
 // this is possible through asynchronous JavaScript
 // timer (the second argument is in ms, so 1000 is 10 seconds)
 const testTimer = setTimeout(
-    function (user) {
-        console.log("hi " + user);
-    },
-    1000,
-    "Ash"
+	function (user) {
+		console.log("hi " + user);
+	},
+	1000,
+	"Ash"
 );
 // this is how we can stop the timer
 if (true) clearTimeout(testTimer);
 
 // works the same as setTimeout, but it will keep running the function every 1000ms (1 second)
 const clock = setInterval(
-    () =>
-        console.log(
-            new Intl.DateTimeFormat(locale, {
-                hour: "numeric",
-                minute: "numeric",
-                second: "numeric",
-            }).format(new Date())
-        ),
-    1000
+	() =>
+		console.log(
+			new Intl.DateTimeFormat(locale, {
+				hour: "numeric",
+				minute: "numeric",
+				second: "numeric",
+			}).format(new Date())
+		),
+	1000
 );
 
 setTimeout(() => clearInterval(clock), 10000);
@@ -1719,15 +1721,15 @@ how to Create:
 // the function is always captitalized
 // arrow function won't work we need "this"
 const Pokemon = function (name, types) {
-    // instance properties
-    this.name = name;
-    this.types = types;
-    // instance methods
-    // NEVER do this, bad practice
-    // there is are too many instance there are too many copy of this function
-    // this.calcType = function () {
-    //     console.log(types.length);
-    // }
+	// instance properties
+	this.name = name;
+	this.types = types;
+	// instance methods
+	// NEVER do this, bad practice
+	// there is are too many instance there are too many copy of this function
+	// this.calcType = function () {
+	//     console.log(types.length);
+	// }
 };
 // when we call we call it with "new"
 const greninjaC = new Pokemon("greninja", ["water", "dark"]);
@@ -1747,7 +1749,7 @@ console.log(greninjaC instanceof Pokemon);
 
 // Prototype, this way there are only one copy of the method
 Pokemon.prototype.calcType = function () {
-    console.log(this.types.length);
+	console.log(this.types.length);
 };
 
 greninjaC.calcType();
@@ -1774,12 +1776,12 @@ console.log(ash.__proto__ === Array.prototype);
 // if hte next version all the same method, then everything breaks
 // if there are multiple developer adding the same methods to the Array, things get messy
 Array.prototype.unique = function () {
-    return [...new Set(this)];
+	return [...new Set(this)];
 };
 
 // Static Methods, not inherited on the constructor can call
 Pokemon.team = function () {
-    console.log("?????");
+	console.log("?????");
 };
 Pokemon.team();
 
@@ -1791,35 +1793,35 @@ Pokemon.team();
 // 3. Classes are always executed in strict mode, even if the file is not in strict mode
 // class declaration, there is also the experision form the same as functions
 class PokemonCl {
-    // this is still the constructor function
-    constructor(name, types) {
-        this.name = name;
-        this.types = types;
-    }
-    // Instance methods
-    // this is the prototype
-    calcType() {
-        console.log(this.types.length);
-    }
+	// this is still the constructor function
+	constructor(name, types) {
+		this.name = name;
+		this.types = types;
+	}
+	// Instance methods
+	// this is the prototype
+	calcType() {
+		console.log(this.types.length);
+	}
 
-    // we need these get and set to change a variable already in the constructor, or we get error
-    // set name
-    set name(nam) {
-        if (nam.includes(" ")) {
-            alert("no space");
-        } else {
-            this._name = nam;
-        }
-    }
-    // this prevent the constructer and the set name trying to change the variable at the same time
-    get name() {
-        return this._name;
-    }
+	// we need these get and set to change a variable already in the constructor, or we get error
+	// set name
+	set name(nam) {
+		if (nam.includes(" ")) {
+			alert("no space");
+		} else {
+			this._name = nam;
+		}
+	}
+	// this prevent the constructer and the set name trying to change the variable at the same time
+	get name() {
+		return this._name;
+	}
 
-    // static methods
-    static hi() {
-        console.log("???????????");
-    }
+	// static methods
+	static hi() {
+		console.log("???????????");
+	}
 }
 const lycanrocC = new PokemonCl("Lucanroc", "rock");
 console.log(lycanrocC);
@@ -1829,13 +1831,13 @@ console.log(lycanrocC);
 /////////////////////////////////////////////////////////
 // in object
 const testings = {
-    nums: [10, 102, 34, 4, 34, 32],
-    get lastE() {
-        return this.nums.at(-1);
-    },
-    set changeFirstEl(el) {
-        this.nums[0] = el;
-    },
+	nums: [10, 102, 34, 4, 34, 32],
+	get lastE() {
+		return this.nums.at(-1);
+	},
+	set changeFirstEl(el) {
+		this.nums[0] = el;
+	},
 };
 console.log(testings.lastE);
 testings.changeFirstEl = 100;
@@ -1845,14 +1847,14 @@ console.log(testings.nums);
 // Object.create()
 /////////////////////////////////////////////////////////
 const TestProto = {
-    hi() {
-        console.log("hi");
-    },
+	hi() {
+		console.log("hi");
+	},
 
-    init(name, hi) {
-        this.name = name;
-        this.hi = hi;
-    },
+	init(name, hi) {
+		this.name = name;
+		this.hi = hi;
+	},
 };
 const clp = Object.create(TestProto);
 console.log(clp);
@@ -1870,9 +1872,9 @@ console.log(clp);
 // with constructor functions
 //=======================================================
 const AshTeam = function (name, types, position) {
-    // can't just call, we need to set "this" too, or "this" will be undefined
-    Pokemon.call(this, name, types);
-    this.position = position;
+	// can't just call, we need to set "this" too, or "this" will be undefined
+	Pokemon.call(this, name, types);
+	this.position = position;
 };
 // this have to be done the prototype is empty or it will override everything in the prototype
 // we need the Object.create() to link the prototypes and and make them the exact same
@@ -1881,7 +1883,7 @@ AshTeam.prototype = Object.create(Pokemon.prototype);
 // this set the constructor of the prototype to AshTeam, instead of Pokemon(which is the result of using Object.create)
 AshTeam.prototype.constructor = AshTeam;
 AshTeam.prototype.output = function () {
-    console.log(this.name);
+	console.log(this.name);
 };
 const greninjaIn = new AshTeam("Greninja", ["water", "dark", 1]);
 greninjaIn.output();
@@ -1890,10 +1892,10 @@ console.log(greninjaIn);
 // with ES6 Classes
 //=======================================================
 class LikoTeam extends Pokemon {
-    constructor(name, types, position) {
-        super(name, types);
-        this.position = position;
-    }
+	constructor(name, types, position) {
+		super(name, types);
+		this.position = position;
+	}
 }
 const terapagos = new LikoTeam("Terapagos", "normal", 1);
 console.log(terapagos);
@@ -1901,19 +1903,19 @@ console.log(terapagos);
 // with Object.create()
 //=======================================================
 const TestingProto = {
-    hiii() {
-        console.log("hi");
-    },
+	hiii() {
+		console.log("hi");
+	},
 
-    init(name, hii) {
-        this.name = name;
-        this.hi = hi;
-    },
+	init(name, hii) {
+		this.name = name;
+		this.hi = hi;
+	},
 };
 const ocip = Object.create(TestingProto);
 ocip.init = function (name, hii, hihi) {
-    TestingProto.init.call(this, name, hii);
-    this.hihi = hihi;
+	TestingProto.init.call(this, name, hii);
+	this.hihi = hihi;
 };
 const ob = Object.create(ocip);
 ob.init("1", "1", "2");
@@ -1931,39 +1933,39 @@ ob.hiii();
 // 4. Private Methods
 // 5. Static counter parts
 class BankAccount {
-    // public fields, it will remain the same for any object created
-    locale = navigator.language;
-    bank = "Bankist";
-    // private fields, same as public fields just can't be accessed from outside of the class
-    #transactions = [];
-    #pin;
+	// public fields, it will remain the same for any object created
+	locale = navigator.language;
+	bank = "Bankist";
+	// private fields, same as public fields just can't be accessed from outside of the class
+	#transactions = [];
+	#pin;
 
-    constructor(owner, pin, currency) {
-        this.owner = owner;
-        this.#pin = pin;
-        this.currency = currency;
-    }
-    // public methods
-    getTransactions() {
-        return this.#transactions;
-        // can't be chained because it already have "return", but can have it in the vary end
-    }
-    deposit(amount) {
-        this.#transactions.push(amount);
-        return this;
-    }
-    withdrawal(amount) {
-        this.deposit(-amount);
-        return this;
-    }
-    // private methods
-    #freeMoney() {
-        return true;
-    }
-    // static methods
-    static #test() {
-        console.log("TEST");
-    }
+	constructor(owner, pin, currency) {
+		this.owner = owner;
+		this.#pin = pin;
+		this.currency = currency;
+	}
+	// public methods
+	getTransactions() {
+		return this.#transactions;
+		// can't be chained because it already have "return", but can have it in the vary end
+	}
+	deposit(amount) {
+		this.#transactions.push(amount);
+		return this;
+	}
+	withdrawal(amount) {
+		this.deposit(-amount);
+		return this;
+	}
+	// private methods
+	#freeMoney() {
+		return true;
+	}
+	// static methods
+	static #test() {
+		console.log("TEST");
+	}
 }
 const account1 = new BankAccount("greninja", "water", "USD");
 console.log(account1);
@@ -1981,25 +1983,25 @@ console.log(account1);
 /*******************************************************/
 // this way to check if the navigator exist, so we don't get errors on old browsers
 if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-        function (pos) {
-            console.log(pos.coords);
-            const { latitude, longitude } = pos.coords;
-            console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
-        },
-        function () {
-            alert("can't find your location");
-        }
-    );
+	navigator.geolocation.getCurrentPosition(
+		function (pos) {
+			console.log(pos.coords);
+			const { latitude, longitude } = pos.coords;
+			console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
+		},
+		function () {
+			alert("can't find your location");
+		}
+	);
 }
 /////////////////////////////////////////////////////////
 // Promisify
 /////////////////////////////////////////////////////////
 // the resolve will return the location into the promise
 const getPosition = function () {
-    return new Promise(function (resolve, reject) {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-    });
+	return new Promise(function (resolve, reject) {
+		navigator.geolocation.getCurrentPosition(resolve, reject);
+	});
 };
 getPosition().then(pos => console.log(pos));
 
@@ -2024,12 +2026,12 @@ localStorage.removeItem("pokemons");
 /*******************************************************/
 // create a new promise(executor function)
 const lottery = new Promise(function (resolve, reject) {
-    // this should return the future value of the promise
-    if (Math.random() >= 0.5) {
-        resolve("You won!");
-    } else {
-        reject("You lost");
-    }
+	// this should return the future value of the promise
+	if (Math.random() >= 0.5) {
+		resolve("You won!");
+	} else {
+		reject("You lost");
+	}
 });
 
 lottery.then(res => console.log(res)).catch(err => console.error(err));
@@ -2038,21 +2040,21 @@ lottery.then(res => console.log(res)).catch(err => console.error(err));
 const wait = seconds => new Promise(resolve => setTimeout(resolve, seconds * 1000));
 
 wait(2)
-    .then(() => {
-        console.log("2 seconds ago");
-        return wait(1);
-    })
-    .then(() => console.log("1 second ago"));
+	.then(() => {
+		console.log("2 seconds ago");
+		return wait(1);
+	})
+	.then(() => console.log("1 second ago"));
 
 /*******************************************************/
 // try catch
 /*******************************************************/
 try {
-    const y = 0;
-    let x = 1;
-    y = x;
+	const y = 0;
+	let x = 1;
+	y = x;
 } catch (err) {
-    console.error(err.message);
+	console.error(err.message);
 }
 
 /*******************************************************/
@@ -2062,16 +2064,16 @@ try {
 /*******************************************************/
 // by creating a async function, it will return a promise and not block the code
 const asyncHI = async function () {
-    try {
-        const country = await fetch(
-            "https://countries-api-836d.onrender.com/countries/name/Canada"
-        );
-        console.log(country);
-        const data = await country.json();
-        console.log(data);
-    } catch (err) {
-        console.error(err);
-    }
+	try {
+		const country = await fetch(
+			"https://countries-api-836d.onrender.com/countries/name/Canada"
+		);
+		console.log(country);
+		const data = await country.json();
+		console.log(data);
+	} catch (err) {
+		console.error(err);
+	}
 };
 asyncHI();
 
@@ -2079,28 +2081,28 @@ asyncHI();
 // parallel promises
 /////////////////////////////////////////////////////////
 const multiCountry = async function (c1, c2, c3) {
-    try {
-        // these three country are not depended on each other why should they with for each other
-        // const country1 = await fetch(
-        //     `https://countries-api-836d.onrender.com/countries/name/${c1}`
-        // );
-        // const country2 = await fetch(
-        //     `https://countries-api-836d.onrender.com/countries/name/${c2}`
-        // );
-        // const country3 = await fetch(
-        //     `https://countries-api-836d.onrender.com/countries/name/${c3}`
-        // );
-        // make them load the same time
-        // but if one promise break then all of them break
-        const data = await Promise.all([
-            fetch(`https://countries-api-836d.onrender.com/countries/name/${c1}`),
-            fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`),
-            fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`),
-        ]);
-        console.log(data);
-    } catch (err) {
-        console.error(err);
-    }
+	try {
+		// these three country are not depended on each other why should they with for each other
+		// const country1 = await fetch(
+		//     `https://countries-api-836d.onrender.com/countries/name/${c1}`
+		// );
+		// const country2 = await fetch(
+		//     `https://countries-api-836d.onrender.com/countries/name/${c2}`
+		// );
+		// const country3 = await fetch(
+		//     `https://countries-api-836d.onrender.com/countries/name/${c3}`
+		// );
+		// make them load the same time
+		// but if one promise break then all of them break
+		const data = await Promise.all([
+			fetch(`https://countries-api-836d.onrender.com/countries/name/${c1}`),
+			fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`),
+			fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`),
+		]);
+		console.log(data);
+	} catch (err) {
+		console.error(err);
+	}
 };
 multiCountry("Canada", "USA", "China");
 
@@ -2112,13 +2114,13 @@ multiCountry("Canada", "USA", "China");
 
 // Promise.race()
 (async function (c1, c2, c3) {
-    // this return the first promise that is fulfilled(resolved or rejected)
-    const data = await Promise.race([
-        fetch(`https://countries-api-836d.onrender.com/countries/name/${c1}`),
-        fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`),
-        fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`),
-    ]);
-    console.log(data);
+	// this return the first promise that is fulfilled(resolved or rejected)
+	const data = await Promise.race([
+		fetch(`https://countries-api-836d.onrender.com/countries/name/${c1}`),
+		fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`),
+		fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`),
+	]);
+	console.log(data);
 })("Canada", "USA", "China");
 
 // Promise.allSettled() (added in ES2020)
@@ -2126,19 +2128,19 @@ multiCountry("Canada", "USA", "China");
 
 // Promise.any() (added in ES2021)
 (async function (c1, c2, c3) {
-    // return the first resolved promise, ignore the rejected ones
-    const data = await Promise.any([
-        Promise.reject("hi"),
-        fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`),
-        fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`),
-    ]);
-    console.log(data);
+	// return the first resolved promise, ignore the rejected ones
+	const data = await Promise.any([
+		Promise.reject("hi"),
+		fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`),
+		fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`),
+	]);
+	console.log(data);
 })("Canada", "USA", "China");
 
 /*******************************************************/
 // NPM
 /*******************************************************/
-///////////////////// to start using npm in the project we do 
+///////////////////// to start using npm in the project we do
 // npm init
 ///////////////////// to install anything
 // npm i [name]
@@ -2182,9 +2184,9 @@ aaaaaa = 10;
 // user input with pop up window (with application of objects)
 const info = prompt("What do you want to know about this pokemon?");
 if (pokemon[info]) {
-    console.log(pokemon[info]);
+	console.log(pokemon[info]);
 } else {
-    console.log("That's not a thing....");
+	console.log("That's not a thing....");
 }
 
 // output with pop up window
@@ -2301,10 +2303,10 @@ document.body.prepend(message.cloneNode(true));
 
 // removing the DOM element
 document.body.addEventListener("click", function () {
-    // the old way
-    // message.parentElement.removeChild(message);
-    // the new way
-    message.remove();
+	// the old way
+	// message.parentElement.removeChild(message);
+	// the new way
+	message.remove();
 });
 
 /////////////////////////////////////////////////////////
@@ -2418,16 +2420,16 @@ section1.scrollIntoView({ behavior: "smooth" });
 btnCloseModal.addEventListener("click", closeModal);
 // this listens to wether the "escape" key is pressed
 const checkEscape = function (e) {
-    if (e.key === "Escape") {
-        closeModal();
-    }
-    // this outputs the target of the event, it doesn't have to where this event listener is attached to, it can be its child elements passing the event through propagation
-    console.log(e.target);
-    // this will be returning the current target, which is probobly where the event listener is attached to
-    console.log(e.currentTarget);
-    // we can also stop the propagation, usually shoudn't but just in case
-    // this way tge parents elements won't recive the event
-    e.stopPropagation();
+	if (e.key === "Escape") {
+		closeModal();
+	}
+	// this outputs the target of the event, it doesn't have to where this event listener is attached to, it can be its child elements passing the event through propagation
+	console.log(e.target);
+	// this will be returning the current target, which is probobly where the event listener is attached to
+	console.log(e.currentTarget);
+	// we can also stop the propagation, usually shoudn't but just in case
+	// this way tge parents elements won't recive the event
+	e.stopPropagation();
 };
 document.addEventListener("keydown", checkEscape);
 
@@ -2438,7 +2440,7 @@ document.addEventListener("keydown", checkEscape);
 document.removeEventListener("keydown", checkEscape);
 // for listening to any events, we can do .on[event] (not used much any more replaced by EventListener)
 modal.onmouseenter = function () {
-    console.log("hi");
+	console.log("hi");
 };
 
 // we shouldn't be using this!!
@@ -2449,16 +2451,22 @@ modal.onmouseenter = function () {
 // Intersection Observer API
 // create the observer
 const obsOption = {
-    // the element the target is intersecting (null is the viewport)
-    root: null,
-    // this is how many percent of the window is intersecting
-    threshold: 0.1,
+	// the element the target is intersecting (null is the viewport)
+	root: null,
+	// this is how many percent of the window is intersecting
+	threshold: 0.1,
 };
 // this function will be called everytime the target selected matches the root and threshold set in the option
 const obsFunction = function (entries, observer) {
-    entries.forEach(entry => console.log(entries));
+	entries.forEach(entry => console.log(entries));
 };
 const observer = new IntersectionObserver(obsFunction, obsOption);
 observer.observe(document.querySelector("p"));
 
 // Intersection Observers and be used to archieve lazy loading image, which is a way to improve the web's performance by loading a vary low quality image and then replace it with a better one when needed, this way when the image is not needed, it will not effect the performance of the website too much
+
+// change the URL of the website back to the one before
+window.history.back();
+// change to URL tp anything
+//                      title, web, id
+window.history.pushState(null, "", "");
