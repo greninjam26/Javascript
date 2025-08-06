@@ -555,6 +555,28 @@ Modern and Clean Code:
             have all the code in one place, telling javascript what to do step by step
 */
 
+// Commenting code:
+//      JSDocs(jsdoc.app):
+/**
+ * Render the recived object to the DOM
+ * @param {Object | Object[]} data the data to be rendered
+ * @param {boolean} [render=true] If false, return HTML instead of adding the HTML to the DOM
+ * @returns {undefined | string} the HTML to be returned if render is false
+ * @this {Object} View instance
+ * @author Gavin
+ * @todo TBA
+ */
+// render(data, render = true) {
+//     if (!data || (Array.isArray(data) && data.length == 0)) return this.renderError();
+//     // console.log(data);
+//     this._data = data;
+//     const html = this._generateHTML();
+//     if (!render) return html;
+//     // console.log("?");
+//     // console.log(html);
+//     this._replaceParent(html);
+// }
+
 // this helps to let javascript tell us if there
 "use strict";
 
